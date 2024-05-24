@@ -1,0 +1,172 @@
+/** ------------------------------------------------------- login.jsx */
+
+.login_form {
+  text-align: center;
+  align-items: center;
+}
+.login_line {
+  border-bottom: 1px solid #d4d4d4;
+  width: 980px;
+  margin: 0 auto;
+  padding-top: 65px;
+}
+
+.login_form_ul {
+  list-style-type: none;
+  margin-top: 65px;
+}
+.login_input {
+  background-color: rgb(255, 231, 235);
+  color: var(--pink-color-2);
+  width: 450px;
+  height: 45px;
+  font-size: 18px;
+  text-align: center;
+  margin: 4px auto;
+  border: 1px solid #d4d4d4;
+}
+.login_button {
+  background-color: var(--pink-color-3);
+  color: #fff;
+  border: 1px solid var(--pink-color-3);
+  border-radius: 25px;
+  margin: 4px;
+  width: 450px;
+  height: 45px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.signup_button {
+  border: 1px solid var(--pink-color-3);
+  background-color: #fff;
+  color: var(--pink-color-3);
+  border-radius: 25px;
+  margin: 4px;
+  margin-top: 30px;
+  width: 450px;
+  height: 45px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.word1 {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70px;
+  color: #f986bd;
+  padding: 0 25px;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
+  margin-top: 80px;
+}
+input::placeholder {
+  color: var(--pink-color-2);
+  font-weight: bold;
+}
+
+.word2 {
+  margin-top: 30px;
+  margin-bottom: 100px;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.word3 {
+  font-size: 15px;
+}
+.signup_button:hover .login_spoon {
+  animation: tada 1s;
+}
+
+/** ------------------------------------------------------- NavbarS.jsx */
+.menu_s {
+  display: flex;
+  justify-content: center;
+}
+
+.menu_s_detail {
+  /* border: 1px solid tomato; */
+  display: block;
+  position: relative;
+  padding: 5px 22px;
+  border-radius: 2px;
+  color: #f986bd;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.menu_s_detail:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 20px;
+  background-color: #f986bd;
+}
+
+/** ------------------------------------------------------- DeliveryOrder.jsx */
+
+.delivery_form {
+  text-align: center;
+  align-items: center;
+}
+
+.menu_s {
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid tomato; */
+}
+
+.delivery_header {
+  color: #f986bd;
+  font-weight: 900;
+  font-size: 90px;
+  margin-bottom: 40px;
+}
+
+.delivery_header_font {
+  color: #f986bd;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.delivery_header_span {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 40px;
+}
+
+.exclamation_mark {
+  font-style: italic;
+}
+
+.delivery_section2 {
+  margin-top: 100px;
+}
+
+.delivery_h3 {
+  font-size: 25px;
+  margin-bottom: 3px;
+  font-weight: 600;
+}
+
+.delivery_section2_p {
+  font-size: 16px;
+  line-height: 1.3333333333;
+}
+
+.delivery_button {
+  background-color: var(--pink-color-2);
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  width: 160px;
+  height: 45px;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 40px 0;
+}
