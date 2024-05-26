@@ -1,5 +1,6 @@
 import React from "react";
 import "../css/seulki.css";
+import OrderMenubar from "../components/OrderMenubar.jsx";
 
 export default function DeliveryOrder() {
   const handleClick = () => {
@@ -8,25 +9,7 @@ export default function DeliveryOrder() {
 
   return (
     <div className="content delivery_form">
-      <nav>
-        <ul className="menu_s">
-          <li>
-            <div>매장찾기</div>
-          </li>
-          <li>
-            <div>100 flavor</div>
-          </li>
-          <li>
-            <div>flow</div>
-          </li>
-          <li>
-            <div>배달주문</div>
-          </li>
-          <li>
-            <div>단체주문</div>
-          </li>
-        </ul>
-      </nav>
+      <OrderMenubar />
       <div>
         <section>
           <div>
