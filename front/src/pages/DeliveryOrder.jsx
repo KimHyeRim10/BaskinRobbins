@@ -28,6 +28,7 @@ export default function DeliveryOrder() {
             </p>
           </div>
           <div className="login_line"></div>
+
           <section className="delivery_section2">
             <h3 className="delivery_h3">배스킨라빈스 모바일 사전주문 서비스</h3>
             <p className="delivery_section2_main_p">

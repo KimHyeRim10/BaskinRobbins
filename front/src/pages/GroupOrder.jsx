@@ -13,56 +13,68 @@ export default function GroupOrder() {
   return (
     <div className="content delivery_form">
       <OrderMenubar />
+
       <div>
-        <div>
-          <h2 className="delivery_header">단체주문</h2>
-        </div>
-        <div>
-          <p className="delivery_header_font">
-            단체주문도 언제나, 어디서나 배스킨라빈스!
-          </p>
-        </div>
+        <h2 className="delivery_header">단체주문</h2>
       </div>
+      <div>
+        <p className="delivery_header_font">
+          단체주문도 언제나, 어디서나 배스킨라빈스!
+        </p>
+      </div>
+
       <div className="login_line"></div>
-      <section>
-        <h3>
+
+      <section className="grouporder_section1">
+        <h3 className="grouporder_section1_h3">
           특별한 날, 이벤트 행사 등 단체 선물이 필요할 때 <br />
           배스킨라빈스 단체주문 혜택도 받고 편하게 받아보세요!
         </h3>
         {/* <button className="step3-button" type="button" onClick={handleLogin}>
           로그인
         </button> */}
-        <button>주문서 접수하기 {">"}</button>
-        <p>수령일 기준 최소 3일전 주문 가능</p>
+
+        <div className="grouporder_button_div">
+          <button className="grouporder_button">
+            주문서 접수하기 &nbsp;&nbsp;&nbsp;{">"}
+          </button>
+          <p className="grouporder_section1_p1">
+            수령일 기준 최소 3일전 주문 가능
+          </p>
+        </div>
 
         <div className="grouporder_main">
-          <div className="one">
-            <img src="/images/grouporder/img_info_item_1.png" alt="" />
-            <div>
+          <div className="grouporder_main_1">
+            <img
+              className="grouporder_section1_img"
+              src="/images/grouporder/img_info_item_1.png"
+              alt=""
+            />
+            <div className="grouporder_main_1_div">
               <p>
-                <span>아이스크림 제품</span>
+                <span>아이스크림 제품</span> <br />
                 회사, 관공서, 은행, 학교 등 <br />
                 <span>한 장소로 일괄배송</span>
               </p>
-            </div>
 
-            <div>
-              <div>
-                <p>
-                  <button>할인 및 혜택</button>
-                </p>
-                <p>
-                  할인혜택 <span>별도협의 필요</span>
-                </p>
-                <p>
-                  50만원 이상 <span>배송/배달 서비스</span>
-                </p>
-              </div>
-              <div>
-                <p>
-                  <button>결제방식</button>
-                </p>
-                <p>현금 (계좌이체) / 카드 (전화결제)</p>
+              <div className="fff">
+                <div className="sss">
+                  <p>
+                    <div className="grouporder_mini">할인 및 혜택</div>
+                  </p>
+                  <p>
+                    할인혜택 <span>별도협의 필요</span>
+                  </p>
+                  <p>
+                    50만원 이상 <span>배송/배달 서비스</span>
+                  </p>
+                </div>
+                <div className="ggg">
+                  <p>
+                    <div className="grouporder_mini">결제방식</div>
+                  </p>
+                  <p>현금 (계좌이체) / 카드 (전화결제)</p>
+                </div>
               </div>
             </div>
           </div>
@@ -80,7 +92,7 @@ export default function GroupOrder() {
             <div>
               <div>
                 <p>
-                  <button>할인 및 혜택</button>
+                  <div className="grouporder_mini">할인 및 혜택</div>
                 </p>
                 <p>
                   50만원 이상 <span>5%</span>
@@ -94,7 +106,7 @@ export default function GroupOrder() {
               </div>
               <div>
                 <p>
-                  <button>결제방식</button>
+                  <div className="grouporder_mini">결제방식</div>
                 </p>
                 <p>카드 (전화결제)</p>
               </div>
@@ -114,7 +126,7 @@ export default function GroupOrder() {
             <div>
               <div>
                 <p>
-                  <button>할인 및 혜택</button>
+                  <div className="grouporder_mini">할인 및 혜택</div>
                 </p>
                 <p>
                   500만원 이상 <span>1%</span>
@@ -125,7 +137,7 @@ export default function GroupOrder() {
               </div>
               <div>
                 <p>
-                  <button>결제방식</button>
+                  <div className="grouporder_mini">결제방식</div>
                 </p>
                 <p>
                   현금 (계좌이체) / <br /> 법인카드 (전화결제)
@@ -148,7 +160,7 @@ export default function GroupOrder() {
             <div>
               <div>
                 <p>
-                  <button>할인 및 혜택</button>
+                  <div className="grouporder_mini">할인 및 혜택</div>
                 </p>
                 <p>
                   300만원 이상 <span>2%</span>
@@ -160,7 +172,7 @@ export default function GroupOrder() {
               </div>
               <div>
                 <p>
-                  <button>결제방식</button>
+                  <div className="grouporder_mini">결제방식</div>
                 </p>
                 <p>
                   현금 (계좌이체) / <br /> 법인카드 (전화결제)
@@ -183,13 +195,13 @@ export default function GroupOrder() {
             <div>
               <div>
                 <p>
-                  <button>할인 및 혜택</button>
+                  <div className="grouporder_mini">할인 및 혜택</div>
                 </p>
                 <p>별도 협의 필요</p>
               </div>
               <div>
                 <p>
-                  <button>결제방식</button>
+                  <div className="grouporder_mini">결제방식</div>
                 </p>
                 <p>1 : 1 문의 (400만원 이상)</p>
               </div>
@@ -198,7 +210,7 @@ export default function GroupOrder() {
         </div>
       </section>
 
-      <section>
+      <section className="grouporder_section2">
         <h3 className="delivery_h3">HOW TO ORDER</h3>
         <ul className="delivery_section3_ul">
           <li className="delivery_section3_li">
@@ -256,7 +268,9 @@ export default function GroupOrder() {
             <li>※ 문의 : 월~금 AM 9:00 ~ PM 6:00</li>
             <li>※ 연락처 : 010-1234-5678</li>
           </ul>
-          <button>주문서 접수하기 {">"}</button>
+          <button className="grouporder_button">
+            주문서 접수하기 &nbsp;&nbsp;&nbsp;{">"}
+          </button>
         </div>
       </section>
     </div>

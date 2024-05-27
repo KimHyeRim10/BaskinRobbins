@@ -405,3 +405,60 @@ input::placeholder {
   margin-top: 15px;
   margin-bottom: -25px;
 }
+
+/** ------------------------------------------------------- GroupOrder.jsx */
+
+.grouporder_section1_h3 {
+  margin-top: 95px;
+  margin-bottom: 40px;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.15;
+}
+
+.grouporder_button {
+  background-color: var(--pink-color-2);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  width: 225.96px;
+  height: 60px;
+  font-size: 18px;
+  margin: 40px 0;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.grouporder_section1_p1 {
+  margin-top: 6px;
+  color: #3f312e;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.grouporder_button_div {
+  margin-bottom: 60px;
+}
+
+.grouporder_main {
+  margin: 0 auto;
+  /* border: 1px solid red; */
+  width: 1000px;
+  margin-bottom: 160px;
+  align-items: center;
+}
+
+.grouporder_main_1 {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #d4cdc0;
+  border-radius: 10px;
+  width: 1000px;
+  height: 241.78px;
+}
+
+.grouporder_section1_img {
+  width: 499.17px;
+  height: 240px;
+  padding: 25px 65px;
+}
