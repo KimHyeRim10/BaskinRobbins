@@ -235,41 +235,35 @@ export default function DeliveryOrder() {
               <li className="delivery_section5_li">
                 <img src="/images/order/icon_list_4_2.png" alt="" />
                 <p className="delivery_section5_p">쿠팡이츠</p>
-                <button className="delivery_button">
-                  <a
-                    className="delivery_a"
-                    href="https://www.coupangeats.com/?_branch_match_id=1300464128809667886&utm_source=Coupang&utm_campaign=IN_0503_EX_BASKIN&utm_medium=marketing&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXL85ILErVS84vLUjMS09NLCkGsnP1M7NCAg3y0zzC05IA4DXKRCkAAAA%3D"
-                    target="_blank"
-                  >
-                    주문하기
-                  </a>
-                </button>
+                <a
+                  className="delivery_a"
+                  href="https://www.coupangeats.com/?_branch_match_id=1300464128809667886&utm_source=Coupang&utm_campaign=IN_0503_EX_BASKIN&utm_medium=marketing&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXL85ILErVS84vLUjMS09NLCkGsnP1M7NCAg3y0zzC05IA4DXKRCkAAAA%3D"
+                  target="_blank"
+                >
+                  <button className="delivery_button">주문하기</button>
+                </a>
               </li>
               <li className="delivery_section5_li">
                 <img src="/images/order/icon_list_4_3.png" alt="" />
                 <p className="delivery_section5_p">배달의 민족</p>
-                <button className="delivery_button">
-                  <a
-                    className="delivery_a"
-                    href="https://www.baemin.com/?shortlink=763121a&c=brand_BRkorea&pid=app&af_click_lookback=1d&source_caller=ui"
-                    target="_blank"
-                  >
-                    주문하기
-                  </a>
-                </button>
+                <a
+                  className="delivery_a"
+                  href="https://www.baemin.com/?shortlink=763121a&c=brand_BRkorea&pid=app&af_click_lookback=1d&source_caller=ui"
+                  target="_blank"
+                >
+                  <button className="delivery_button">주문하기</button>
+                </a>
               </li>
               <li className="delivery_section5_li">
                 <img src="/images/order/icon_list_4_4.png" alt="" />
                 <p className="delivery_section5_p">요기요</p>
-                <button className="delivery_button">
-                  <a
-                    className="delivery_a"
-                    href="https://www.yogiyo.co.kr/mobile/?_branch_match_id=1300464128809667886&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXr8xPz6zM10ssKNDLyczL1jf1ScorjTQ0c3UFAMESOxQiAAAA#/"
-                    target="_blank"
-                  >
-                    주문하기
-                  </a>
-                </button>
+                <a
+                  className="delivery_a"
+                  href="https://www.yogiyo.co.kr/mobile/?_branch_match_id=1300464128809667886&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXr8xPz6zM10ssKNDLyczL1jf1ScorjTQ0c3UFAMESOxQiAAAA#/"
+                  target="_blank"
+                >
+                  <button className="delivery_button">주문하기</button>
+                </a>
               </li>
             </ul>
           </section>
