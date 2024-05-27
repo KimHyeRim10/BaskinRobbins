@@ -1,0 +1,42 @@
+[ 
+  {     
+        "img":"images/newitems/newitem_1.jpg",
+        "name":"와츄원 쉐이크",
+        "color":"rgb(205,180,219)"
+      },
+      {
+        "img":"images/newitems/newitem_2.jpg",
+        "name":"블루밍 플라워 인 러브",
+        "color":"rgb(255,201,185)"
+      },
+      {
+        "img":"images/newitems/newitem_3.jpg",
+        "name":"핑크 플라워 포 유",
+        "color":"rgb(255,181,167)"
+      },
+      {
+        "img":"images/newitems/newitem_4.jpg",
+        "name":"다이노소어 스윗 월드",
+        "color":"rgb(167,201,87)"
+      },
+      {
+        "img":"images/newitems/newitem_5.jpg",
+        "name":"얼그레이 밀크티 블라스트",
+        "color":"rgb(247,127,0)"
+      },
+      {
+        "img":"images/newitems/newitem_6.jpg",
+        "name":"자몽 블랙티 블라스트",
+        "color":"rgb(252,191,73)"
+      },
+      {
+        "img":"images/newitems/newitem_7.jpg",
+        "name":"애플망고 젤라또",
+        "color":"rgb(252,191,73)"
+      },
+      {
+        "img":"images/newitems/newitem_8.jpg",
+        "name":"피스타치오 젤라또",
+        "color":"rgb(248,102,36)"
+      }
+    ]

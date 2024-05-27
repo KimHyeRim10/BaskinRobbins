@@ -1,0 +1,148 @@
+.content{
+    padding: 0 5rem;
+}
+.flavor_title{
+    border: 5px solid blue;
+    margin-top: 10rem;
+    margin-left: -30rem;
+    display:inline-block;
+    width: 250px;
+    height: 250px;
+    background-image: url("../../../public/images/brstore/brstore_100flavor_title1.png");
+    background-repeat: no-repeat;
+    color: transparent;
+}
+.adtitles{
+    margin:0 auto;
+    border: 5px solid red;
+    width: 800px;
+    height: 500px;
+    display: block;
+    background-image: url("../../../public/images/brstore/brstore_100flavor_title2.png");
+    background-repeat: no-repeat;
+    background-position: right ;
+}
+
+.flavorimages{
+    position: relative;
+    margin: 0 auto;
+    margin-top: 5rem;
+}
+.left, .right{
+    display: flex;
+    gap: 2rem;
+}
+.right{
+    position: absolute;
+    top: 12rem;
+    right:0;
+}
+.imagetext{
+    width: 420px;
+    margin-top: 8rem;
+    /* border: 1px solid red; */
+    text-align: left;
+
+}
+.imagetitle{
+    /* border: 1px solid blue; */
+    color:rgb(230, 103, 135);
+    width: 420px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.imageinfo{
+    /* border:1px solid green; */
+    font-size: .9rem;
+    color: rgb(166, 153, 153);
+    font-weight: 600;
+    padding: 0 4rem 0 0rem;
+}
+.right .imagetext{
+    text-align: right;
+}
+.right .imageinfo{
+    padding: 0 0rem 0 3rem;
+}
+.flavor_carousel{
+    margin-top: 20rem;
+}
+.storeCategories {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgb(177 177 177);
+}
+.category button{
+    font-size: 1.2rem;
+    font-weight: 800;
+    border: 1px solid rgb(177 177 177);
+    padding: 1rem 1rem;
+    width: 200px;
+    border-bottom: none;
+    border-radius: 8px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.flavorstores{
+    border: 1px solid red;
+    margin-left: 12rem;
+    width: 630px;
+    text-align: left;
+}
+.store_info_list{
+    display: flex;
+    gap: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: .5rem;
+}
+.store_info_title{
+    color: rgb(237, 145, 167);
+}
+.store_info_name{
+    font-size: 1.4rem;
+}
+.store_info_address, .store_info_number, .store_info_time{
+    /* border: 1px solid green; */
+    margin-left: 1.5rem;
+}
+.store_info_service{
+    border: 1px solid blue;
+    width: 300px;
+}
+.active{
+    color: black;
+    ;
+}
+.unactive{
+    color: rgb(177, 177, 177);
+}
+.carouselList{
+    border:1px solid blue;
+    display:flex;
+    text-align:left;
+    width:780px
+}
+.carousel_menu{
+    margin:.5rem 0;
+    font-weight:600;
+    color: rgb(237, 145, 167);
+}
+.carousel_desc{
+    border:1px solid green;
+    width:380px;
+    font-size:.8rem;
+    padding-right:1.5rem;
+    font-weight:600;
+}
+.carousel_content{
+    padding:3rem 0;
+    display:flex;
+    gap:1rem;
+}
+.display{
+    border:4px solid green;
+    width:380px;
+    overflow:hidden;
+}
