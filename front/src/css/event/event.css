@@ -82,3 +82,8 @@
 button{
   background-color: transparent;
 }
+
+.navbarlist li:nth-child(1) button {
+  color: white;
+  background-color:rgb(249,134,189);
+}
