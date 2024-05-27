@@ -104,7 +104,11 @@ export default function DeliveryOrder() {
                   선택!
                 </p>
               </li>
-              <img src="/images/order/icon_list_arrow.png" alt="" />
+              <img
+                className="delivery_arrow"
+                src="/images/order/icon_list_arrow.png"
+                alt=""
+              />
               <li className="delivery_section3_li">
                 <img
                   className="section3_img"
@@ -116,7 +120,11 @@ export default function DeliveryOrder() {
                   원하시는 제품과 옵션을 <br /> 선택 후 결제하면 주문 완료!
                 </p>
               </li>
-              <img src="/images/order/icon_list_arrow.png" alt="" />
+              <img
+                className="delivery_arrow"
+                src="/images/order/icon_list_arrow.png"
+                alt=""
+              />
               <li className="delivery_section3_li">
                 <img
                   className="section3_img3"

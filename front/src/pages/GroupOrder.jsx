@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/seulki.css";
 import { Link, useNavigate } from "react-router-dom";
+import OrderMenubar from "../components/OrderMenubar.jsx";
 
 export default function GroupOrder() {
   // const navigate = useNavigate();
@@ -10,32 +11,16 @@ export default function GroupOrder() {
   // };
 
   return (
-    <div className="content">
-      <nav>
-        <ul>
-          <li>
-            <div>매장찾기</div>
-          </li>
-          <li>
-            <div>100 flavor</div>
-          </li>
-          <li>
-            <div>flow</div>
-          </li>
-          <li>
-            <div>배달주문</div>
-          </li>
-          <li>
-            <div>단체주문</div>
-          </li>
-        </ul>
-      </nav>
+    <div className="content delivery_form">
+      <OrderMenubar />
       <div>
         <div>
-          <h2>단체주문</h2>
+          <h2 className="delivery_header">단체주문</h2>
         </div>
         <div>
-          <p>단체주문도 언제나, 어디서나 배스킨라빈스!</p>
+          <p className="delivery_header_font">
+            단체주문도 언제나, 어디서나 배스킨라빈스!
+          </p>
         </div>
       </div>
       <div className="login_line"></div>
@@ -214,26 +199,46 @@ export default function GroupOrder() {
       </section>
 
       <section>
-        <h3>HOW TO ORDER</h3>
-        <ul>
-          <li>
-            <img src="/images/grouporder/img_order_item_1.png" alt="" />
+        <h3 className="delivery_h3">HOW TO ORDER</h3>
+        <ul className="delivery_section3_ul">
+          <li className="delivery_section3_li">
+            <img
+              className="section3_img"
+              src="/images/grouporder/img_order_item_1.png"
+              alt=""
+            />
             <span>STEP 1</span>
             <p>
               배스킨라빈스 홈페이지에서 <br /> 원하는 메뉴를 골라주세요
             </p>
           </li>
-          <img src="/images/order/img_order_arrow.png" alt="" />
-          <li>
-            <img src="/images/grouporder/img_order_item_2.png" alt="" />
+          <img
+            className="delivery_arrow"
+            src="/images/grouporder/img_order_arrow.png"
+            alt=""
+          />
+          <li className="delivery_section3_li">
+            <img
+              className="section3_img"
+              src="/images/grouporder/img_order_item_2.png"
+              alt=""
+            />
             <span>STEP 2</span>
             <p>
               원하는 방법을 <br /> 선택해주세요
             </p>
           </li>
-          <img src="/images/order/img_order_arrow.png" alt="" />
-          <li>
-            <img src="/images/grouporder/img_order_item_3.png" alt="" />
+          <img
+            className="delivery_arrow"
+            src="/images/grouporder/img_order_arrow.png"
+            alt=""
+          />
+          <li className="delivery_section3_li">
+            <img
+              className="section3_img"
+              src="/images/grouporder/img_order_item_3.png"
+              alt=""
+            />
             <span>STEP 3</span>
             <p>
               주문서 접수하기를 남겨주세요 <br /> 주문서 접수하시면 확인 후
