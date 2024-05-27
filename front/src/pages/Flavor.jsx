@@ -2,8 +2,8 @@ import "../css/style.css"
 import "../css/main/main_commons.css"
 import "../css/store/flavor.css"
 import { BigTitleNInfo, EventCategoris, Navbar } from "../components/MainComponents";
-import { FlavorImage, StoreInfo, StoreCarousel } from "../components/FlavorComponents";
-import { useEffect, useState } from "react";
+import { FlavorImage, StoreInfo, StoreCarousel, Dots } from "../components/FlavorComponents";
+import { useEffect, useRef, useState } from "react";
 
 export default function Flavor(){
     const [flavorStores, setFlavorStores] = useState([]);
@@ -29,12 +29,14 @@ export default function Flavor(){
             ]
         }
     ])
+    const [currentIndex,setCurrentIndex] = useState(0);
+    const slideRef = useRef(null);
+
     const changeContent = (type)=>{
         let filterItem = [];
         filterItem = flavorStores.filter(store=>store.name === type);
         setShowStore(filterItem)
     }
-    const filterItem = [];
     useEffect(()=>{
         fetch('data/flavorstores.json')
         .then(response=>response.json())
@@ -61,7 +63,38 @@ export default function Flavor(){
         {title:"SPC스퀘어점"},
         {title:"강남대로점"}
     ]
-    console.log(showStore[0].etc)
+    useEffect(()=>{
+            slideRef.current.style.transition = "all 300ms ease-in"
+            slideRef.current.style.transform = `translateX(-${currentIndex*48.5}%)`},[currentIndex])
+
+            function useInterval(callback, delay) {
+                const savedCallback = useRef();
+                // Remember the latest callback.
+                useEffect(() => {
+                    savedCallback.current = callback;
+                }, [callback]);
+                // Set up the interval.
+                useEffect(() => {
+                    function tick() {
+                    savedCallback.current();
+                    }
+                    if (delay !== null) {
+                    let id = setInterval(tick, delay);
+                    return () => clearInterval(id);
+                    }
+                }, [delay]);
+                }
+                useInterval(()=>{
+                    if(currentIndex === showStore[0].etc.length-1){
+                        setCurrentIndex(0)
+                    } else{
+                        setCurrentIndex(currentIndex + 1)
+                    }
+                },3000)
+                console.log(showStore[0].etc)
+    const carouselbtn = (index) =>{
+        setCurrentIndex(index)
+    }
     return(
         <div id="flavor">
             <div className="content">
@@ -116,13 +149,18 @@ export default function Flavor(){
                         ))}
                     </ul>
                     <div className="display">
-                        <ul className="carouselList">
+                        <ul className="carouselList" ref={slideRef}>
                             {showStore.map((store)=>(
                                 <StoreCarousel
                                     store={store}/>
                             ))}
                         </ul>
                     </div>
+                    <ul className="dotList">
+                        <Dots store={showStore}
+                                index={currentIndex}
+                                click={carouselbtn}/>
+                    </ul>
                 </div>
                 </div>
             </div>

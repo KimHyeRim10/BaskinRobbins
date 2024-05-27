@@ -2,7 +2,6 @@
     padding: 0 5rem;
 }
 .flavor_title{
-    border: 5px solid blue;
     margin-top: 10rem;
     margin-left: -30rem;
     display:inline-block;
@@ -14,7 +13,6 @@
 }
 .adtitles{
     margin:0 auto;
-    border: 5px solid red;
     width: 800px;
     height: 500px;
     display: block;
@@ -85,7 +83,6 @@
     border-bottom-right-radius: 0;
 }
 .flavorstores{
-    border: 1px solid red;
     margin-left: 12rem;
     width: 630px;
     text-align: left;
@@ -108,7 +105,6 @@
     margin-left: 1.5rem;
 }
 .store_info_service{
-    border: 1px solid blue;
     width: 300px;
 }
 .active{
@@ -119,7 +115,6 @@
     color: rgb(177, 177, 177);
 }
 .carouselList{
-    border:1px solid blue;
     display:flex;
     text-align:left;
     width:780px
@@ -130,7 +125,6 @@
     color: rgb(237, 145, 167);
 }
 .carousel_desc{
-    border:1px solid green;
     width:380px;
     font-size:.8rem;
     padding-right:1.5rem;
@@ -142,7 +136,34 @@
     gap:1rem;
 }
 .display{
-    border:4px solid green;
+
     width:380px;
     overflow:hidden;
+}
+.dotList{
+    margin-top: 5rem;
+    height: 90px;
+}
+.dot_active{
+    font-size: 1.2rem;
+    color: var(--pink-color-2);
+    cursor: pointer;
+    background-color: transparent;
+}
+.dot_unactive{
+    font-size: 1.2rem;
+    color: var(--pink-color-1);
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.flavor_map{
+    border: 4px solid rgb(237, 145, 167); 
+    border-radius: 8px;
+    font-weight: 600;
+    width: 100px;
+    height: 40px;
+    font-size: 1rem;
+    margin-top: 1.2rem;
+    margin-left: 1rem;
 }

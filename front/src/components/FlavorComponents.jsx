@@ -24,6 +24,7 @@ export function StoreInfo({name,address,number,time,menu,service}){
         <>
         <li className="store_info_list">
             <h3 className="store_info_name">{name}</h3>
+            <button className="flavor_map">지도보기</button>
         </li>
         <li className="store_info_list" >
             <p className="store_info_title">매장주소</p>
@@ -51,7 +52,6 @@ export function StoreInfo({name,address,number,time,menu,service}){
 export function StoreCarousel({store}){
     let storeinfo = {...store}
     let carouselinfo = storeinfo.etc
-    console.log(carouselinfo)
     return(
         <>
             {carouselinfo.map((menu)=>(
@@ -60,6 +60,27 @@ export function StoreCarousel({store}){
                 <p className="carousel_menu">{menu.special}</p>
                 <p className="carousel_desc">{menu.desc}</p>
                 </li>
+            ))}
+        </>
+    )
+};
+
+export function Dots({store,click,index}){
+    let storeinfo = {...store}
+    let dots = storeinfo[0].etc
+    const sendingIndex = (index) =>{
+        click(index)
+    }
+    const currentIndex = {index}
+    console.log("current",currentIndex)
+    console.log('index',index)
+    return(
+        <>
+        {dots.map((item,index)=>(
+            <li className="lil">
+                <button className={ currentIndex.index === index ? " dot_active":"dot_unactive"} 
+                    onClick={()=>sendingIndex(index)}>●</button>
+            </li>
             ))}
         </>
     )
