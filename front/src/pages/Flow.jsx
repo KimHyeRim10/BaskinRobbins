@@ -11,6 +11,20 @@ export default function Flow(){
         {title:"배달주문"},
         {title:"단체주문"},
     ]
+    const flowstore=[
+        {
+            store:"flow 도곡",
+            address:"서울 강남구 도곡동 902-2 지상1층 102호",
+            time :"AM 10~PM 11",
+            number:""
+        },
+        {
+            store:"flow 위례",
+            address:"경기 성남시 수정구 위례광장로 320 (창곡동, 아이에스센트럴타워) 1층",
+            time :"AM 10~PM 11",
+            number:"02-409-7737"
+        },
+    ]
     return(
         <div id="flow">
             <div className="content">
@@ -51,8 +65,15 @@ export default function Flow(){
                 </div>
                 <div className='flow_store'>
                     <h3 className='flow_store_title'>FLOW 매장찾기</h3>
-                    <ul>
-                        <FlowStores/>
+                    <ul className='flowstores'>
+                        {flowstore.map((store)=>(
+                            <FlowStores
+                                name={store.store}
+                                address={store.address}
+                                time={store.time}
+                                number={store.number}
+                                />
+                        ))}
                     </ul>
                 </div>
             </div>

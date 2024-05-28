@@ -1,0 +1,125 @@
+/* navbar list */
+
+.navbarlist li:nth-child(1) button {
+    color: white;
+    background-color:rgb(249,134,189);
+}
+.navbarlist li:nth-child(2) button {
+    color: rgb(249,134,189);
+    background-color:white;
+    width: 200px;
+}
+
+/* box */
+.cs_box{
+    border: 2px solid rgb(212,205,192);
+    border-radius: 8px;
+    width: 600px;
+    display: flex;
+    padding: 3rem 1.5rem;
+    align-items: center;
+    text-align: left;
+    gap:1rem;
+}
+.icon{
+    width: 73px;
+    height: 70px;
+}
+.cs_box_text{
+    width: 340px;
+}
+.box_title{
+    margin: .5rem 0;
+}
+.box_info{
+    font-size: .85rem;
+    padding-right: .1rem;
+}
+.cs_box_button{
+    border: 2px solid rgb(212,205,192);
+    border-radius: 20px;
+    width: 120px;
+    padding: .5rem 1rem;
+}
+.cs_box_button a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+.helpListItem{
+    display: flex;
+    margin: 0 auto;
+    width: 1200px;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+.cs_center_title{
+    text-align: left;
+    margin-left: 10rem;
+    margin-top: 5rem;
+    font-size: 1.5rem;
+}
+
+/* 고객 문의 접수 채널 */
+.channel_box{
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+.channel_box img{
+    width: 80px;
+    height: 80px;
+}
+.channel_info{
+    text-align: left;
+    line-height: .3rem;
+}
+.channel_way{
+    font-size: 1.4rem;
+    color: rgb(255,53,129);
+    font-weight:bold;
+}
+.channel_etc{
+    font-size: .9rem;
+}
+.channelList{
+    display: flex;
+    border: 2px solid rgb(212,205,192);
+    border-radius: 8px;
+    padding:3rem;
+    width: 1200px;
+    justify-content: center;
+    margin-left: 10.5rem;
+    margin-bottom: 3rem;
+}
+.processList{
+    display: flex;
+    gap: 3rem;
+    width: 1000px;
+    margin: 0 auto;
+}
+.circle{
+    border: 2px solid rgb(212,205,192);
+    width: 130px;
+    height: 130px;
+    border-radius: 100%;
+
+}
+.circle_text{
+    margin-top: 3.5rem;
+    font-size: .9rem;
+    font-weight: 600;
+}
+.processbox{
+    border: 1px solid rgb(212,205,192) ;
+    width: 1200px;
+    margin-left: 11rem;
+    padding: 3rem 3rem 2rem 3rem;
+    border-radius: 8px;
+}
+.process_notice{
+    margin-top: 2rem;
+}

@@ -9,7 +9,6 @@
 .flow_content{
     position: relative;
     background-image: url('../../../public/images/brstore/bg_flow.png');
-    border: 1px solid red;
     background-repeat: no-repeat;
     width: 1200px;
     height: 1500px;
@@ -64,15 +63,16 @@
 .flow_store_title{
     display: inline-block;
     font-size: 1.8rem;
-    margin-top: 5rem;
-    margin-right: 50rem;
+    margin-top: 4rem;
+    margin-right: 61rem;
 }
 .flow_store_box{
-    border: 1px solid red;
+    border: 1px solid rgb(150, 153, 153);
     border-radius: 8px;
-    width: 500px;
-    margin-left: 15rem;
-    padding: 1rem;
+    width: 580px;
+    padding: 1.5rem;
+    position:relative;
+    text-align: left;
 }
 .flow_store_name{
     margin-top: 0;
@@ -84,4 +84,22 @@
     gap: 1rem;
     margin-bottom: .2rem;
     font-size: .9rem;
+}
+.flowstoremap{
+    border:3px solid rgb(230,103,135);
+    border-radius: 8px;
+    padding: .2rem .5rem;
+    position: absolute;
+    top:1.5rem;
+    left:8rem;
+    font-weight: 600;
+}
+
+.flow_store_row{
+    color:rgb(0,173,255);
+}
+.flowstores{
+    display: flex;
+    justify-content: center;
+    gap:2rem;
 }

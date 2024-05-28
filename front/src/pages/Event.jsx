@@ -155,15 +155,8 @@ export default function Event() {
     .catch(error=>console.log(error))
   },[])
   
-  const eventnavlist = [
-    {title:"이벤트"},
-    {title:"BR 레시피"}
-  ]
-  const eventcategoryList =[
-    {title:"전체"},
-    {title:"프로모션"},
-    {title:"제휴혜택"}
-  ]
+  const eventnavlist = ["이벤트","프로모션"]
+  const eventcategoryList =["전체","프로모션","제휴혜택"]
   
   const changeContents= (type) =>{
     let filterItem = [];
@@ -191,7 +184,7 @@ export default function Event() {
         <ul className="navbarlist">
         {eventnavlist.map((item)=>(
           <li className='navbar'>
-            <Navbar title={item.title} />
+            <Navbar title={item} />
           </li>
         ))}
         </ul>
@@ -199,12 +192,12 @@ export default function Event() {
           title="EVENT"
           info="배스킨라빈스와 함께 해피포인트앱/오프라인 매장에서 진행하는 다양한 이벤트를 확인해보세요"/>
         <ul className='eventcategory'>
-          {eventcategoryList.map((item)=>(
+          {eventcategoryList.map((item,index)=>(
             <li className='category'>
               <EventCategoris
                 eventcategoryList={item} 
                 click={changeContents}
-                className={title === item.title ? "event_active": "unactive"}/>
+                className={title === item ? "event_active": "unactive"}/>
             </li>
           ))}
         </ul>

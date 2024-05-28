@@ -26,11 +26,11 @@ export function BigTitleNInfo({title,info}) {
 
 export function EventCategoris({eventcategoryList,className,click}) {
   const eventChange = () =>{
-    click(eventcategoryList.title)
+    click(eventcategoryList)
   }
   return (
     <button className={className}
             onClick={eventChange}
-            >{eventcategoryList.title}</button>
+            >{eventcategoryList}</button>
 );
 }

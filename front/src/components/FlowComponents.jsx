@@ -7,22 +7,22 @@ export function FlowInfo({title,desc}){
     )
 };
 
-export function FlowStores(){
+export function FlowStores({name,address,time,number}){
     return(
         <li className="flow_store_box">
-            <h3 className="flow_store_name">flow 도곡</h3>
-            <button>지도보기</button>
+            <h3 className="flow_store_name">{name}</h3>
+            <button className="flowstoremap">지도보기</button>
             <div className="flow_store_order">
                 <p className="flow_store_row">매장주소</p>
-                <p>서울 강남구 도곡동 902-2 지상 1층 102호</p>
+                <p>{address}</p>
             </div>
             <div className="flow_store_order">
                 <p className="flow_store_row">운영시간</p>
-                <p>AM 10~PM 11</p>
+                <p>{time}</p>
             </div>
             <div className="flow_store_order">
                 <p className="flow_store_row store_number">연락처</p>
-                <p>02-409-77737</p>
+                <p>{number}</p>
             </div>
         </li>
     )
