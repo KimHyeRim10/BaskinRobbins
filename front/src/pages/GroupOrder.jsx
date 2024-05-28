@@ -96,8 +96,10 @@ export default function GroupOrder() {
               <p className="grouporder_p">
                 <span className="grouporder_span_b">아이스크림 제품</span>
                 <br />
-                전국 VIP 고객에게 원하는 시간 / 장소로 배달 <br />
-                <span className="grouporder_span_p">여러곳 배달</span>
+                <p className="grouporder_p_hight">
+                  전국 VIP 고객에게 원하는 시간 / 장소로 배달 <br />
+                  <span className="grouporder_span_p">여러곳 배달</span>
+                </p>
               </p>
 
               <div className="grouporder_mini_div">
@@ -137,10 +139,13 @@ export default function GroupOrder() {
             <div className="grouporder_main_1_div">
               <p className="grouporder_p">
                 <span className="grouporder_span_b">온/오프라인 상품권</span>
-                <br /> 매장, 해피오더, 배달앱 다양한 채널 결제 가능 <br />
-                <span span className="grouporder_span_p">
-                  모바일 교환권
-                </span>
+                <br />
+                <p className="grouporder_p_hight">
+                  매장, 해피오더, 배달앱 다양한 채널 결제 가능 <br />
+                  <span span className="grouporder_span_p">
+                    모바일 교환권
+                  </span>
+                </p>
               </p>
 
               <div className="grouporder_mini_div">
@@ -151,7 +156,7 @@ export default function GroupOrder() {
                     <span className="grouporder_mini_point">1%</span>
                   </p>
                   <p className="grouporder_mini_p">
-                    <span className="grouporder_mini_point">발송료 무료</span>{" "}
+                    <span className="grouporder_mini_point">발송료 무료</span>
                     (건당 50원)
                   </p>
                 </div>
@@ -173,35 +178,40 @@ export default function GroupOrder() {
               src="/images/grouporder/img_info_item_4.png"
               alt=""
             />
-            <div>
-              <p>
-                <span>온/오프라인 상품권</span>
-                모바일사용이 익숙지 않은 분께 감사의 마음을 전하고 싶다면?
+            <div className="grouporder_main_1_div">
+              <p className="grouporder_p">
+                <span className="grouporder_span_b">온/오프라인 상품권</span>
                 <br />
-                <span>지류상품권</span>
+                <p className="grouporder_p_hight">
+                  모바일사용이 익숙지 않은 분께 감사의 마음을 전하고 싶다면?
+                  <br />
+                  <span className="grouporder_span_p">지류상품권</span>
+                </p>
               </p>
-            </div>
 
-            <div>
-              <div>
-                <p>
+              <div className="grouporder_mini_div">
+                <div className="grouporder_mini_div_1">
                   <div className="grouporder_mini">할인 및 혜택</div>
-                </p>
-                <p>
-                  300만원 이상 <span>2%</span>
-                </p>
-                <p>
-                  500만원 이상 <span>3%</span>
-                </p>
-                <p>포장봉투 제공 / 등기발송 (1곳)</p>
-              </div>
-              <div>
-                <p>
-                  <div className="grouporder_mini">결제방식</div>
-                </p>
-                <p>
-                  현금 (계좌이체) / <br /> 법인카드 (전화결제)
-                </p>
+                  <p className="grouporder_mini_p">
+                    300만원 이상&nbsp;
+                    <span className="grouporder_mini_point">2%</span>
+                  </p>
+                  <p className="grouporder_mini_p">
+                    500만원 이상&nbsp;
+                    <span className="grouporder_mini_point">3%</span>
+                  </p>
+                  <p className="grouporder_mini_p">
+                    포장봉투 제공 / 등기발송 (1곳)
+                  </p>
+                </div>
+                <div className="grouporder_mini_div_1">
+                  <p>
+                    <div className="grouporder_mini">결제방식</div>
+                  </p>
+                  <p className="grouporder_mini_p">
+                    현금 (계좌이체) / <br /> 법인카드 (전화결제)
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -212,27 +222,28 @@ export default function GroupOrder() {
               src="/images/grouporder/img_info_item_5.png"
               alt=""
             />
-            <div>
-              <p>
-                <span>아이스크림, 음료 제품</span>
-                실내외 공연, 연예인, 축제 등 이벤트 장소 케이터링
+            <div className="grouporder_main_1_div">
+              <p className="grouporder_p">
+                <span className="grouporder_span_b">아이스크림, 음료 제품</span>
                 <br />
-                <span>아이스크림 트레일러</span>
+                <p className="grouporder_p_hight">
+                  실내외 공연, 연예인, 축제 등 이벤트 장소 케이터링
+                  <br />
+                  <span className="grouporder_span_p">아이스크림 트레일러</span>
+                </p>
               </p>
-            </div>
 
-            <div>
-              <div>
-                <p>
+              <div className="grouporder_mini_div">
+                <div className="grouporder_mini_div_2">
                   <div className="grouporder_mini">할인 및 혜택</div>
-                </p>
-                <p>별도 협의 필요</p>
-              </div>
-              <div>
-                <p>
-                  <div className="grouporder_mini">결제방식</div>
-                </p>
-                <p>1 : 1 문의 (400만원 이상)</p>
+                  <p className="grouporder_mini_p">별도 협의 필요</p>
+                </div>
+                <div className="grouporder_mini_div_2">
+                  <p>
+                    <div className="grouporder_mini">결제방식</div>
+                  </p>
+                  <p className="grouporder_mini_p">1 : 1 문의 (400만원 이상)</p>
+                </div>
               </div>
             </div>
           </div>
@@ -248,8 +259,8 @@ export default function GroupOrder() {
               src="/images/grouporder/img_order_item_1.png"
               alt=""
             />
-            <span>STEP 1</span>
-            <p>
+            <span className="grouporder_section2_step">STEP 1</span>
+            <p className="grouporder_section2_p">
               배스킨라빈스 홈페이지에서 <br /> 원하는 메뉴를 골라주세요
             </p>
           </li>
@@ -264,8 +275,8 @@ export default function GroupOrder() {
               src="/images/grouporder/img_order_item_2.png"
               alt=""
             />
-            <span>STEP 2</span>
-            <p>
+            <span className="grouporder_section2_step">STEP 2</span>
+            <p className="grouporder_section2_p">
               원하는 방법을 <br /> 선택해주세요
             </p>
           </li>
@@ -280,15 +291,15 @@ export default function GroupOrder() {
               src="/images/grouporder/img_order_item_3.png"
               alt=""
             />
-            <span>STEP 3</span>
-            <p>
+            <span className="grouporder_section2_step">STEP 3</span>
+            <p className="grouporder_section2_p">
               주문서 접수하기를 남겨주세요 <br /> 주문서 접수하시면 확인 후
               연락드려요
             </p>
           </li>
         </ul>
         <div>
-          <ul>
+          <ul className="delivery_section3_refer">
             <li>
               ※ 배달 서비스는 인근 매장에서 진행되며, 단체 주문 시 배달비 무료
               혜택을 드립니다. (단, 매장 상황에 따라 배달 서비스가 제한될 수
