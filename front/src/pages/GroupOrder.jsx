@@ -44,110 +44,135 @@ export default function GroupOrder() {
         </div>
 
         <div className="grouporder_main">
-          <div className="grouporder_main_1">
+          <div className="grouporder_main_detail">
             <img
               className="grouporder_section1_img"
               src="/images/grouporder/img_info_item_1.png"
               alt=""
             />
             <div className="grouporder_main_1_div">
-              <p>
-                <span>아이스크림 제품</span> <br />
-                회사, 관공서, 은행, 학교 등 <br />
-                <span>한 장소로 일괄배송</span>
+              <p className="grouporder_p">
+                <span className="grouporder_span_b">아이스크림 제품</span>
+                <br />
+                <p className="grouporder_p_hight">
+                  회사, 관공서, 은행, 학교 등 <br />
+                  <span className="grouporder_span_p">한 장소로 일괄배송</span>
+                </p>
               </p>
 
-              <div className="fff">
-                <div className="sss">
-                  <p>
-                    <div className="grouporder_mini">할인 및 혜택</div>
+              <div className="grouporder_mini_div">
+                <div className="grouporder_mini_div_1">
+                  <div className="grouporder_mini">할인 및 혜택</div>
+                  <p className="grouporder_mini_p">
+                    할인혜택 &nbsp;
+                    <span className="grouporder_mini_point">별도협의 필요</span>
                   </p>
-                  <p>
-                    할인혜택 <span>별도협의 필요</span>
-                  </p>
-                  <p>
-                    50만원 이상 <span>배송/배달 서비스</span>
+                  <p className="grouporder_mini_p">
+                    50만원 이상 &nbsp;
+                    <span className="grouporder_mini_point">
+                      배송/배달 서비스
+                    </span>
                   </p>
                 </div>
-                <div className="ggg">
+                <div className="grouporder_mini_div_2">
                   <p>
                     <div className="grouporder_mini">결제방식</div>
                   </p>
-                  <p>현금 (계좌이체) / 카드 (전화결제)</p>
+                  <p className="grouporder_mini_p">
+                    현금 (계좌이체) / 카드 (전화결제)
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="two">
-            <img src="/images/grouporder/img_info_item_2.png" alt="" />
-            <div>
-              <p>
-                <span>아이스크림 제품</span>
+          <div className="grouporder_main_detail grouporder_main_m">
+            <img
+              className="grouporder_section2_img"
+              src="/images/grouporder/img_info_item_2.png"
+              alt=""
+            />
+            <div className="grouporder_main_1_div">
+              <p className="grouporder_p">
+                <span className="grouporder_span_b">아이스크림 제품</span>
+                <br />
                 전국 VIP 고객에게 원하는 시간 / 장소로 배달 <br />
-                <span>여러곳 배달</span>
+                <span className="grouporder_span_p">여러곳 배달</span>
               </p>
-            </div>
 
-            <div>
-              <div>
-                <p>
+              <div className="grouporder_mini_div">
+                <div className="grouporder_mini_div_1">
                   <div className="grouporder_mini">할인 및 혜택</div>
-                </p>
-                <p>
-                  50만원 이상 <span>5%</span>
-                </p>
-                <p>
-                  100만원 이상 <span>별도 협의 필요</span>
-                </p>
-                <p>
-                  50만원 이상 <span>주문가능</span>
-                </p>
-              </div>
-              <div>
-                <p>
-                  <div className="grouporder_mini">결제방식</div>
-                </p>
-                <p>카드 (전화결제)</p>
+                  <p className="grouporder_mini_p">
+                    50만원 이상&nbsp;
+                    <span className="grouporder_mini_point">5%</span>
+                  </p>
+                  <p className="grouporder_mini_p">
+                    100만원 이상&nbsp;
+                    <span className="grouporder_mini_point">
+                      별도 협의 필요
+                    </span>
+                  </p>
+                  <p className="grouporder_mini_p">
+                    50만원 이상&nbsp;
+                    <span className="grouporder_mini_point">주문가능</span>
+                  </p>
+                </div>
+                <div className="grouporder_mini_div_2">
+                  <p>
+                    <div className="grouporder_mini">결제방식</div>
+                  </p>
+                  <p className="grouporder_mini_p">카드 (전화결제)</p>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="three">
-            <img src="/images/grouporder/img_info_item_3.png" alt="" />
-            <div>
-              <p>
-                <span>온/오프라인 상품권</span>
-                매장, 해피오더, 배달앱 다양한 채널 결제 가능 <br />
-                <span>모바일 교환권</span>
+          <div className="grouporder_main_detail grouporder_main_m">
+            <img
+              className="grouporder_section3_img"
+              src="/images/grouporder/img_info_item_3.png"
+              alt=""
+            />
+            <div className="grouporder_main_1_div">
+              <p className="grouporder_p">
+                <span className="grouporder_span_b">온/오프라인 상품권</span>
+                <br /> 매장, 해피오더, 배달앱 다양한 채널 결제 가능 <br />
+                <span span className="grouporder_span_p">
+                  모바일 교환권
+                </span>
               </p>
-            </div>
 
-            <div>
-              <div>
-                <p>
+              <div className="grouporder_mini_div">
+                <div className="grouporder_mini_div_1">
                   <div className="grouporder_mini">할인 및 혜택</div>
-                </p>
-                <p>
-                  500만원 이상 <span>1%</span>
-                </p>
-                <p>
-                  <span>발송료 무료</span> (건당 50원)
-                </p>
-              </div>
-              <div>
-                <p>
-                  <div className="grouporder_mini">결제방식</div>
-                </p>
-                <p>
-                  현금 (계좌이체) / <br /> 법인카드 (전화결제)
-                </p>
+                  <p className="grouporder_mini_p">
+                    500만원 이상 &nbsp;
+                    <span className="grouporder_mini_point">1%</span>
+                  </p>
+                  <p className="grouporder_mini_p">
+                    <span className="grouporder_mini_point">발송료 무료</span>{" "}
+                    (건당 50원)
+                  </p>
+                </div>
+                <div className="grouporder_mini_div_2">
+                  <p>
+                    <div className="grouporder_mini">결제방식</div>
+                  </p>
+                  <p className="grouporder_mini_p">
+                    현금 (계좌이체) / <br /> 법인카드 (전화결제)
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="four">
-            <img src="/images/grouporder/img_info_item_4.png" alt="" />
+          <div className="grouporder_main_detail grouporder_main_m">
+            <img
+              className="grouporder_section4_img"
+              src="/images/grouporder/img_info_item_4.png"
+              alt=""
+            />
             <div>
               <p>
                 <span>온/오프라인 상품권</span>
@@ -181,8 +206,12 @@ export default function GroupOrder() {
             </div>
           </div>
 
-          <div className="five">
-            <img src="/images/grouporder/img_info_item_5.png" alt="" />
+          <div className="grouporder_main_detail grouporder_main_m">
+            <img
+              className="grouporder_section5_img"
+              src="/images/grouporder/img_info_item_5.png"
+              alt=""
+            />
             <div>
               <p>
                 <span>아이스크림, 음료 제품</span>
