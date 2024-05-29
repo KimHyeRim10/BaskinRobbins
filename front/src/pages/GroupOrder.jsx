@@ -255,7 +255,7 @@ export default function GroupOrder() {
         <ul className="delivery_section3_ul">
           <li className="delivery_section3_li">
             <img
-              className="section3_img"
+              className="section3_img grouporder_section2_circle1"
               src="/images/grouporder/img_order_item_1.png"
               alt=""
             />
@@ -271,7 +271,7 @@ export default function GroupOrder() {
           />
           <li className="delivery_section3_li">
             <img
-              className="section3_img"
+              className="section3_img grouporder_section2_circle2"
               src="/images/grouporder/img_order_item_2.png"
               alt=""
             />
@@ -287,7 +287,7 @@ export default function GroupOrder() {
           />
           <li className="delivery_section3_li">
             <img
-              className="section3_img"
+              className="section3_img grouporder_section2_circle3"
               src="/images/grouporder/img_order_item_3.png"
               alt=""
             />
@@ -298,8 +298,9 @@ export default function GroupOrder() {
             </p>
           </li>
         </ul>
-        <div>
-          <ul className="delivery_section3_refer">
+
+        <div className="delivery_section3_refer">
+          <ul className="delivery_section3_refer_ul">
             <li>
               ※ 배달 서비스는 인근 매장에서 진행되며, 단체 주문 시 배달비 무료
               혜택을 드립니다. (단, 매장 상황에 따라 배달 서비스가 제한될 수

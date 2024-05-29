@@ -552,3 +552,47 @@ input::placeholder {
   height: 240px;
   padding: 30px 140px;
 }
+
+.grouporder_section2_step {
+  color: var(--pink-color-2);
+  font-weight: 900;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.grouporder_section2_p {
+  color: #41332c;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.15;
+}
+
+.grouporder_section2_circle1 {
+  margin-top: 49px;
+}
+
+.grouporder_section2_circle2 {
+  margin-top: 36px;
+}
+
+.grouporder_section2_circle3 {
+  margin-top: 31px;
+}
+
+.delivery_section3_refer {
+  margin: 0 auto;
+  margin-top: 30px;
+  display: flex;
+  text-align: left;
+  align-items: center;
+  width: 1000px;
+}
+
+.delivery_section3_refer_ul {
+  color: #8f827b;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.3846153846;
+  letter-spacing: -0.05em;
+  margin-right: 60px;
+}
