@@ -4,7 +4,7 @@ import OrderMenubar from "../components/OrderMenubar.jsx";
 
 export default function GroupOrderForm() {
   return (
-    <div>
+    <div className="content delivery_form">
       <OrderMenubar />
 
       <div>
