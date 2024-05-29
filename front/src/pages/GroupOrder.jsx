@@ -2,6 +2,7 @@ import React from "react";
 import "../css/seulki.css";
 import { Link, useNavigate } from "react-router-dom";
 import OrderMenubar from "../components/OrderMenubar.jsx";
+import SeulkiHeader from "../components/SeulkiHeader.jsx";
 
 export default function GroupOrder() {
   // const navigate = useNavigate();
@@ -14,9 +15,7 @@ export default function GroupOrder() {
     <div className="content delivery_form">
       <OrderMenubar />
 
-      <div>
-        <h2 className="delivery_header">단체주문</h2>
-      </div>
+      <SeulkiHeader title={"단체주문"} />
       <div>
         <p className="delivery_header_font">
           단체주문도 언제나, 어디서나 배스킨라빈스!

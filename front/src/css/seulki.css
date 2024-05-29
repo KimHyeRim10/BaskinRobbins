@@ -598,3 +598,48 @@ input::placeholder {
 }
 
 /** ------------------------------------------------------- GroupOrderForm.jsx */
+
+.delivery_form_button_s {
+  width: 126px;
+  background: #999;
+  color: #fff;
+  cursor: pointer;
+  align-items: center;
+  height: 28px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1;
+  border: none;
+}
+
+.delivery_section1_table {
+  width: 100%;
+  margin-top: 15px;
+  border: 1px solid #c6c1bf;
+  border-collapse: collapse;
+  margin: 0 auto;
+  padding: 0 auto;
+}
+
+.delivery_section1_table th,
+.delivery_section1_table td {
+  padding: 16px;
+  border: 1px solid #c6c1bf;
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+}
+
+.delivery_section1_table th {
+  background: #f9f6f1;
+  color: #948780;
+}
+
+.delivery_section1_table td {
+  color: #41332c;
+}
+
+.d_f_section1_div {
+  margin: 20px;
+}

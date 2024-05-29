@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/seulki.css";
 import OrderMenubar from "../components/OrderMenubar.jsx";
+import SeulkiHeader from "../components/SeulkiHeader.jsx";
 
 export default function DeliveryOrder() {
   const handleClick = () => {
@@ -12,9 +13,7 @@ export default function DeliveryOrder() {
       <OrderMenubar />
       <div>
         <section>
-          <div>
-            <h2 className="delivery_header">Delivery</h2>
-          </div>
+          <SeulkiHeader title={"Delivery"} />
           <div>
             <p className="delivery_header_font">
               <span className="delivery_header_span">
