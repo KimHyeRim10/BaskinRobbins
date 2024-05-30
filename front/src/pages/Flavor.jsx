@@ -4,6 +4,7 @@ import "../css/store/flavor.css"
 import { BigTitleNInfo, EventCategoris, Navbar } from "../components/MainComponents";
 import { FlavorImage, StoreInfo, StoreCarousel, Dots } from "../components/FlavorComponents";
 import { useEffect, useRef, useState } from "react";
+import '../css/store/modal_y.css'
 
 export default function Flavor(){
     const [flavorStores, setFlavorStores] = useState([]);
@@ -26,6 +27,12 @@ export default function Flavor(){
                     "img":"images/brstore/specialmenu_icetaco.png",
                     "desc":"매장에서 제조한 바삭한 와플 쉘에 아이스크림과 초콜릿 코팅으로 달콤함과 짭짤함을 동시에 맛볼 수 있는 아이스 타코"
                 }
+            ],
+            "map":[
+                {
+                    "lat":"35.1539437",
+                    "long":"129.0593831"
+                }
             ]
         }
     ])
@@ -43,12 +50,7 @@ export default function Flavor(){
         .then(result=>setFlavorStores(result))
         .catch(error=>console.log(error))
     },[])
-    const storecategories = [
-        {title:"100 flavor"},
-        {title:"flow"},
-        {title:"배달주문"},
-        {title:"단체주문"},
-    ]
+    const storecategories = ["100 flavor","flow","배달주문","단체주문"]
     const flavorinfo = {
         "image1":"images/brstore/brstore_100flavor_item1.png",
         "image2":"images/brstore/brstore_100flavor_item2.png",
@@ -57,12 +59,7 @@ export default function Flavor(){
         "info1":"글로벌 인테리어 디자인 브랜드 오스모스(OSMOSE)사와 협업해 우아한 라인과 기하학적 디자인의 아르데코 스타일을 현대적으로 구현했습니다. 아트슈머까지 만족시킬 예술적인 인테리어가 돋보이는 공간입니다.",
         "info2":"해외 인기 플레이버와 이달의 맛으로 선보였던 히트 메뉴, 트렌드를 반영한 오가닉 및 저칼로리 라인과 파르나스몰점의 시그니처 플레이버 등 풍성하게 준비된 아이스크림 컬렉션을 즐겨보세요."
     }
-    const storeList = [
-        {title:"부산서면중앙점"},
-        {title:"파르나스몰점"},
-        {title:"SPC스퀘어점"},
-        {title:"강남대로점"}
-    ]
+    const storeList = ["부산서면중앙점","파르나스몰점","SPC스퀘어점","강남대로점"]
     useEffect(()=>{
             slideRef.current.style.transition = "all 300ms ease-in"
             slideRef.current.style.transform = `translateX(-${currentIndex*48.5}%)`},[currentIndex])
@@ -91,7 +88,6 @@ export default function Flavor(){
                         setCurrentIndex(currentIndex + 1)
                     }
                 },3000)
-                console.log(showStore[0].etc)
     const carouselbtn = (index) =>{
         setCurrentIndex(index)
     }
@@ -101,7 +97,7 @@ export default function Flavor(){
                 <ul className="navbarlist">
                 {storecategories.map((item)=>(
                     <li className="navbar">
-                        <Navbar title={item.title}/>
+                        <Navbar title={item}/>
                     </li>
                 ))}
                 </ul>
@@ -129,7 +125,7 @@ export default function Flavor(){
                             <EventCategoris
                                 click={changeContent}
                                 eventcategoryList={item}
-                                className={item.title === showStore[0].name ? "active":"unactive"}
+                                className={item === showStore[0].name ? "active":"unactive"}
                                 />
                         </li>
                     ))}
@@ -138,13 +134,7 @@ export default function Flavor(){
                     <ul className="flavorstores">
                         {showStore.map((store)=>(
                             <>
-                            <StoreInfo
-                                name={store.name}
-                                address={store.address}
-                                number={store.number}
-                                time={store.time}
-                                menu={store.menu}
-                                service={store.service}/>
+                            <StoreInfo store={store}/>
                             </>
                         ))}
                     </ul>

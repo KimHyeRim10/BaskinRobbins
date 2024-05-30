@@ -1,6 +1,11 @@
-.navbarlist li:nth-child(2) button {
+.navbarlist .navbar_flow:nth-child(2) button {
     color: white;
+    width: 120px;
     background-color:rgb(249,134,189);
+} 
+.navbarlist .navbar_flow:nth-child(1) button {
+    color: rgb(249,134,189);
+    background-color:white;
 } 
 .navbarlist li:nth-child(1) button{
     border: none;
@@ -99,7 +104,6 @@
     color:rgb(0,173,255);
 }
 .flowstores{
-    display: flex;
-    justify-content: center;
-    gap:2rem;
+    margin-left: 5rem;
+    padding-bottom: 5rem;
 }

@@ -30,7 +30,7 @@ export default function Flow(){
             <div className="content">
                 <ul className='navbarlist'>
                     {storecategories.map((item)=>(
-                        <li className='navbar'>
+                        <li className='navbar_flow'>
                             <Navbar
                                 title={item.title}/>
                         </li>
@@ -66,14 +66,7 @@ export default function Flow(){
                 <div className='flow_store'>
                     <h3 className='flow_store_title'>FLOW 매장찾기</h3>
                     <ul className='flowstores'>
-                        {flowstore.map((store)=>(
-                            <FlowStores
-                                name={store.store}
-                                address={store.address}
-                                time={store.time}
-                                number={store.number}
-                                />
-                        ))}
+                        <FlowStores/>
                     </ul>
                 </div>
             </div>
