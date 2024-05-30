@@ -1,9 +1,123 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import "../css/seulki.css";
 import OrderMenubar from "../components/OrderMenubar.jsx";
 import SeulkiHeader from "../components/SeulkiHeader.jsx";
+import DaumPostcode from "react-daum-postcode";
 
 export default function GroupOrderForm() {
+  //TODO 전체항목 변화감지
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    number: "",
+    zipcode: "",
+    address: "",
+    detailAddress: "",
+  });
+
+  //TODO 필수항목 변화감지
+  const [formError, setFormError] = useState({
+    name: "",
+    email: "",
+    number: "",
+  });
+
+  //TODO focus용
+  const refName = useRef(null);
+  const refEmail = useRef(null);
+  const refNumber = useRef(null);
+
+  //TODO 폼데이터 변경시 호출이벤트 [변화감지]
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    // [name]: value -> 선택한 항목의 name값의 value값을 변경
+    // 선택한 항목의 name="id"이면 여기 변수 name에 id가 들어감
+  };
+  // console.log(formData);
+
+  //* step2의 주소검색부분
+  const handleAddress = (e) => {
+    setFormData({ ...formData, zipcode: e.zipcode, address: e.address });
+  }; //! step2에서 zonecode를 zipcode에 넣었으니까 데이터는 e.zipcode가 됨!!
+
+  //TODO 서버전송
+  const handleSubmit = (e) => {
+    e.preventDefault(); //! submit 주도권 변경
+    if (validationCheck()) {
+      console.log("submit 성공=>", formData); // 유효성 체크가 true이면 실행할 실행문
+    }
+  };
+
+  //TODO 유효성 체크 (validation check)
+  const validationCheck = () => {
+    let checkFlag = true;
+    const errors = {};
+
+    //! ※브라우저에 표시될 focus는 한곳만 가능.
+    //? 포커스 필요한 곳이 한곳이상일 때, if문 과 if ~ else if문의 로직차이 ↓
+    //? if로만 진행하면 제일 마지막 영역에 포커스가 가고, 메시지는 빈곳에 다뜸
+    //? if ~ else if 일땐 제일 윗쪽 영역에 포커스가 가고, 메시지도 제일 윗쪽 영역만 뜸
+
+    if (!formData.name.trim()) {
+      refName.current.focus();
+      checkFlag = false;
+    }
+    if (!formData.email.trim()) {
+      refEmail.current.focus();
+      checkFlag = false;
+    }
+    if (!formData.number.trim()) {
+      refNumber.current.focus();
+      checkFlag = false;
+    }
+
+    //해당 에러의 맨위 element에 focus 설정하기 (if로만 진행했을 때 사용)
+    const keys = Object.keys(errors);
+    const fElement = document.querySelector(`[name="${keys[0]}"]`);
+    fElement.focus();
+
+    // console.log(errors);
+    setFormError(errors); // errors에 모아서 한번에 setFormError에 넣어주기
+    return checkFlag;
+  };
+
+  //TODO 주소검색버튼 Toggle
+  const [isOpen, setIsOpen] = useState(false); // 기본값 false로 설정해서 처음에는 주소검색창 안보이게 하기
+
+  //TODO 주소검색버튼
+  const handleToggle = () => {
+    setIsOpen(true);
+  };
+
+  //TODO ★ DaumPostcode 관련 디자인 및 이벤트
+  const themeObj = {
+    bgColor: "#FFFFFF", // 바탕 배경색
+    pageBgColor: "#FFFFFF", // 페이지 배경색
+    postcodeTextColor: "#C05850", // 우편번호 글자색
+    emphTextColor: "#222222", // 강조글자색
+  };
+
+  const postCodeStyle = {
+    width: "360px",
+    height: "480px",
+  };
+
+  const completeHandler = (data) => {
+    const { address, zonecode } = data; //! {address,zonecode} 이름고정. 임의로 변경하면 안됨!!
+    handleAddress({ zipcode: zonecode, address: address });
+  };
+
+  const closeHandler = (state) => {
+    if (state === "FORCE_CLOSE") {
+      setIsOpen(false);
+    } else if (state === "COMPLETE_CLOSE") {
+      setIsOpen(false);
+      // refs.detailAddressRef.current.value = ""; 실행이 안되서 일단 보류처리
+      // refs.detailAddressRef.current.focus();
+    }
+  };
+
   return (
     <div className="content delivery_form">
       <OrderMenubar />
@@ -16,7 +130,7 @@ export default function GroupOrderForm() {
       </div>
 
       <div className="delivery_form_content">
-        <form className="delivery_form_detail">
+        <form className="delivery_form_detail" onSubmit={handleSubmit}>
           <section className="delivery_form_section1">
             <div className="d_f_section1">
               <h3 className="delivery_form_h3">
@@ -200,7 +314,109 @@ export default function GroupOrderForm() {
             <div className="d_f_section1">
               <h3 className="delivery_form_h3">단체주문 주문서 작성자 정보</h3>
             </div>
-            <div className="delivery_form_section4_form"></div>
+            <div className="delivery_form_section4_form1">
+              <ul>
+                <li>
+                  <lable>이름</lable>
+                  <input
+                    className="d_f_input_color"
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    // onChange={handleChange}
+                    ref={refName}
+                    placeholder="이름 또는 업체명을 입력해 주세요"
+                  />
+                </li>
+                <li>
+                  <lable>신청자 이메일</lable>
+                  <input
+                    className="d_f_input_color"
+                    type="text"
+                    name="email"
+                    value={formData.email}
+                    // onChange={handleChange}
+                    ref={refEmail}
+                    placeholder="이메일 입력"
+                  />{" "}
+                  &nbsp;
+                  <span>
+                    * 필독 ! 작성하신 주소로 세부 내용이 안내 됩니다. 정확한
+                    이메일 주소를 입력해주세요
+                  </span>
+                </li>
+                <li>
+                  <lable>신청자 연락처</lable>
+                  <input
+                    className="d_f_input_color"
+                    type="text"
+                    name="number"
+                    value={formData.number}
+                    placeholder="010-xxxx-xxxx"
+                    // onChange={handleChange}
+                  />
+                  &nbsp;
+                  <span>
+                    휴대폰번호 또는 유선전화 중 연락 가능한 전화번호를
+                    입력해주세요
+                  </span>
+                </li>
+                <li>
+                  <lable>배송 희망 주소</lable>
+
+                  <input
+                    className="d_f_input_color"
+                    type="text"
+                    name="zipcode"
+                    value={formData.zipcode}
+                    // onChange={handleChange}
+                    placeholder="우편번호"
+                  ></input>
+                  <button
+                    className="d_f_input_button"
+                    type="button"
+                    onClick={handleToggle}
+                  >
+                    우편번호 찾기
+                  </button>
+                  <br />
+                  <input
+                    className="d_f_input_color"
+                    type="text"
+                    name="address"
+                    value={formData.address}
+                    // onChange={handleChange}
+                    placeholder="기본 주소를 입력하세요."
+                  />
+                  <br />
+                  <input
+                    className="d_f_input_color"
+                    type="text"
+                    name="detailAddress"
+                    value={formData.detailAddress}
+                    // onChange={handleChange}
+                    // ref={refs.detailAddressRef}
+                    placeholder="상세 주소를 입력하세요"
+                  />
+                  {isOpen && (
+                    /* [ isOpen && ]을 안쓰면 주소검색창이 계속 떠있게 됨! */
+                    <div>
+                      {/* ★중요!! Postcode 사용시 <div>로 꼭 감싸줘야함!!!! */}
+                      <DaumPostcode
+                        className="delivery_postmodal"
+                        theme={themeObj}
+                        style={postCodeStyle}
+                        onComplete={completeHandler}
+                        onClose={closeHandler}
+                      />
+                    </div>
+                  )}
+                </li>
+              </ul>
+            </div>
+            <button type="submit" className="delivery_form_button_b ">
+              제출하기
+            </button>
           </section>
         </form>
       </div>

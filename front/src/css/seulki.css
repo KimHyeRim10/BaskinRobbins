@@ -727,7 +727,57 @@ input::placeholder {
 }
 
 .delivery_input_3 {
-  margin: 33px;
+  margin: 45px;
   cursor: pointer;
   margin-right: -10px;
+}
+
+.delivery_form_section4_form1 {
+  margin-top: 30px;
+  padding: 20px 0;
+  border: 1px solid #c6c1bf;
+  text-align: left;
+}
+
+.d_f_input_color {
+  background: #f9f6f1;
+  color: #948780;
+  border: 1px solid #c6c1bf;
+}
+
+.d_f_input_color::placeholder {
+  color: #948780;
+  font-weight: normal;
+}
+
+.delivery_postmodal {
+  background: rgba(0, 0, 0, 0.25);
+  position: fixed;
+  left: 55%;
+  top: 30%;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #777;
+}
+
+.d_f_input_button {
+  width: 96px;
+  height: 28px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1;
+  border: 1px solid #c6c1bf;
+  background: none;
+  margin-left: 9px;
+}
+
+.delivery_form_button_b {
+  width: 150px;
+  height: 46px;
+  border-radius: 23px;
+  font-size: 15px;
+  background: #000;
+  color: #fff;
+  font-weight: 500;
 }
