@@ -1,6 +1,7 @@
 #main_home{
   background-image: url('../../../public/images/main/bg_hero.jpg');
   text-align: center;
+  padding:2rem 0;
 }
 
 .home_main_logo{
@@ -12,6 +13,7 @@
 }
 .home_main_image{
   margin: 0 auto;
+  margin-left: -5rem;
   width: 1500px;
  /*  border: 5px solid red; */
   position: relative;

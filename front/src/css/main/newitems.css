@@ -74,3 +74,10 @@
   margin: 1rem auto;
   overflow: hidden;
 }
+
+.activeni{
+  font-size: 1rem;
+  color: var(--pink-color-2);
+  cursor: pointer;
+  background-color: transparent;
+}

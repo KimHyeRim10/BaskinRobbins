@@ -5,6 +5,7 @@ import { BigTitleNInfo, EventCategoris, Navbar } from "../components/MainCompone
 import { FlavorImage, StoreInfo, StoreCarousel, Dots } from "../components/FlavorComponents";
 import { useEffect, useRef, useState } from "react";
 import '../css/store/modal_y.css'
+import { Link } from "react-router-dom";
 
 export default function Flavor(){
     const [flavorStores, setFlavorStores] = useState([]);
@@ -50,7 +51,12 @@ export default function Flavor(){
         .then(result=>setFlavorStores(result))
         .catch(error=>console.log(error))
     },[])
-    const storecategories = ["100 flavor","flow","배달주문","단체주문"]
+    const storecategories = [
+        {name:"100 flavor",path:"/store/flavor"},
+        {name:"flow",path:"/store/flow"},
+        {name:"배달주문",path:"/store/delivery"},
+        {name:"단체주문",path:"/store/catering"}
+        ]
     const flavorinfo = {
         "image1":"images/brstore/brstore_100flavor_item1.png",
         "image2":"images/brstore/brstore_100flavor_item2.png",
@@ -97,7 +103,9 @@ export default function Flavor(){
                 <ul className="navbarlist">
                 {storecategories.map((item)=>(
                     <li className="navbar">
-                        <Navbar title={item}/>
+                        <Link to={item.path}>
+                            <Navbar title={item.name}/>
+                        </Link>
                     </li>
                 ))}
                 </ul>

@@ -4,6 +4,7 @@ import '../css/event/event.css'
 import '../css/main/main_commons.css'
 import { BigTitleNInfo, Navbar,EventCategoris } from '../components/MainComponents';
 import { Box} from '../components/EventComponents';
+import { Link } from 'react-router-dom';
 
 export default function Event() {
   const [title,setTitle] = useState('전체')
@@ -155,7 +156,10 @@ export default function Event() {
     .catch(error=>console.log(error))
   },[])
   
-  const eventnavlist = ["이벤트","프로모션"]
+  const eventnavlist = [
+    {name:"이벤트", path:"/play/event"},
+    {name:"BR 레시피", path:"/play/brreipe/all"}]
+    
   const eventcategoryList =["전체","프로모션","제휴혜택"]
   
   const changeContents= (type) =>{
@@ -184,7 +188,9 @@ export default function Event() {
         <ul className="navbarlist">
         {eventnavlist.map((item)=>(
           <li className='navbar'>
-            <Navbar title={item} />
+            <Link to={item.path}>
+              <Navbar title={item.name} />
+            </Link>
           </li>
         ))}
         </ul>

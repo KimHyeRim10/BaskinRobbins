@@ -75,7 +75,7 @@ export function NewItemsList() {
       <ul className='buttonlist'>
         {rows.map((item,index)=>(
           <li>
-            <button className={currentIndex === index ? "active" : "button"}
+            <button className={currentIndex === index ? "activeni" : "button"}
                     onClick={()=>movePage(index)}>●</button>
           </li>
         ))}

@@ -66,7 +66,7 @@ export function PromotionList() {
       <ul className="buttonlist">
           {promotionContents.map((item,index)=>(
             <li>
-              <button className={currentIndex === index ? "active" : "button"}
+              <button className={currentIndex === index ? "activepr" : "button"}
                       onClick={()=>movePage(index)}>●</button>
             </li>
           ))}

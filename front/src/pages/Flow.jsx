@@ -3,14 +3,15 @@ import '../css/main/main_commons.css'
 import '../css/store/flow.css'
 import { Navbar, BigTitleNInfo } from '../components/MainComponents'
 import { FlowInfo, FlowStores } from '../components/FlowComponents'
+import { Link } from 'react-router-dom'
 
 export default function Flow(){
     const storecategories = [
-        {title:"100 flavor"},
-        {title:"flow"},
-        {title:"배달주문"},
-        {title:"단체주문"},
-    ]
+        {name:"100 flavor",path:"/store/flavor"},
+        {name:"flow",path:"/store/flow"},
+        {name:"배달주문",path:"/store/delivery"},
+        {name:"단체주문",path:"/store/catering"}
+        ]
     const flowstore=[
         {
             store:"flow 도곡",
@@ -31,8 +32,10 @@ export default function Flow(){
                 <ul className='navbarlist'>
                     {storecategories.map((item)=>(
                         <li className='navbar_flow'>
-                            <Navbar
-                                title={item.title}/>
+                            <Link to={item.path}>
+                                <Navbar
+                                    title={item.name}/>
+                                </Link>
                         </li>
                     ))}
                 </ul>

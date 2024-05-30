@@ -1,3 +1,6 @@
+.title_parts{
+  padding-bottom: 2rem;
+}
 .title{
   font-size: 4rem;
   color: var(--pink-color-2);
@@ -26,6 +29,7 @@
 .content{
   text-align: center;
   padding: 2rem 0;
+  /* border: 1px solid red; */
 }
 
 button{
@@ -49,4 +53,8 @@ button{
   margin: 2.5rem;
   color:rgb(249,134,189);
   /* border: 2px solid blue; */
+}
+a{
+  text-decoration: none;
+  color: black;
 }
