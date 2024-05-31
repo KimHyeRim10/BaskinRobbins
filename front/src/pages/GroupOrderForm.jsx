@@ -3,8 +3,19 @@ import "../css/seulki.css";
 import OrderMenubar from "../components/OrderMenubar.jsx";
 import SeulkiHeader from "../components/SeulkiHeader.jsx";
 import DaumPostcode from "react-daum-postcode";
+import { SeulkiModal } from "../components/SeulkiModal.jsx";
 
 export default function GroupOrderForm() {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   //TODO 전체항목 변화감지
   const [formData, setFormData] = useState({
     name: "",
@@ -60,22 +71,22 @@ export default function GroupOrderForm() {
     //? if ~ else if 일땐 제일 윗쪽 영역에 포커스가 가고, 메시지도 제일 윗쪽 영역만 뜸
 
     if (!formData.name.trim()) {
-      refName.current.focus();
+      // refName.current.focus();
       checkFlag = false;
     }
     if (!formData.email.trim()) {
-      refEmail.current.focus();
+      // refEmail.current.focus();
       checkFlag = false;
     }
     if (!formData.number.trim()) {
-      refNumber.current.focus();
+      // refNumber.current.focus();
       checkFlag = false;
     }
 
     //해당 에러의 맨위 element에 focus 설정하기 (if로만 진행했을 때 사용)
     const keys = Object.keys(errors);
     const fElement = document.querySelector(`[name="${keys[0]}"]`);
-    fElement.focus();
+    // fElement.focus();
 
     // console.log(errors);
     setFormError(errors); // errors에 모아서 한번에 setFormError에 넣어주기
@@ -136,9 +147,16 @@ export default function GroupOrderForm() {
               <h3 className="delivery_form_h3">
                 개인정보 수집, 이용 동의(필수)
               </h3>
-              <button className="delivery_form_button_s" type="button">
+              <button
+                className="delivery_form_button_s"
+                type="button"
+                onClick={openModal}
+              >
                 단체주문 혜택보기
               </button>
+              {showModal === true ? (
+                <SeulkiModal openModal={openModal} closeModal={closeModal} />
+              ) : null}
             </div>
 
             <p className="delivery_form_p1">
@@ -338,7 +356,7 @@ export default function GroupOrderForm() {
                     // onChange={handleChange}
                     ref={refEmail}
                     placeholder="이메일 입력"
-                  />{" "}
+                  />
                   &nbsp;
                   <span>
                     * 필독 ! 작성하신 주소로 세부 내용이 안내 됩니다. 정확한
@@ -414,7 +432,7 @@ export default function GroupOrderForm() {
                 </li>
               </ul>
             </div>
-            <button type="submit" className="delivery_form_button_b ">
+            <button type="submit" className="delivery_form_button_b">
               제출하기
             </button>
           </section>
