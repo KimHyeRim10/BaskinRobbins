@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/seulki.css";
-import OrderMenubar from "../components/OrderMenubar.jsx";
+import { OrderMenubar1 } from "../components/OrderMenubar.jsx";
 import SeulkiHeader from "../components/SeulkiHeader.jsx";
 
 export default function DeliveryOrder() {
@@ -10,7 +10,7 @@ export default function DeliveryOrder() {
 
   return (
     <div className="content delivery_form">
-      <OrderMenubar />
+      <OrderMenubar1 />
       <div>
         <section>
           <SeulkiHeader title={"Delivery"} />

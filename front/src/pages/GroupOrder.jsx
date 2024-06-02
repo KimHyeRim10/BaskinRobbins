@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/seulki.css";
 import { Link, useNavigate } from "react-router-dom";
-import OrderMenubar from "../components/OrderMenubar.jsx";
+import { OrderMenubar2 } from "../components/OrderMenubar.jsx";
 import SeulkiHeader from "../components/SeulkiHeader.jsx";
 
 export default function GroupOrder() {
@@ -13,7 +13,7 @@ export default function GroupOrder() {
 
   return (
     <div className="content delivery_form">
-      <OrderMenubar />
+      <OrderMenubar2 />
 
       <SeulkiHeader title={"단체주문"} />
       <div>

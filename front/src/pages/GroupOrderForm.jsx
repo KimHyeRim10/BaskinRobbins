@@ -1,96 +1,51 @@
 import React, { useRef, useState } from "react";
 import "../css/seulki.css";
-import OrderMenubar from "../components/OrderMenubar.jsx";
+import { OrderMenubar2 } from "../components/OrderMenubar.jsx";
 import SeulkiHeader from "../components/SeulkiHeader.jsx";
 import DaumPostcode from "react-daum-postcode";
 import { SeulkiModal } from "../components/SeulkiModal.jsx";
+import { SeulkiMap1, SeulkiMap2 } from "../components/SeulkiMap.jsx";
 
 export default function GroupOrderForm() {
-  const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({
+    zipcode: "",
+    address: "",
+    detailAddress: "",
+  });
 
+  const detailAddressRef = useRef(null);
+  const [showModal, setShowModal] = useState(false); //* 혜택팝업
+  const [selectedValues, setSelectedValues] = useState([]); //* 구매희망 상품군
+
+  //* 변화감지
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  //* ↓ 구매희망 상품군
+  const handleInputChange = (e) => {
+    const { value, checked } = e.target;
+    if (checked) {
+      setSelectedValues([...selectedValues, value]);
+    } else {
+      setSelectedValues(selectedValues.filter((val) => val !== value));
+    }
+  };
+
+  const handleRemoveItem = (index) => {
+    const updatedValues = [...selectedValues];
+    updatedValues.splice(index, 1);
+    setSelectedValues(updatedValues);
+  };
+
+  //* ↓ 혜택팝업
   const openModal = () => {
     setShowModal(true);
   };
 
   const closeModal = () => {
     setShowModal(false);
-  };
-
-  //TODO 전체항목 변화감지
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    number: "",
-    zipcode: "",
-    address: "",
-    detailAddress: "",
-  });
-
-  //TODO 필수항목 변화감지
-  const [formError, setFormError] = useState({
-    name: "",
-    email: "",
-    number: "",
-  });
-
-  //TODO focus용
-  const refName = useRef(null);
-  const refEmail = useRef(null);
-  const refNumber = useRef(null);
-
-  //TODO 폼데이터 변경시 호출이벤트 [변화감지]
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-    // [name]: value -> 선택한 항목의 name값의 value값을 변경
-    // 선택한 항목의 name="id"이면 여기 변수 name에 id가 들어감
-  };
-  // console.log(formData);
-
-  //* step2의 주소검색부분
-  const handleAddress = (e) => {
-    setFormData({ ...formData, zipcode: e.zipcode, address: e.address });
-  }; //! step2에서 zonecode를 zipcode에 넣었으니까 데이터는 e.zipcode가 됨!!
-
-  //TODO 서버전송
-  const handleSubmit = (e) => {
-    e.preventDefault(); //! submit 주도권 변경
-    if (validationCheck()) {
-      console.log("submit 성공=>", formData); // 유효성 체크가 true이면 실행할 실행문
-    }
-  };
-
-  //TODO 유효성 체크 (validation check)
-  const validationCheck = () => {
-    let checkFlag = true;
-    const errors = {};
-
-    //! ※브라우저에 표시될 focus는 한곳만 가능.
-    //? 포커스 필요한 곳이 한곳이상일 때, if문 과 if ~ else if문의 로직차이 ↓
-    //? if로만 진행하면 제일 마지막 영역에 포커스가 가고, 메시지는 빈곳에 다뜸
-    //? if ~ else if 일땐 제일 윗쪽 영역에 포커스가 가고, 메시지도 제일 윗쪽 영역만 뜸
-
-    if (!formData.name.trim()) {
-      // refName.current.focus();
-      checkFlag = false;
-    }
-    if (!formData.email.trim()) {
-      // refEmail.current.focus();
-      checkFlag = false;
-    }
-    if (!formData.number.trim()) {
-      // refNumber.current.focus();
-      checkFlag = false;
-    }
-
-    //해당 에러의 맨위 element에 focus 설정하기 (if로만 진행했을 때 사용)
-    const keys = Object.keys(errors);
-    const fElement = document.querySelector(`[name="${keys[0]}"]`);
-    // fElement.focus();
-
-    // console.log(errors);
-    setFormError(errors); // errors에 모아서 한번에 setFormError에 넣어주기
-    return checkFlag;
   };
 
   //TODO 주소검색버튼 Toggle
@@ -101,7 +56,7 @@ export default function GroupOrderForm() {
     setIsOpen(true);
   };
 
-  //TODO ★ DaumPostcode 관련 디자인 및 이벤트
+  //TODO ★DaumPostcode 관련 디자인 및 이벤트
   const themeObj = {
     bgColor: "#FFFFFF", // 바탕 배경색
     pageBgColor: "#FFFFFF", // 페이지 배경색
@@ -116,7 +71,7 @@ export default function GroupOrderForm() {
 
   const completeHandler = (data) => {
     const { address, zonecode } = data; //! {address,zonecode} 이름고정. 임의로 변경하면 안됨!!
-    handleAddress({ zipcode: zonecode, address: address });
+    setFormData({ zipcode: zonecode, address: address });
   };
 
   const closeHandler = (state) => {
@@ -124,14 +79,17 @@ export default function GroupOrderForm() {
       setIsOpen(false);
     } else if (state === "COMPLETE_CLOSE") {
       setIsOpen(false);
-      // refs.detailAddressRef.current.value = ""; 실행이 안되서 일단 보류처리
-      // refs.detailAddressRef.current.focus();
+      detailAddressRef.current.focus();
     }
+  };
+
+  const handleClick = () => {
+    alert("단체주문 주문서가 접수되었습니다!");
   };
 
   return (
     <div className="content delivery_form">
-      <OrderMenubar />
+      <OrderMenubar2 />
       <SeulkiHeader title={"단체주문서 작성"} />
       <div>
         <p className="delivery_header_font">
@@ -141,7 +99,7 @@ export default function GroupOrderForm() {
       </div>
 
       <div className="delivery_form_content">
-        <form className="delivery_form_detail" onSubmit={handleSubmit}>
+        <form className="delivery_form_detail" /* onSubmit={handleSubmit} */>
           <section className="delivery_form_section1">
             <div className="d_f_section1">
               <h3 className="delivery_form_h3">
@@ -333,17 +291,13 @@ export default function GroupOrderForm() {
               <h3 className="delivery_form_h3">단체주문 주문서 작성자 정보</h3>
             </div>
             <div className="delivery_form_section4_form1">
-              <ul>
+              <ul className="delivery_form_section4_form1_ul">
                 <li>
                   <lable>이름</lable>
                   <input
                     className="d_f_input_color"
                     type="text"
-                    name="name"
-                    value={formData.name}
-                    // onChange={handleChange}
-                    ref={refName}
-                    placeholder="이름 또는 업체명을 입력해 주세요"
+                    placeholder="   이름 또는 업체명을 입력해 주세요"
                   />
                 </li>
                 <li>
@@ -351,11 +305,7 @@ export default function GroupOrderForm() {
                   <input
                     className="d_f_input_color"
                     type="text"
-                    name="email"
-                    value={formData.email}
-                    // onChange={handleChange}
-                    ref={refEmail}
-                    placeholder="이메일 입력"
+                    placeholder="   이메일 입력"
                   />
                   &nbsp;
                   <span>
@@ -365,14 +315,7 @@ export default function GroupOrderForm() {
                 </li>
                 <li>
                   <lable>신청자 연락처</lable>
-                  <input
-                    className="d_f_input_color"
-                    type="text"
-                    name="number"
-                    value={formData.number}
-                    placeholder="010-xxxx-xxxx"
-                    // onChange={handleChange}
-                  />
+                  <input className="d_f_input_color" type="text" />
                   &nbsp;
                   <span>
                     휴대폰번호 또는 유선전화 중 연락 가능한 전화번호를
@@ -384,11 +327,11 @@ export default function GroupOrderForm() {
 
                   <input
                     className="d_f_input_color"
-                    type="text"
                     name="zipcode"
                     value={formData.zipcode}
-                    // onChange={handleChange}
-                    placeholder="우편번호"
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="   우편번호"
                   ></input>
                   <button
                     className="d_f_input_button"
@@ -397,25 +340,28 @@ export default function GroupOrderForm() {
                   >
                     우편번호 찾기
                   </button>
-                  <br />
-                  <input
-                    className="d_f_input_color"
-                    type="text"
-                    name="address"
-                    value={formData.address}
-                    // onChange={handleChange}
-                    placeholder="기본 주소를 입력하세요."
-                  />
-                  <br />
-                  <input
-                    className="d_f_input_color"
-                    type="text"
-                    name="detailAddress"
-                    value={formData.detailAddress}
-                    // onChange={handleChange}
-                    // ref={refs.detailAddressRef}
-                    placeholder="상세 주소를 입력하세요"
-                  />
+                  <li>
+                    <lable></lable>
+                    <input
+                      className="d_f_input_color"
+                      type="text"
+                      name="address"
+                      value={formData.address}
+                      onChange={handleChange}
+                      placeholder="   기본 주소를 입력하세요."
+                    />
+                  </li>
+                  <li>
+                    <lable></lable>
+                    <input
+                      className="d_f_input_color"
+                      type="text"
+                      name="detailAddress"
+                      onChange={handleChange}
+                      ref={detailAddressRef}
+                      placeholder="   상세 주소를 입력하세요"
+                    />
+                  </li>
                   {isOpen && (
                     /* [ isOpen && ]을 안쓰면 주소검색창이 계속 떠있게 됨! */
                     <div>
@@ -432,10 +378,254 @@ export default function GroupOrderForm() {
                 </li>
               </ul>
             </div>
-            <button type="submit" className="delivery_form_button_b">
+          </section>
+
+          {/* 섹션5 */}
+          <section className="delivery_form_section5">
+            <div className="d_f_section1">
+              <h3 className="delivery_form_h3">
+                단체주문 주문서 세부내용 작성
+              </h3>
+            </div>
+            <table className="delivery_section2_table">
+              <tbody className="delivery_section2_table_tbody1">
+                <tr>
+                  <th>제품 수령 방식</th>
+                  <td>
+                    <div>
+                      <label>
+                        <input
+                          className="delivery_radio_input"
+                          type="radio"
+                          name="get_product"
+                          value="a"
+                        />
+                        <span>한곳으로 배송</span>
+                      </label>
+                      <label>
+                        <input
+                          className="delivery_radio_input"
+                          type="radio"
+                          name="get_product"
+                          value="b"
+                        />
+                        <span>여러곳 배달</span>
+                      </label>
+                    </div>
+                    <div>
+                      <label>
+                        <input
+                          className="delivery_radio_input"
+                          type="radio"
+                          name="get_product"
+                          value="c"
+                        />
+                        <span>모바일 교환권</span>
+                      </label>
+                      <label>
+                        <input
+                          className="delivery_radio_input"
+                          type="radio"
+                          name="get_product"
+                          value="d"
+                        />
+                        <span>지류상품권</span>
+                      </label>
+                    </div>
+                    <div>
+                      <label>
+                        <input
+                          className="delivery_radio_input"
+                          type="radio"
+                          name="get_product"
+                          value="e"
+                        />
+                        <span>기타</span>
+                      </label>
+                      <input className="d_f_input_color" type="text" />
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <th>구매 희망 상품군</th>
+                  <td>
+                    <div>
+                      <div className="seulki_flex">
+                        <p>중복 선택가능</p>
+                        <button
+                          className="delivery_form_button_s"
+                          type="button"
+                        >
+                          제품 이미지로 보기
+                        </button>
+                      </div>
+                      <div>
+                        <label>
+                          <input
+                            type="checkbox"
+                            value="아이스크림 케이크"
+                            onChange={handleInputChange}
+                          />
+                          <span>아이스크림 케이크</span>
+                        </label>
+                      </div>
+                      <div>
+                        <label>
+                          <input
+                            type="checkbox"
+                            value="블록팩 (싱글 레귤러 크기, 170ml)"
+                            onChange={handleInputChange}
+                          />
+                          <span>블록팩 (싱글 레귤러 크기, 170ml)</span>
+                        </label>
+                      </div>
+                      <div>
+                        <label>
+                          <input
+                            type="checkbox"
+                            value="레디팩 (파인트크기 474ml)"
+                            onChange={handleInputChange}
+                          />
+                          <span>레디팩 (파인트크기 474ml)</span>
+                        </label>
+                      </div>
+                      <div>
+                        <label>
+                          <input
+                            type="checkbox"
+                            value="레디팩 미니 (260ml)"
+                            onChange={handleInputChange}
+                          />
+                          <span>레디팩 미니 (260ml)</span>
+                        </label>
+                      </div>
+                      <div>
+                        <label>
+                          <input
+                            type="checkbox"
+                            value="디저트류 (모찌, 마카롱, 스틱바 등)"
+                            onChange={handleInputChange}
+                          />
+                          <span>디저트류 (모찌, 마카롱, 스틱바 등)</span>
+                        </label>
+                      </div>
+                      <div>
+                        <label>
+                          <input
+                            type="checkbox"
+                            value="기타"
+                            onChange={handleInputChange}
+                          />
+                          <span>기타</span>
+                        </label>
+                        <input className="d_f_input_color" type="text" />
+                      </div>
+                      <p className="d_f_p">
+                        * 구매를 원하시는 정확한 상품명을 기재해 주시면,
+                        단체주문이 원활히 이루어 집니다.
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>제품 수령 희망 일자</th>
+                  <td>
+                    <div>
+                      <input
+                        className="d_f_input_color d_f_input_date"
+                        type="date"
+                      />
+                      <SeulkiMap1 />
+                      <span className="openstore_s1_time_span">시</span>
+                      <SeulkiMap2 />
+                      <span className="openstore_s1_time_span">분</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section className="delivery_form_section6">
+            <table className="delivery_section2_table">
+              <tbody>
+                <tr>
+                  <th>주문정보</th>
+                  <td>
+                    <div>
+                      {selectedValues.map((value, index) => (
+                        <p key={index}>
+                          {<span className="seulki_map_span">{value}</span>}
+                          <span>
+                            <input className="seulki_map_input" type="text" />
+                            &nbsp;
+                            <span>개</span>
+                          </span>
+                          <button
+                            className="seulki_map_button"
+                            type="button"
+                            onClick={() => handleRemoveItem(index)}
+                          >
+                            <img src="/images/grouporder/icon_delete.jpg" />
+                          </button>
+                        </p>
+                      ))}
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section className="delivery_form_section7">
+            <table className="delivery_section2_table">
+              <tbody>
+                <tr>
+                  <th>요청사항</th>
+                  <td>
+                    <div>
+                      <textarea
+                        className="d_f_input_color d_f_textarea"
+                        placeholder="요청 사항 혹은 문의 내용을 입력 해주세요. 해당 내용에 대한답변은 세부내용 안내 시 함께 답변 드립니다."
+                      ></textarea>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <div className="delivery_form_bottom seulki_flex">
+            <div className="delivery_form_bottom_div">
+              <p className="delivery_form_bottom_p">* 제출 전 읽어주세요 !</p>
+              <ul>
+                <li>
+                  제품을 준비 할 수 있는 넉넉한 기간은 3일입니다 최소 3일전에
+                  접수 부탁 드립니다. (공휴일제외)
+                </li>
+                <li>
+                  단체주문 일정이 급하신 고객님은 유선으로 전화상담 해주시면,
+                  친절히 도와 드리겠습니다.
+                </li>
+                <li>
+                  트레일러 / 이동식 부스 / 저장고 등의 설치비용은 유상서비스로
+                  별도 청구 됩니다.
+                </li>
+                <li>
+                  본사와 사전에 협의되지 않는 내용에 대한 서비스는 제한 될 수
+                  있습니다.
+                </li>
+              </ul>
+            </div>
+            <button
+              type="submit"
+              className="delivery_form_button_b"
+              onClick={handleClick}
+            >
               제출하기
             </button>
-          </section>
+          </div>
         </form>
       </div>
     </div>
