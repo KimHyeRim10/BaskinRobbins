@@ -453,7 +453,6 @@ input::placeholder {
 
 .grouporder_main {
   margin: 0 auto;
-  /* border: 1px solid red; */
   width: 1000px;
   margin-bottom: 160px;
   align-items: center;
@@ -1346,4 +1345,72 @@ input::placeholder {
   color: #000;
   font-weight: 500;
   margin-right: 15px;
+}
+
+/** ------------------------------------------------------- Mycart.jsx */
+
+.cart_form {
+  text-align: center;
+  align-items: center;
+}
+
+.cart_table,
+.cart_table2 {
+  width: 80%;
+  margin-top: 15px;
+  border: 1px solid #c6c1bf;
+  border-collapse: collapse;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 0 auto;
+}
+
+.cart_table2_div {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.cart_table th,
+.cart_table td,
+.cart_table2 th {
+  padding: 16px;
+  border: 1px solid #c6c1bf;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+}
+
+.cart_table th,
+.cart_table2_th1 {
+  background: rgb(255, 231, 235);
+  color: rgb(48, 96, 180);
+}
+
+.cart_table td {
+  color: #41332c;
+}
+
+.cart_table2_span {
+  color: #41332c;
+}
+
+.cart_delete_btn {
+  background-color: var(--pink-color-3);
+  color: #fff;
+  border: none;
+  width: 30px;
+  height: 30px;
+}
+
+.cart_button {
+  background-color: var(--pink-color-3);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  width: 300px;
+  height: 60px;
+  font-size: 18px;
+  margin: 40px 0;
+  cursor: pointer;
+  margin: 0 auto;
 }
