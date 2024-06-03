@@ -13,7 +13,6 @@
     "axios": "^1.7.0",
     "bootstrap": "^5.3.3",
     "decode": "^0.3.0",
-    "jwt": "^0.2.0",
     "jwt-decode": "^4.0.0",
     "mysql2": "^3.10.0",
     "rc-pagination": "^4.1.0",
