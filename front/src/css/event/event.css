@@ -83,7 +83,45 @@ button{
   background-color: transparent;
 }
 
-.navbarlist li:nth-child(1) button {
+.eventbar:nth-child(1) button {
   color: white;
   background-color:rgb(249,134,189);
+}
+.Titlebox{
+  margin: 1rem 0;
+}
+.detailEvent{
+  font-size: 4rem;
+  color: rgb(249,134,189);
+  margin: 0;
+  margin-bottom: 1.5rem;
+}
+.detailcategory{
+  font-weight: 600;
+}
+.detailTitle{
+  margin: 0;
+  font-size: 1.5rem;
+}
+.detailNotice{
+ /*  border: 1px solid red; */
+  padding: 1rem 0;
+  width: 500px;
+  text-align: left;
+  font-size: .7rem;
+  color: rgb(177, 177, 177);;
+}
+#eventDetail{
+  padding-bottom: 3rem;
+}
+.backbtn{
+  margin-top: 2rem;
+  background-color: black;
+  width: 120px;
+  padding: .8rem 1rem;
+  border-radius: 20px;
+}
+.btncontent{
+  color:white;
+  font-weight: 600;
 }

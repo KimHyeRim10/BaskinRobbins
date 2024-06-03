@@ -1,7 +1,9 @@
 import '../css/style.css'
 import '../css/main/main_commons.css'
+import '../css/cscenter/faq.css'
 import { BigTitleNInfo,EventCategoris } from '../components/MainComponents'
 import { useState } from 'react'
+import { FaQbox } from '../components/CScenterComponents'
 
 export default function FaQ(){
     const [type,setType] = useState('전체')
@@ -25,6 +27,7 @@ export default function FaQ(){
                         </li>
                     ))}
                 </ul>
+                <FaQbox/>
             </div>
         </div>
     )

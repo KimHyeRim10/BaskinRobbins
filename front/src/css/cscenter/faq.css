@@ -20,3 +20,53 @@
 .unactive{
     color: rgb(177, 177, 177);
 }
+.qubox{
+    position: relative;
+    margin: 2rem auto;
+    width: 1000px;
+    text-align: left;
+    font-size: 2rem;
+}
+.questions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgb(188,188,188);
+    border-bottom: 1px solid rgb(188,188,188);
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+.openBtn{
+    display: inline;
+    font-size: 3rem;
+    padding:0;
+}
+.qonly{    
+    margin-left: -16rem;                                         
+}
+.answers{
+    display: flex;
+    justify-content:left;
+    padding-left: 1.5rem;
+    align-items: center;
+    gap: 3rem;
+    background-color: rgb(250,250,248);
+    border-top: 1px solid rgb(188,188,188);
+    border-bottom: 1px solid rgb(188,188,188);
+    transition: all ease 500ms;
+    margin-top: -4rem;
+    z-index: -99;
+    opacity: 0;
+    visibility: 0;
+    font-size: 1.2rem;
+    height: 80px;
+}
+.qicon{
+    font-size: 2rem;
+}
+.qcolor{
+    color: rgb(255,149,180);
+}
+.acolor{
+    color: rgb(92,197,242);
+}

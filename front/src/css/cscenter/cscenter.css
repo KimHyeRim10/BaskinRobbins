@@ -1,9 +1,6 @@
 /* navbar list */
 
-.navbarlist li:nth-child(1) button {
-    color: white;
-    background-color:rgb(249,134,189);
-}
+
 .navbarlist li:nth-child(2) button {
     color: rgb(249,134,189);
     background-color:white;
@@ -122,4 +119,60 @@
 }
 .process_notice{
     margin-top: 2rem;
+}
+
+/*  공지사항 */
+.noticebar:first-child button {
+    color: rgb(249,134,189);
+    background-color:white;
+    width: 150px;
+}
+.noticebar:last-child button{
+    color: white;
+    background-color: rgb(249,134,189)
+}
+.noticeinfos{
+    display: flex;
+    border-top: 1px solid rgb(188,188,188);
+    border-bottom: 1px solid rgb(188,188,188);
+    padding: 1rem 2rem;
+    justify-content: left;
+    gap: 3rem;
+    width: 1100px;
+    margin: 0 auto;
+}
+.noticerno{
+    font-size: .9rem;
+    color: rgb(164,166,192);
+}
+.noticetitle{
+    font-size: 1rem;
+}
+.noticedate{
+    margin-left: 33rem;
+    font-size: .9rem;
+    color: rgb(164,166,192);
+}
+.noticedetailtitle{
+    font-size: 4rem;
+    font-weight:800;
+    color: rgb(249,134,189);
+}
+.detailcontenttitle{
+    font-size: 2rem;
+}
+.detaildate{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.detailimage{
+    padding: 3rem 0;
+}
+.backbtndetail{
+    color: white;
+    background-color: black;
+    width: 200px;
+    height: 50px;
+    font-size: 1.5rem;
+    border-radius: 25px;
 }

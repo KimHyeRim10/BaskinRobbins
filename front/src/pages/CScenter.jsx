@@ -18,10 +18,10 @@ export default function CScenter(){
         helpList.push(csfaq.slice(i,i+2))
     }
     const cscenter = [
-        {title:"고객센터"},
-        {title:"소비자중심경영(CCM)"},
-        {title:"칭찬첨포"},
-        {title:"공지사항"},
+        {title:"고객센터",path:"/cscenter"},
+        {title:"소비자중심경영(CCM)" ,path:"/cscenter/ccm"},
+        {title:"칭찬첨포", path:"/cscenter/praise"},
+        {title:"공지사항", path:"/cscenter/notice"},
     ]
     const channel = [
         {
@@ -51,7 +51,8 @@ export default function CScenter(){
                     {cscenter.map((item)=>(
                         <li className='navbar'>
                             <Navbar
-                            title={item.title}/>
+                            title={item.title}
+                            path={item.path}/>
                         </li>
                     ))}
                 </ul>

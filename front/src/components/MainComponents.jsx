@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export function Title({title, desc}) {
   return (
     <div className='title_parts'>
@@ -7,10 +8,12 @@ export function Title({title, desc}) {
 );
 }
 
-export function Navbar({title}) {
+export function Navbar({title,path}) {
   return (
     <div className="navbar">
-      <button className="navbartitle">{title}</button>
+      <Link to={path}>
+        <button className="navbartitle">{title}</button>
+      </Link>
     </div>
 );
 }
