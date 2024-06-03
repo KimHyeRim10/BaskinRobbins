@@ -17,8 +17,8 @@
 .content {
   width: 1500px;
   margin: auto;
-  padding-bottom: 170px;
-  padding-top: 150px;
+  margin-bottom: 170px;
+  margin-bottom: 150px;
 }
 
 .header,

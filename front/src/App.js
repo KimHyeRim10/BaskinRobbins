@@ -10,16 +10,17 @@ import IceCreamDetail from "./menu/IceCreamDetail.jsx";
 import PrepackDetail from "./menu/PrepackDetail.jsx";
 import IceCreamCakeDetail from "./menu/IceCreamCakeDetail.jsx";
 
-import Main from "./Main.jsx";
-import Event from "./Event.jsx";
-import EventPromotion from "./EventPromotion.jsx";
-import EventBenefit from "./EventBenefit.jsx";
-import BRRecipe from "./BRRecipe.jsx";
-import BRRecipeDetail from "./BRRecipeDetail.jsx";
-import Flavor from "./Flavor.jsx";
-import Flow from "./Flow.jsx";
-import CScenter from "./CScenter.jsx";
-import FaQ from "./FaQ.jsx";
+import Main from "./pages/Main.jsx";
+import Event from "./pages/Event.jsx";
+import EventPromotion from "./pages/EventPromotion.jsx";
+import EventBenefit from "./pages/EventBenefit.jsx";
+import BRRecipe from "./pages/BRRecipe.jsx";
+import BRRecipeDetail from "./pages/BRRecipeDetail.jsx";
+import Flavor from "./pages/Flavor.jsx";
+import Flow from "./pages/Flow.jsx";
+import CScenter from "./pages/CScenter.jsx";
+import FaQ from "./pages/FaQ.jsx";
+import Notice from "./pages/Notice.jsx";
 
 import Bebetter from "./pages/Bebetter.jsx";
 import History from "./pages/History.jsx";
@@ -45,69 +46,65 @@ function App() {
     {
       path: "/",
       element: <Root />,
-      children: [{ path: "/", element: <Main /> }],
+      children: [
+        { path: "/", element: <Main /> },
 
-      children: [{ path: "/menu", element: <IceCream /> }],
-      children: [{ path: "/menu/monthflavor", element: <MonthFlavor /> }],
-      children: [{ path: "/menu/icecream", element: <IceCream /> }],
-      children: [{ path: "/menu/prepack", element: <Prepack /> }],
-      children: [{ path: "/menu/icecreamcake", element: <IceCreamCake /> }],
-      children: [
+        { path: "/menu", element: <IceCream /> },
+        { path: "/menu/monthflavor", element: <MonthFlavor /> },
+        { path: "/menu/icecream", element: <IceCream /> },
+        { path: "/menu/prepack", element: <Prepack /> },
+        { path: "/menu/icecreamcake", element: <IceCreamCake /> },
+
         { path: "/menu/icecreamdetail/:id", element: <IceCreamDetail /> },
-      ],
-      children: [
+
         { path: "/menu/prepackdetail/:id", element: <PrepackDetail /> },
-      ],
-      children: [
+
         {
           path: "/menu/icecreamcakedetail/:id",
           element: <IceCreamCakeDetail />,
         },
-      ],
 
-      children: [{ path: "/play", element: <Event /> }],
-      children: [{ path: "/play/event", element: <Event /> }],
-      children: [
+        { path: "/play", element: <Event /> },
+        { path: "/play/event", element: <Event /> },
+
         { path: "/play/event/promotion", element: <EventPromotion /> },
-      ],
-      children: [{ path: "/play/event/benefit", element: <EventBenefit /> }],
-      children: [{ path: "/play/brrecipe", element: <BRRecipe /> }],
-      children: [
+
+        { path: "/play/event/benefit", element: <EventBenefit /> },
+        { path: "/play/brrecipe", element: <BRRecipe /> },
+
         { path: "/play/brrecipe/detail:id", element: <BRRecipeDetail /> },
-      ],
 
-      children: [{ path: "/story", element: <Story /> }],
-      children: [{ path: "/story/story", element: <Story /> }],
-      children: [{ path: "/story/history", element: <History /> }],
-      children: [{ path: "/story/bebetter", element: <Bebetter /> }],
+        { path: "/story", element: <Story /> },
+        { path: "/story/story", element: <Story /> },
+        { path: "/story/history", element: <History /> },
+        { path: "/story/bebetter", element: <Bebetter /> },
 
-      children: [{ path: "/store", element: <Flavor /> }],
-      children: [{ path: "/store/flavor", element: <Flavor /> }],
-      children: [{ path: "/store/flow", element: <Flow /> }],
-      children: [{ path: "/store/openstore", element: <OpenStore /> }],
-      children: [{ path: "/store/newstore", element: <NewStore /> }],
-      children: [{ path: "/store/delivery", element: <DeliveryOrder /> }],
-      children: [{ path: "/store/catering", element: <GroupOrder /> }],
-      children: [
+        { path: "/store", element: <Flavor /> },
+        { path: "/store/flavor", element: <Flavor /> },
+        { path: "/store/flow", element: <Flow /> },
+        { path: "/store/openstore", element: <OpenStore /> },
+        { path: "/store/newstore", element: <NewStore /> },
+        { path: "/store/delivery", element: <DeliveryOrder /> },
+        { path: "/store/catering", element: <GroupOrder /> },
+
         { path: "/store/catering-order", element: <GroupOrderForm /> },
-      ],
 
-      children: [{ path: "/cscenter", element: <CScenter /> }],
-      children: [{ path: "/cscenter/faq", element: <FaQ /> }],
-      children: [{ path: "/cscenter/ccm", element: <Ccm /> }],
-      children: [{ path: "/cscenter/praise", element: <Praise /> }],
-      children: [{ path: "/cscenter/notice", element: <Notice /> }],
+        { path: "/cscenter", element: <CScenter /> },
+        { path: "/cscenter/faq", element: <FaQ /> },
+        { path: "/cscenter/ccm", element: <Ccm /> },
+        { path: "/cscenter/praise", element: <Praise /> },
+        { path: "/cscenter/notice", element: <Notice /> },
 
-      children: [
         { path: "/cscenter/policy-reward", element: <PolicyReward /> },
-      ],
-      children: [{ path: "/cscenter/policy", element: <Policy /> }],
-      children: [{ path: "/cscenter/policy-cctv", element: <PolicyCctv /> }],
-      children: [{ path: "/cscenter/safety-management", element: <Safety /> }],
+        ,
+        { path: "/cscenter/policy", element: <Policy /> },
+        { path: "/cscenter/policy-cctv", element: <PolicyCctv /> },
+        { path: "/cscenter/safety-management", element: <Safety /> },
 
-      children: [{ path: "/carts", element: <MyCart /> }],
-      children: [{ path: "/login", element: <Login /> }],
-      children: [{ path: "/signup", element: <Signup /> }],
+        { path: "/carts", element: <MyCart /> },
+        { path: "/login", element: <Login /> },
+        { path: "/signup", element: <Signup /> },
+      ],
     },
   ]);
 
