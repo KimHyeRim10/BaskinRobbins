@@ -1467,7 +1467,7 @@ input::placeholder {
   align-items: center;
 }
 
-.signup-info {
+.signup_info {
   list-style-type: none;
 }
 
@@ -1477,25 +1477,36 @@ input::placeholder {
 
 /**--------------------- SignupStep3.jsx 부분 */
 
-.step3-title {
-  font-size: 2.1rem;
-  color: var(--color-tomato);
+.step3_title {
+  color: #f986bd;
+  margin-bottom: 20px;
+  font-size: 40px;
+  margin-bottom: 50px;
 }
-.step3-text {
-  align-items: center;
-}
-.step3-img {
+
+.step3_img {
   height: 700px;
+  margin-bottom: 50px;
 }
-.step3-text-p {
-  font-size: 14pt;
+.step3_text_p {
+  color: #f986bd;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 50px;
 }
-.step3-button {
-  width: 120px;
-  padding: 3px 0;
+.step3_button {
   background-color: var(--pink-color-2);
   color: #fff;
   border: none;
-  border-radius: 4px;
-  height: 35px;
+  border-radius: 30px;
+  width: 225.96px;
+  height: 60px;
+  font-size: 18px;
+  margin: 40px 0;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.step3_button:hover .login_spoon {
+  animation: tada 1s;
 }
