@@ -35,6 +35,7 @@
   height: 45px;
   font-size: 20px;
   font-weight: bold;
+  cursor: pointer;
 }
 .signup_button {
   border: 1px solid var(--pink-color-3);
@@ -47,6 +48,7 @@
   height: 45px;
   font-size: 20px;
   font-weight: bold;
+  cursor: pointer;
 }
 .word1 {
   display: flex;
@@ -82,7 +84,7 @@ input::placeholder {
   animation: tada 1s;
 }
 
-/** ------------------------------------------------------- NavbarS.jsx */
+/** ------------------------------------------------------- OrderMenubar.jsx */
 
 .menu_s {
   display: flex;
@@ -92,20 +94,32 @@ input::placeholder {
 .menu_s_detail {
   width: 120px;
   display: block;
-  position: relative;
+  /* position: relative; */
   padding: 5px 22px;
   border-radius: 2px;
   color: #f986bd;
   font-weight: 600;
   font-size: 15px;
+  border-right: 1px solid #fcb5d7;
+}
+
+.menu_s_detail:last-child {
+  border: none;
 }
 
 .menu_s_detail_color {
   background-color: #f986bd;
+}
+
+.menu_s_detail_link {
+  color: #f986bd;
+}
+
+.menu_s_detail_link_point {
   color: #fff;
 }
 
-.menu_s_detail:not(:last-child)::after {
+/* .menu_s_detail:not(:last-child)::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -114,7 +128,7 @@ input::placeholder {
   width: 1px;
   height: 20px;
   background-color: #f986bd;
-}
+} */
 
 .menu_s_2 {
   width: 180px;
@@ -809,6 +823,30 @@ input::placeholder {
   height: 70px;
   font-size: 25px;
 }
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -10%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+    transform: translate3d(0, -10%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
 .modal_container_s {
   border: 1px solid #c6c1bf;
   position: fixed;
@@ -816,7 +854,10 @@ input::placeholder {
   /* left: 20%; */
   top: 3rem;
   margin-top: 200px;
+  animation: fadein 0.6s;
+  -webkit-animation: fadein 0.6s; /* Safari and Chrome */
 }
+
 .modal_out_s {
   background-color: gray;
   background-color: rgba(175, 175, 175, 0.623);

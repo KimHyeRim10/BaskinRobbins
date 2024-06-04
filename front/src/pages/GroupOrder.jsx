@@ -1,16 +1,10 @@
 import React from "react";
 import "../css/seulki.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { OrderMenubar2 } from "../components/OrderMenubar.jsx";
 import SeulkiHeader from "../components/SeulkiHeader.jsx";
 
 export default function GroupOrder() {
-  // const navigate = useNavigate();
-
-  // const handleLogin = () => {
-  //   navigate("/login");
-  // };
-
   return (
     <div className="content delivery_form">
       <OrderMenubar2 />
@@ -34,9 +28,11 @@ export default function GroupOrder() {
         </button> */}
 
         <div className="grouporder_button_div">
-          <button className="grouporder_button">
-            주문서 접수하기 &nbsp;&nbsp;&nbsp;{">"}
-          </button>
+          <Link to="/store/catering-order">
+            <button className="grouporder_button">
+              주문서 접수하기 &nbsp;&nbsp;&nbsp;{">"}
+            </button>
+          </Link>
           <p className="grouporder_section1_p1">
             수령일 기준 최소 3일전 주문 가능
           </p>
@@ -308,9 +304,11 @@ export default function GroupOrder() {
             <li>※ 문의 : 월~금 AM 9:00 ~ PM 6:00</li>
             <li>※ 연락처 : 010-1234-5678</li>
           </ul>
-          <button className="grouporder_button">
-            주문서 접수하기 &nbsp;&nbsp;&nbsp;{">"}
-          </button>
+          <Link to="/store/catering-order">
+            <button className="grouporder_button">
+              주문서 접수하기 &nbsp;&nbsp;&nbsp;{">"}
+            </button>
+          </Link>
         </div>
       </section>
     </div>

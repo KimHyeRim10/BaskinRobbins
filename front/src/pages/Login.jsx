@@ -4,6 +4,7 @@ import "../css/seulki.css";
 import "../css/animation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpoon } from "@fortawesome/free-solid-svg-icons/faSpoon";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [formData, setFormData] = useState({ id: "", pw: "" });
@@ -106,10 +107,12 @@ export default function Login() {
           가입하시고 다양한 혜택을 경험하세요
         </p>
         <div>
-          <button className="signup_button">
-            <FontAwesomeIcon icon={faSpoon} className="login_spoon" />
-            &nbsp; 베스킨라빈스 가입
-          </button>
+          <Link to="/signup">
+            <button className="signup_button">
+              <FontAwesomeIcon icon={faSpoon} className="login_spoon" />
+              &nbsp; 베스킨라빈스 가입
+            </button>
+          </Link>
         </div>
       </form>
     </div>

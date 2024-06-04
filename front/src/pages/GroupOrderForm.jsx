@@ -5,8 +5,11 @@ import SeulkiHeader from "../components/SeulkiHeader.jsx";
 import DaumPostcode from "react-daum-postcode";
 import { SeulkiModal } from "../components/SeulkiModal.jsx";
 import { SeulkiMap1, SeulkiMap2 } from "../components/SeulkiMap.jsx";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function GroupOrderForm() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     zipcode: "",
     address: "",
@@ -83,8 +86,10 @@ export default function GroupOrderForm() {
     }
   };
 
+  //TODO 제출하기 버튼
   const handleClick = () => {
     alert("단체주문 주문서가 접수되었습니다!");
+    navigate("/store/catering");
   };
 
   return (
@@ -453,12 +458,14 @@ export default function GroupOrderForm() {
                     <div>
                       <div className="seulki_flex">
                         <p>중복 선택가능</p>
-                        <button
-                          className="delivery_form_button_s"
-                          type="button"
-                        >
-                          제품 이미지로 보기
-                        </button>
+                        <Link to="/menu/icecream">
+                          <button
+                            className="delivery_form_button_s"
+                            type="button"
+                          >
+                            제품 이미지로 보기
+                          </button>
+                        </Link>
                       </div>
                       <div>
                         <label>

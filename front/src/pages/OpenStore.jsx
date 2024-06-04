@@ -8,6 +8,7 @@ import {
   SeulkiMap2,
   TwoTierSelect,
 } from "../components/SeulkiMap.jsx";
+import { useNavigate } from "react-router-dom";
 
 export default function OpenStore() {
   const [formData, setFormData] = useState({
@@ -17,6 +18,8 @@ export default function OpenStore() {
   });
 
   const detailAddressRef = useRef(null);
+
+  const navigate = useNavigate();
 
   //* 변화감지
   const handleChange = (e) => {
@@ -59,8 +62,19 @@ export default function OpenStore() {
     }
   };
 
+  //TODO 등록버튼
   const handleClick = () => {
     alert("점포개설문의가 접수되었습니다!");
+  };
+
+  //TODO 취소버튼
+  const handleCancle = () => {
+    const result = window.confirm(
+      "작성 중인 글을 취소하고 메인으로 돌아가시겠습니까?"
+    );
+    if (result) {
+      navigate("/");
+    }
   };
 
   return (
@@ -155,7 +169,7 @@ export default function OpenStore() {
                 </tr>
 
                 <tr>
-                  <th>* 연락가능 시간</th>
+                  <th>&nbsp; 연락가능 시간</th>
                   <td className="openstore_s1_time">
                     <SeulkiMap1 />
                     <span className="openstore_s1_time_span">시</span>
@@ -183,14 +197,14 @@ export default function OpenStore() {
                 </tr>
 
                 <tr>
-                  <th>* 창업 희망 지역</th>
+                  <th>&nbsp; 창업 희망 지역</th>
                   <td>
                     <TwoTierSelect />
                   </td>
                 </tr>
 
                 <tr>
-                  <th>* 기타 문의 내용</th>
+                  <th>&nbsp; 기타 문의 내용</th>
                   <td>
                     <div>
                       <textarea
@@ -391,13 +405,17 @@ export default function OpenStore() {
             </div>
             <div className="delivery_line"></div>
             <div className="openstore_button">
-              <button type="button" className="openstore_button_1 ">
+              <button
+                type="button"
+                className="openstore_button_1"
+                onClick={handleCancle}
+              >
                 취소
               </button>
 
               <button
                 type="submit"
-                className="delivery_form_button_b "
+                className="delivery_form_button_b"
                 onClick={handleClick}
               >
                 등록
