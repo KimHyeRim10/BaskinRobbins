@@ -138,7 +138,7 @@ export default function SignupStep2({
         </p>
       </div>
       <form>
-        <ul className="signup-info">
+        <ul className="signup_info">
           <li>
             <p>
               아이디<span className="uni_s">*</span>
