@@ -128,7 +128,7 @@ export default function SignupStep2({
   };
 
   return (
-    <div className="content signup_form">
+    <div className="signup_form">
       <h2>Shoppy Signup</h2>
       <div>
         <h3>정보입력</h3>

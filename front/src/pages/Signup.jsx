@@ -10,6 +10,7 @@ export default function Signup() {
   const [formData, setFormData] = useState({
     service: false,
     personal: false,
+    choose: false,
     userId: "",
     userPass: "",
     userPassCheck: "",
@@ -36,7 +37,12 @@ export default function Signup() {
     // 파라미터인 type에 담기는 것 : 서비스,퍼스널 중 선택한 것
     // ※모두동의 체크박스에서는 type에 all이 들어감! handleCheck("all", e.target.checked)
     if (type === "all")
-      setFormData({ ...formData, service: isChecked, personal: isChecked });
+      setFormData({
+        ...formData,
+        service: isChecked,
+        personal: isChecked,
+        choose: isChecked,
+      });
     else setFormData({ ...formData, [type]: !formData[type] });
   };
 
@@ -64,7 +70,7 @@ export default function Signup() {
       <div className="content signup_form">
         <SeulkiHeader title={"회원가입"} />
         <div>
-          <p className="delivery_header_font">
+          <p className="delivery_header_font signup_desc">
             We make people happy
             <span className="exclamation_mark">!</span>
             <br />

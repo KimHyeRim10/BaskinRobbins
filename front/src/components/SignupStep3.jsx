@@ -13,7 +13,7 @@ export default function SignupStep3() {
   };
 
   return (
-    <div className="content signup_form">
+    <div className="signup_form">
       <h2 className="step3_title">welcome!</h2>
       <div className="step3_text">
         <img
