@@ -52,14 +52,6 @@ export default function Signup() {
     setFormData({ ...formData, [name]: value });
   };
 
-  //* 서비스,퍼스널 각각보낼때
-  const handleCheckService = () => {
-    setFormData({ ...formData, service: !formData.service });
-  };
-  const handleCheckPersonal = () => {
-    setFormData({ ...formData, personal: !formData.personal });
-  };
-
   //* step2의 주소검색부분
   const handleAddress = (e) => {
     setFormData({ ...formData, zipcode: e.zipcode, address: e.address });
@@ -83,8 +75,6 @@ export default function Signup() {
           <SignupStep1
             next={nextStep}
             formData={formData}
-            // handleCheckService={handleCheckService} //* 서비스,퍼스널 각각보낼때
-            // handleCheckPersonal={handleCheckPersonal} //* 서비스,퍼스널 각각보낼때
             handleCheck={handleCheck}
           />
         )}

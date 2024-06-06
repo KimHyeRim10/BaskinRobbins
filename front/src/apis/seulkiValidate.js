@@ -3,11 +3,11 @@
 //! 험수형태라서 파라미터 중괄호로 감싸기 X!!
 export const validateCheckStep1 = (next, formData) => {
   if (!formData.service) {
-    alert("서비스 약관에 동의해주세요");
-    document.getElementById("service").style.outline = "1px solid red";
+    alert("회원이용약관에 동의해주세요");
+    document.getElementById("service").style.outline = "2px solid red";
   } else if (!formData.personal) {
     alert("개인정보 이용 약관에 동의해주세요");
-    document.getElementById("personal").style.outline = "1px solid red";
+    document.getElementById("personal").style.outline = "2px solid red";
   } else {
     next();
   }
@@ -70,13 +70,13 @@ export const passCheck = (refs) => {
   const passCheck = refs.userPassCheckRef.current;
 
   if (pass.value !== passCheck.value) {
-    alert("비밀번호가 동일하지 않습니다");
+    alert("비밀번호가 일치하지 않습니다");
     pass.value = "";
     passCheck.value = "";
     pass.focus();
     checkFlag = false;
   } else {
-    alert("비밀번호가 동일합니다");
+    alert("비밀번호가 일치합니다!");
   }
   return checkFlag;
 };

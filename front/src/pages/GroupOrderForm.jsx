@@ -10,6 +10,8 @@ import { Link, useNavigate } from "react-router-dom";
 export default function GroupOrderForm() {
   const navigate = useNavigate();
 
+  const [agreed, setAgreed] = useState(false);
+
   const [formData, setFormData] = useState({
     zipcode: "",
     address: "",
@@ -88,8 +90,16 @@ export default function GroupOrderForm() {
 
   //TODO 제출하기 버튼
   const handleClick = () => {
-    alert("단체주문 주문서가 접수되었습니다!");
-    navigate("/store/catering");
+    if (!agreed) {
+      alert("개인정보 수집, 이용 동의에 동의해주세요");
+    } else {
+      alert("단체주문 주문서가 접수되었습니다!");
+      navigate("/store/catering");
+    }
+  };
+
+  const handleAgreeChange = (e) => {
+    setAgreed(e.target.checked);
   };
 
   return (
@@ -158,6 +168,7 @@ export default function GroupOrderForm() {
                   className="delivery_radio_input"
                   type="radio"
                   name="is_policy"
+                  onChange={handleAgreeChange}
                 />
                 <span className="delivery_radio_text">동의합니다</span>
                 <input

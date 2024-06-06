@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "../css/animation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpoon } from "@fortawesome/free-solid-svg-icons/faSpoon";
+import { faRightLong } from "@fortawesome/free-solid-svg-icons";
 
 export default function SignupStep3() {
   const navigate = useNavigate();
@@ -14,6 +15,13 @@ export default function SignupStep3() {
 
   return (
     <div className="signup_form">
+      <h2 className="step1_title">
+        약관동의
+        <FontAwesomeIcon className="signup_icon" icon={faRightLong} />
+        정보입력
+        <FontAwesomeIcon className="signup_icon" icon={faRightLong} />
+        <span className="signup_point">가입완료</span>
+      </h2>
       <h2 className="step3_title">welcome!</h2>
       <div className="step3_text">
         <img

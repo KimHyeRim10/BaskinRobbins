@@ -37,7 +37,7 @@ export default function SignupStep1({ next, formData, handleCheck }) {
             <span>모두 동의합니다</span>
           </div>
           <div>
-            <p>
+            <p className="step1_p">
               전체동의는 필수 및 선택정보에 대한 동의도 포함되어 있으며,
               개별적으로도 동의를 선택하실 수 있습니다. <br />
               선택항목에 대한 동의를 거부하시는 경우여도 서비스는 이용이
@@ -73,7 +73,6 @@ export default function SignupStep1({ next, formData, handleCheck }) {
               name="service"
               id="service"
               checked={formData.service}
-              // onChange={handleCheckService} //* 서비스,퍼스널 각각보낼때
               onChange={() => handleCheck("service")}
               onFocus={() => handleFocus("service")}
             />
@@ -108,7 +107,6 @@ export default function SignupStep1({ next, formData, handleCheck }) {
               name="personal"
               id="personal"
               checked={formData.personal}
-              // onChange={handleCheckPersonal} //* 서비스,퍼스널 각각보낼때
               onChange={() => handleCheck("personal")}
               onFocus={() => handleFocus("personal")}
             />
@@ -140,7 +138,6 @@ export default function SignupStep1({ next, formData, handleCheck }) {
               name="choose"
               id="choose"
               checked={formData.choose}
-              // onChange={handleCheckPersonal} //* 서비스,퍼스널 각각보낼때
               onChange={() => handleCheck("choose")}
               onFocus={() => handleFocus("choose")}
             />

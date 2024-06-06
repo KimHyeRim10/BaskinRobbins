@@ -1507,6 +1507,10 @@ input::placeholder {
   padding-left: 150px;
 }
 
+.step1_p {
+  margin-top: 5px;
+}
+
 .step1_desc_header {
   width: 400px;
   align-items: center;
@@ -1546,6 +1550,74 @@ input::placeholder {
   margin: 0 auto;
   font-weight: bold;
   margin-top: 50px;
+}
+
+/**------------------------------------------ SignupStep2.jsx 부분 */
+
+.step2_div {
+  width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+  padding-left: 150px;
+}
+
+.step2_div_p {
+  margin-bottom: 15px;
+}
+
+.step2_info_p {
+  margin-bottom: 5px;
+}
+
+.step2_div input::placeholder {
+  color: #948780;
+  font-weight: normal;
+}
+
+.step2_div input:not(.step2_zipcode_input, .step2_email_input) {
+  width: 350px;
+  height: 35px;
+  margin-bottom: 15px;
+}
+
+.step2_email_input {
+  width: 283px;
+  height: 35px;
+  margin-bottom: 15px;
+}
+
+.step2_email {
+  width: 120px;
+  height: 35px;
+  margin-left: 5px;
+}
+
+.step2_phone {
+  width: 100px;
+  height: 35px;
+  text-align: center;
+  margin-right: 5px;
+}
+
+.step2_zipcode_input {
+  width: 200px;
+  height: 35px;
+  margin-bottom: 5px;
+}
+
+.step2_addrres_input {
+  margin-right: 5px;
+}
+
+.step2_id_btn {
+  margin-left: 5px;
+}
+
+.step2_button_div {
+  margin: 0 auto;
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
 }
 
 /**------------------------------------------ SignupStep3.jsx 부분 */

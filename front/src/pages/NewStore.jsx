@@ -11,7 +11,7 @@ export default function NewStore() {
       alert("신청에 동의해주세요!");
     } else {
       alert("입점 신청하기가 완료되었습니다!");
-      window.location.reload();
+      window.location.reload(); //! 새로고침말고 다른걸로 변경하기
     }
   };
 
