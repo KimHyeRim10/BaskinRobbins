@@ -5,98 +5,38 @@ import '../css/main/main_commons.css'
 import { BigTitleNInfo, Navbar,EventCategoris } from '../components/MainComponents';
 import { Box} from '../components/EventComponents';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export default function EventBenefit() {
     const [title,setTitle] = useState('제휴혜택')
     const [eventList, setEventList] = useState([]);
-    const [showingList, setShowingList] = useState([
-        {
-        "category" : "제휴혜택",
-        "img" : "images/eventimages/benefit_1.jpg",
-        "date": "2024-03-01 ~ 2024-12-31",
-        "info" : "LG U+ 멤버십 배스킨라빈스 특별한 제휴 혜택!",
-        "detail-img":"images/event_detail/benefit1_detail.png",
-        "id":"6"
-        },
-        {
-        "category" : "제휴혜택",
-        "img" : "images/eventimages/benefit_2.jpg",
-        "date": "2024-01-29 ~ 2024-12-31",
-        "info" : "유독Pick 구독하고 배스킨라빈스 4,000원 할인 받기!",
-        "detail-img":"images/event_detail/benefit2_detail.jpg",
-        "id":"7"
-        },
-        {
-        "category" : "제휴혜택",
-        "img" : "images/eventimages/benefit_3.png",
-        "date": "상시운영",
-        "info" : "이제 배라에서도 애플페이",
-        "detail-img":"images/event_detail/benefit3_detail.jpg",
-        "id":"12"
-        },
-        {
-        "category" : "제휴혜택",
-        "img" : "images/eventimages/benefit_4.png",
-        "date": "상시운영",
-        "info" : "해피앱에서 5% 적립 놓치지 마세요!",
-        "detail-img":"images/event_detail/benefit4_detail.jpg",
-        "id":"13"
-        },
-        {
-        "category" : "제휴혜택",
-        "img" : "images/eventimages/benefit_5.png",
-        "date": "상시운영",
-        "info" : "2024 KT 멤버십 배스킨라빈스 특별한 제휴 혜택!",
-        "detail-img":"images/event_detail/benefit5_detail.jpg",
-        "id":"14"
-        },
-        {
-        "category" : "제휴혜택",
-        "img" : "images/eventimages/benefit_6.jpg",
-        "date": "상시운영",
-        "info" : "T멤버십 회원 대상 싱글레귤러 최대 50%할인 또는 적립",
-        "detail-img":"images/event_detail/benefit6_detail.png",
-        "id":"15"
-        },
-        {
-        "category" : "제휴혜택",
-        "img" : "images/eventimages/benefit_7.png",
-        "date": "상시운영",
-        "info" : "현대카드 M포인트 50% 사용",
-        "detail-img":"images/event_detail/benefit7_detail.jpg",
-        "id":"16"
-        },
-    ]);
     useEffect(()=>{
-        fetch("data/promotionList.json")
-        .then(response => response.json())
-        .then(result => {
-        setEventList(result)
-        }) 
+        const url = "http://127.0.0.1:8080/play"
+    axios({
+        method:'get',
+        url:url
+    })
+    .then(response=>{
+        if(title === "전체"){
+        setEventList(response.data)
+        } else{
+        setEventList(response.data.filter(item=>item.category === title))
+        }
+    })
         .catch(error=>console.log(error))
-    },[])
+    },[title])
 
     const eventnavlist = [
         {name:"이벤트", path:"/play/event"},
         {name:"BR 레시피", path:"/play/brreipe/all"}]
     const eventcategoryList =["전체","프로모션","제휴혜택"]
     const changeContents= (type) =>{
-        let filterItem = [];
-        if(type === '전체')
-        {
-            setShowingList(eventList)
-            setTitle(type)
-        }
-        else {
-        filterItem = eventList.filter(item=>item.category === type);
         setTitle(type)
-        setShowingList(filterItem)
-        }
     }
 
     const eventListOrder = [];
-    for(let i =0; i<showingList.length; i+=2){
-        eventListOrder.push(showingList.slice(i,i+2))
+    for(let i =0; i<eventList.length; i+=2){
+        eventListOrder.push(eventList.slice(i,i+2))
     }
 
     return (
@@ -104,7 +44,7 @@ export default function EventBenefit() {
         <div className='content'>
             <ul className="navbarlist">
             {eventnavlist.map((item)=>(
-            <li className='navbar'>
+            <li className='navbar benefitfirst'>
                 <Link to={item.path}>
                     <Navbar title={item.name} />
                 </Link>
@@ -128,10 +68,7 @@ export default function EventBenefit() {
             {eventListOrder.map((items)=>(
                 <li className='order'>
                 {items.map((item)=>(
-                    <Box img={item.img} 
-                        category={item.category}
-                        title={item.info} 
-                        date={item.date}
+                    <Box list={item}
                         classname={item.category === "프로모션" ? "boxcategorypm":"boxcategorybn"}/>
                 ))}
                 </li>

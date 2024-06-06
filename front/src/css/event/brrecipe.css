@@ -28,8 +28,39 @@
 }
 .event_active{
     color: black;
-    ;
 }
 .unactive{
     color: rgb(177, 177, 177);
+}
+.recipebox{
+    border: 2px solid rgb(177 177 177);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 2rem;
+    width: 650px;
+}
+.recipe_text{
+    text-align: left;
+    font-weight: 600;
+}
+.recipe_category{
+    color: rgb(186,161,122);
+}
+.recipe_eng_name{
+    margin: .5rem 0;
+    width: 300px;
+}
+.recipe_ko_name{
+    font-size: 1.3rem;
+    color: rgb(102,102,102);
+}
+.recipecontentsList{
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+.recipe_small_img{
+    border-radius: 10px;
 }

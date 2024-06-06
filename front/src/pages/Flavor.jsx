@@ -6,51 +6,28 @@ import { FlavorImage, StoreInfo, StoreCarousel, Dots } from "../components/Flavo
 import { useEffect, useRef, useState } from "react";
 import '../css/store/modal_y.css'
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function Flavor(){
     const [flavorStores, setFlavorStores] = useState([]);
-    const [showStore, setShowStore] = useState([
-        {
-            "name":"부산서면중앙점",
-            "address":"부산 부산진구 부전동 195-3 1층",
-            "number":"051-803-1180",
-            "time":"AM 10 ~ PM 11",
-            "menu":"카페브리즈",
-            "service":["주차가능, ","해피포인트 적립가능, ","해피오더 딜리버리, ","해피오더 픽업"],
-            "etc":[
-                {
-                    "special":"선데볼",
-                    "img":"images/brstore/specialmenu_bowl.png",
-                    "desc":"갓 구운 바삭한 와플콘에 아이스크림을 듬뿍 넣고 토핑으로 화려함을 더한 선데볼"
-                },
-                {
-                    "special":"아이스 타코",
-                    "img":"images/brstore/specialmenu_icetaco.png",
-                    "desc":"매장에서 제조한 바삭한 와플 쉘에 아이스크림과 초콜릿 코팅으로 달콤함과 짭짤함을 동시에 맛볼 수 있는 아이스 타코"
-                }
-            ],
-            "map":[
-                {
-                    "lat":"35.1539437",
-                    "long":"129.0593831"
-                }
-            ]
-        }
-    ])
+    const [type,setType]=useState("부산서면중앙점")
     const [currentIndex,setCurrentIndex] = useState(0);
     const slideRef = useRef(null);
-
     const changeContent = (type)=>{
-        let filterItem = [];
-        filterItem = flavorStores.filter(store=>store.name === type);
-        setShowStore(filterItem)
+        setType(type)
     }
     useEffect(()=>{
-        fetch('data/flavorstores.json')
-        .then(response=>response.json())
-        .then(result=>setFlavorStores(result))
-        .catch(error=>console.log(error))
-    },[])
+        const url = "http://127.0.0.1:8080/store/flavor"
+        axios({
+            method:"get",
+            url:url
+        })
+        .then(response=>{
+            setFlavorStores(response.data.filter(item=>item.name === type))
+        })
+    },[type])
+
+    console.log(type)
     const storecategories = [
         {name:"100 flavor",path:"/store/flavor"},
         {name:"flow",path:"/store/flow"},
@@ -69,7 +46,6 @@ export default function Flavor(){
     useEffect(()=>{
             slideRef.current.style.transition = "all 300ms ease-in"
             slideRef.current.style.transform = `translateX(-${currentIndex*48.5}%)`},[currentIndex])
-
             function useInterval(callback, delay) {
                 const savedCallback = useRef();
                 // Remember the latest callback.
@@ -88,21 +64,23 @@ export default function Flavor(){
                 }, [delay]);
                 }
                 useInterval(()=>{
-                    if(currentIndex === showStore[0].etc.length-1){
+                    if(currentIndex === flavorStores[0].length-1){
                         setCurrentIndex(0)
                     } else{
                         setCurrentIndex(currentIndex + 1)
                     }
                 },3000)
+
     const carouselbtn = (index) =>{
         setCurrentIndex(index)
-    }
+    } 
+    console.log(flavorStores)
     return(
         <div id="flavor">
             <div className="content">
                 <ul className="navbarlist">
                 {storecategories.map((item)=>(
-                    <li className="navbar">
+                    <li className="navbar flavornavbar">
                         <Link to={item.path}>
                             <Navbar title={item.name}/>
                         </Link>
@@ -133,14 +111,14 @@ export default function Flavor(){
                             <EventCategoris
                                 click={changeContent}
                                 eventcategoryList={item}
-                                className={item === showStore[0].name ? "active":"unactive"}
+                                className={type === item ? "active":"unactive"}
                                 />
                         </li>
                     ))}
                 </ul>
                 <div className="carousel_content">
                     <ul className="flavorstores">
-                        {showStore.map((store)=>(
+                        {flavorStores.map((store)=>(
                             <>
                             <StoreInfo store={store}/>
                             </>
@@ -148,14 +126,14 @@ export default function Flavor(){
                     </ul>
                     <div className="display">
                         <ul className="carouselList" ref={slideRef}>
-                            {showStore.map((store)=>(
+                            {flavorStores.map((store)=>(
                                 <StoreCarousel
                                     store={store}/>
                             ))}
                         </ul>
                     </div>
                     <ul className="dotList">
-                        <Dots store={showStore}
+                        <Dots store={flavorStores}
                                 index={currentIndex}
                                 click={carouselbtn}/>
                     </ul>

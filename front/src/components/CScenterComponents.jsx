@@ -1,7 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faQ, faA } from "@fortawesome/free-solid-svg-icons"
-import { useState } from "react"
+import { useState} from "react"
 import { Link } from "react-router-dom"
+import { useRef } from "react"
+
 
 export function Question({img,title,info,btn,link}){
     return(
@@ -39,48 +41,42 @@ export function VOC({process}){
     )
 };
 
-export function FaQbox(){
+export function FaQbox({content,index}){
     const [btnOpen, setbtnOpen] = useState(false)
+    const openRef = useRef();
     const handleOpen = () =>{
         setbtnOpen(!btnOpen)
         if(btnOpen === true) {
-            document.getElementById('abox').style.marginTop="0rem"
-            document.getElementById('abox').style.opacity="1"
-            document.getElementById('abox').style.visibility="visible"
+            openRef.current.style.display= "flex"
+            openRef.current.style.transition="all ease 500ms;"
         }else{
-            document.getElementById('abox').style.marginTop="-4rem"
-            document.getElementById('abox').style.opacity="0"
-            document.getElementById('abox').style.visibility="hidden"
+            openRef.current.style.display= "none"
         }
         
     }
     return(
-        <ul className="qubox">
-            <li className="test" >
+        <li className="qubox" onClick={handleOpen}>
                 <div className="questions">
                     <FontAwesomeIcon className="qicon qcolor" icon={faQ}/>
-                    <p className="qonly">가격 인상 후 모바일 교환권 사용시 해피포인트는 어떻게 적립되나요?</p>
-                    <button type="button" className="openBtn"  onClick={handleOpen}> +</button>
+                    <p className="qonly">{content.question}</p>
+                    
                 </div>
-            </li>
-            <li >
-                <div className="answers" id="abox">
+                <div className="answers" ref={openRef}>
                     <FontAwesomeIcon className="qicon acolor" icon={faA} />
-                    <p className="aonly">가격 조정 이전 구매된 교환권은 사용 시 인상 전 교환권 가격(액면가)의 0.1%가 적립됩니다.</p>
+                    <p className="aonly">{content.answer}</p>
                 </div>
-            </li>
-        </ul>
+        </li>
     )
 };
 
-export function NoticeList(){
+export function NoticeList({list}){
     return(
         <li className="noticeinfos">
-            <p className="noticerno">31</p>
+            <p className="noticerno">{list.id}</p>
             <Link to="/notice/detail/:id">
-                <p className="noticetitle">대·중소기업 동반성장 플랫폼 상생누리 소개</p>
+                <p className="noticetitle">{list.title}</p>
             </Link>
-            <p className="noticedate">2024.06.03</p>
+            <p className="noticedate">{list.date}</p>
         </li>
     )
 };

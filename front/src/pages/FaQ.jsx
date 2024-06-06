@@ -2,14 +2,30 @@ import '../css/style.css'
 import '../css/main/main_commons.css'
 import '../css/cscenter/faq.css'
 import { BigTitleNInfo,EventCategoris } from '../components/MainComponents'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FaQbox } from '../components/CScenterComponents'
+import axios from 'axios'
 
 export default function FaQ(){
     const [type,setType] = useState('전체')
+    const [faqList, setFaqList] = useState([]);
     const questionCategory = ["전체","제품",'포인트','회원','기타']
+    useEffect(()=>{
+        const url = "http://127.0.0.1:8080/cscenter/faq"
+        axios({
+            method:'get',
+            url:url
+        })
+        .then(response => {
+            if(type === '전체'){
+                setFaqList(response.data)
+            } else{
+                setFaqList(response.data.filter(item=>item.category === type))
+            }})
+        .catch(error=>error)
+    },[type])
     const changeContents = (type) =>{
-        alert(type)
+    setType(type)
     }
     return(
         <div id='faq'>
@@ -27,7 +43,13 @@ export default function FaQ(){
                         </li>
                     ))}
                 </ul>
-                <FaQbox/>
+                <ul className='faqLists'>
+                    {faqList.map((content)=>(
+                        <>
+                            <FaQbox content={content}/>
+                        </>
+                    ))}
+                </ul>
             </div>
         </div>
     )

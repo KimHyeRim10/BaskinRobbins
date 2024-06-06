@@ -122,6 +122,17 @@
 }
 
 /*  공지사항 */
+.noticecontent{
+    padding: 2rem 0;
+}
+.noticecount{
+    margin-left: -63rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+.countnumber{
+    color:  rgb(249,134,189);
+}
 .noticebar:first-child button {
     color: rgb(249,134,189);
     background-color:white;
@@ -136,10 +147,10 @@
     border-top: 1px solid rgb(188,188,188);
     border-bottom: 1px solid rgb(188,188,188);
     padding: 1rem 2rem;
-    justify-content: left;
-    gap: 3rem;
+    justify-content: space-between;
     width: 1100px;
     margin: 0 auto;
+    text-align: left;
 }
 .noticerno{
     font-size: .9rem;
@@ -147,9 +158,9 @@
 }
 .noticetitle{
     font-size: 1rem;
+    width: 850px;
 }
 .noticedate{
-    margin-left: 33rem;
     font-size: .9rem;
     color: rgb(164,166,192);
 }

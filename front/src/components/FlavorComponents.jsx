@@ -89,15 +89,16 @@ export function StoreCarousel({store}){
 };
 
 export function Dots({store,click,index}){
-    let storeinfo = {...store}
-    let dots = storeinfo[0].etc
+    let test = store[0]
+    let dot = {...test}.etc
+    console.log(dot)
     const sendingIndex = (index) =>{
         click(index)
     }
     const currentIndex = {index}
     return(
         <>
-        {dots.map((item,index)=>(
+        {dot&&dot.map((item,index)=>(
             <li className="lil">
                 <button className={ currentIndex.index === index ? " dot_active":"dot_unactive"} 
                     onClick={()=>sendingIndex(index)}>●</button>

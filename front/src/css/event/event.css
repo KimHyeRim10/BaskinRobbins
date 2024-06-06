@@ -53,18 +53,6 @@
 .boximage{
   border-radius: 8px;
 }
-.dday{
-  position: absolute;
-  top:0;
-  right:.5rem;
-  background-color:rgb(255,122,149);
-  border-radius: 0 0 60px 60px;
-  width: 70px;
-  height: 45px;
-  padding: 1rem;
-  color: white;
-  font-weight: 600;
-}
 .order {
   /* border: 1px solid blue; */
   display: flex;
@@ -124,4 +112,9 @@ button{
 .btncontent{
   color:white;
   font-weight: 600;
+}
+.promotionfirst:nth-child(1) button, .benefitfirst:nth-child(1) button{
+  width: 150px;
+  color:white ;
+  background-color:rgb(249,134,189);
 }

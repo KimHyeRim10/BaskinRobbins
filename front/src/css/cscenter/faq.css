@@ -22,31 +22,25 @@
 }
 .qubox{
     position: relative;
-    margin: 2rem auto;
+    margin: 0 auto;
     width: 1000px;
     text-align: left;
     font-size: 2rem;
 }
 .questions{
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
     align-items: center;
     border-top: 1px solid rgb(188,188,188);
     border-bottom: 1px solid rgb(188,188,188);
     padding: 1rem;
-    font-size: 1.2rem;
-}
-.openBtn{
-    display: inline;
-    font-size: 3rem;
-    padding:0;
-}
-.qonly{    
-    margin-left: -16rem;                                         
+    font-size: 1rem;
+    gap: 2rem;
 }
 .answers{
-    display: flex;
+    display: none;
     justify-content:left;
+    padding: 4rem;
     padding-left: 1.5rem;
     align-items: center;
     gap: 3rem;
@@ -54,11 +48,7 @@
     border-top: 1px solid rgb(188,188,188);
     border-bottom: 1px solid rgb(188,188,188);
     transition: all ease 500ms;
-    margin-top: -4rem;
-    z-index: -99;
-    opacity: 0;
-    visibility: 0;
-    font-size: 1.2rem;
+    font-size: 1rem;
     height: 80px;
 }
 .qicon{
@@ -69,4 +59,11 @@
 }
 .acolor{
     color: rgb(92,197,242);
+}
+.faqLists{
+    padding: 2rem 0;
+}
+.aonly{
+    padding: 2rem;
+    font-size: .9rem;
 }
