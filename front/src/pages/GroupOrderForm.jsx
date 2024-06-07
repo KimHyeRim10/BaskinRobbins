@@ -10,17 +10,31 @@ import { Link, useNavigate } from "react-router-dom";
 export default function GroupOrderForm() {
   const navigate = useNavigate();
 
-  const [agreed, setAgreed] = useState(false);
+  const [agreed, setAgreed] = useState(false); //* 필수약관 동의
 
   const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
     zipcode: "",
     address: "",
     detailAddress: "",
   });
 
+  const refs = {
+    nameRef: useRef(null),
+    emailRef: useRef(null),
+    phoneRef: useRef(null),
+  };
+
   const detailAddressRef = useRef(null);
   const [showModal, setShowModal] = useState(false); //* 혜택팝업
   const [selectedValues, setSelectedValues] = useState([]); //* 구매희망 상품군
+
+  //* 필수약관 동의
+  const handleAgreeChange = (e) => {
+    setAgreed(e.target.checked);
+  };
 
   //* 변화감지
   const handleChange = (e) => {
@@ -89,17 +103,47 @@ export default function GroupOrderForm() {
   };
 
   //TODO 제출하기 버튼
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
     if (!agreed) {
       alert("개인정보 수집, 이용 동의에 동의해주세요");
-    } else {
+      document.getElementById("service").style.outline = "2px solid red";
+      window.scrollTo(0, 0);
+    } else if (validationCheck()) {
       alert("단체주문 주문서가 접수되었습니다!");
       navigate("/store/catering");
     }
   };
 
-  const handleAgreeChange = (e) => {
-    setAgreed(e.target.checked);
+  //TODO 필수동의 체크 후 빨간테두리 해제
+  const handleFocus = (type) => {
+    if (type === "agree") {
+      document.getElementById("service").style.outline = "none";
+    }
+  };
+
+  //TODO 유효성 검사
+  const validationCheck = () => {
+    let checkFlag = true;
+
+    if (!formData.name.trim()) {
+      alert("이름을 입력해주세요");
+      refs.nameRef.current.focus();
+      checkFlag = false;
+    } else if (!formData.email.trim()) {
+      alert("신청자 이메일을 입력해주세요");
+      refs.emailRef.current.focus();
+      checkFlag = false;
+    } else if (!formData.phone.trim()) {
+      alert("연락처를 입력해주세요");
+      refs.phoneRef.current.focus();
+      checkFlag = false;
+    } else if (!formData.detailAddress.trim()) {
+      alert("우편번호 찾기 후 상세 주소를 입력해주세요");
+      detailAddressRef.current.focus();
+      checkFlag = false;
+    }
+    return checkFlag;
   };
 
   return (
@@ -114,7 +158,7 @@ export default function GroupOrderForm() {
       </div>
 
       <div className="delivery_form_content">
-        <form className="delivery_form_detail" /* onSubmit={handleSubmit} */>
+        <form className="delivery_form_detail" onSubmit={handleClick}>
           <section className="delivery_form_section1">
             <div className="d_f_section1">
               <h3 className="delivery_form_h3">
@@ -168,7 +212,9 @@ export default function GroupOrderForm() {
                   className="delivery_radio_input"
                   type="radio"
                   name="is_policy"
+                  id="service"
                   onChange={handleAgreeChange}
+                  onFocus={() => handleFocus("agree")}
                 />
                 <span className="delivery_radio_text">동의합니다</span>
                 <input
@@ -304,7 +350,9 @@ export default function GroupOrderForm() {
           {/* 섹션4 */}
           <section className="delivery_form_section4">
             <div className="d_f_section1">
-              <h3 className="delivery_form_h3">단체주문 주문서 작성자 정보</h3>
+              <h3 className="delivery_form_h3">
+                단체주문 주문서 작성자 정보(필수)
+              </h3>
             </div>
             <div className="delivery_form_section4_form1">
               <ul className="delivery_form_section4_form1_ul">
@@ -312,6 +360,10 @@ export default function GroupOrderForm() {
                   <lable>이름</lable>
                   <input
                     className="d_f_input_color"
+                    name="name"
+                    value={formData.name}
+                    ref={refs.nameRef}
+                    onChange={handleChange}
                     type="text"
                     placeholder="   이름 또는 업체명을 입력해 주세요"
                   />
@@ -320,6 +372,10 @@ export default function GroupOrderForm() {
                   <lable>신청자 이메일</lable>
                   <input
                     className="d_f_input_color"
+                    name="email"
+                    value={formData.email}
+                    ref={refs.emailRef}
+                    onChange={handleChange}
                     type="text"
                     placeholder="   이메일 입력"
                   />
@@ -331,7 +387,14 @@ export default function GroupOrderForm() {
                 </li>
                 <li>
                   <lable>신청자 연락처</lable>
-                  <input className="d_f_input_color" type="text" />
+                  <input
+                    className="d_f_input_color"
+                    name="phone"
+                    value={formData.phone}
+                    ref={refs.phoneRef}
+                    onChange={handleChange}
+                    type="text"
+                  />
                   &nbsp;
                   <span>
                     휴대폰번호 또는 유선전화 중 연락 가능한 전화번호를
@@ -402,6 +465,9 @@ export default function GroupOrderForm() {
               <h3 className="delivery_form_h3">
                 단체주문 주문서 세부내용 작성
               </h3>
+              <p className="d_f_p">
+                * 주문서 세부내용 작성은 유선상담 후에도 가능합니다
+              </p>
             </div>
             <table className="delivery_section2_table">
               <tbody className="delivery_section2_table_tbody1">
@@ -605,7 +671,7 @@ export default function GroupOrderForm() {
                     <div>
                       <textarea
                         className="d_f_input_color d_f_textarea"
-                        placeholder="요청 사항 혹은 문의 내용을 입력 해주세요. 해당 내용에 대한답변은 세부내용 안내 시 함께 답변 드립니다."
+                        placeholder="요청 사항 혹은 문의 내용을 입력 해주세요. 해당 내용에 대한 답변은 세부내용 안내 시 함께 답변 드립니다."
                       ></textarea>
                     </div>
                   </td>
@@ -636,11 +702,7 @@ export default function GroupOrderForm() {
                 </li>
               </ul>
             </div>
-            <button
-              type="submit"
-              className="delivery_form_button_b"
-              onClick={handleClick}
-            >
+            <button type="submit" className="delivery_form_button_b">
               제출하기
             </button>
           </div>

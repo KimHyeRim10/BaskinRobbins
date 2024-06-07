@@ -11,15 +11,35 @@ import {
 import { useNavigate } from "react-router-dom";
 
 export default function OpenStore() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
+    name: "",
+    phone1: "",
+    phone2: "",
+    phone3: "",
+    email: "",
     zipcode: "",
     address: "",
     detailAddress: "",
   });
 
+  const refs = {
+    nameRef: useRef(null),
+    phone1Ref: useRef(null),
+    phone2Ref: useRef(null),
+    phone3Ref: useRef(null),
+    emailRef: useRef(null),
+  };
+
   const detailAddressRef = useRef(null);
 
-  const navigate = useNavigate();
+  const [agreed, setAgreed] = useState(false); //* 필수약관 동의
+
+  //* 필수약관 동의
+  const handleAgreeChange = (e) => {
+    setAgreed(e.target.checked);
+  };
 
   //* 변화감지
   const handleChange = (e) => {
@@ -63,8 +83,23 @@ export default function OpenStore() {
   };
 
   //TODO 등록버튼
-  const handleClick = () => {
-    alert("점포개설문의가 접수되었습니다!");
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (!agreed) {
+      alert("개인정보 수집, 이용 동의에 동의해주세요");
+      document.getElementById("service").style.outline = "2px solid red";
+      window.scrollTo(0, 0);
+    } else if (validationCheck()) {
+      alert("점포개설문의가 접수되었습니다!");
+      window.location.reload();
+    }
+  };
+
+  //TODO 필수동의 체크 후 빨간테두리 해제
+  const handleFocus = (type) => {
+    if (type === "agree") {
+      document.getElementById("service").style.outline = "none";
+    }
   };
 
   //TODO 취소버튼
@@ -75,6 +110,34 @@ export default function OpenStore() {
     if (result) {
       navigate("/");
     }
+  };
+
+  //TODO 유효성 검사
+  const validationCheck = () => {
+    let checkFlag = true;
+
+    if (!formData.name.trim()) {
+      alert("이름을 입력해주세요");
+      refs.nameRef.current.focus();
+      checkFlag = false;
+    } else if (!formData.phone1.trim()) {
+      alert("연락처를 입력해주세요");
+      refs.phone1Ref.current.focus();
+      checkFlag = false;
+    } else if (!formData.phone2.trim()) {
+      alert("연락처를 입력해주세요");
+      refs.phone2Ref.current.focus();
+      checkFlag = false;
+    } else if (!formData.phone3.trim()) {
+      alert("연락처를 입력해주세요");
+      refs.phone3Ref.current.focus();
+      checkFlag = false;
+    } else if (!formData.email.trim()) {
+      alert("이메일을 입력해주세요");
+      refs.emailRef.current.focus();
+      checkFlag = false;
+    }
+    return checkFlag;
   };
 
   return (
@@ -95,7 +158,7 @@ export default function OpenStore() {
         </p>
 
         <div className="delivery_form_content">
-          <form className="delivery_form_detail" /* onSubmit={handleSubmit} */>
+          <form className="delivery_form_detail" onSubmit={handleClick}>
             <section className="delivery_form_section1">
               <div className="d_f_section1">
                 <h3 className="delivery_form_h3">
@@ -127,6 +190,9 @@ export default function OpenStore() {
                     className="delivery_radio_input"
                     type="radio"
                     name="is_policy"
+                    id="service"
+                    onChange={handleAgreeChange}
+                    onFocus={() => handleFocus("agree")}
                   />
                   <span className="delivery_radio_text">동의합니다</span>
                   <input
@@ -149,6 +215,10 @@ export default function OpenStore() {
                   <td>
                     <input
                       className="d_f_input_color"
+                      name="name"
+                      value={formData.name}
+                      ref={refs.nameRef}
+                      onChange={handleChange}
                       type="text"
                       placeholder="   이름을 입력하세요"
                     />
@@ -158,13 +228,34 @@ export default function OpenStore() {
                 <tr>
                   <th>* 연락처</th>
                   <td className="openstore_s1_tel">
-                    <input className="d_f_input_color" type="text" />
+                    <input
+                      className="d_f_input_color"
+                      name="phone1"
+                      value={formData.phone1}
+                      ref={refs.phone1Ref}
+                      onChange={handleChange}
+                      type="text"
+                    />
                     &nbsp;&nbsp;
                     <span>-</span>
-                    <input className="d_f_input_color" type="text" />
+                    <input
+                      className="d_f_input_color"
+                      name="phone2"
+                      value={formData.phone2}
+                      ref={refs.phone2Ref}
+                      onChange={handleChange}
+                      type="text"
+                    />
                     &nbsp;&nbsp;
                     <span>-</span>
-                    <input className="d_f_input_color" type="text" />
+                    <input
+                      className="d_f_input_color"
+                      name="phone3"
+                      value={formData.phone3}
+                      ref={refs.phone3Ref}
+                      onChange={handleChange}
+                      type="text"
+                    />
                   </td>
                 </tr>
 
@@ -190,6 +281,10 @@ export default function OpenStore() {
                   <td>
                     <input
                       className="d_f_input_color"
+                      name="email"
+                      value={formData.email}
+                      ref={refs.emailRef}
+                      onChange={handleChange}
                       type="text"
                       placeholder="   이메일을 입력하세요"
                     />
@@ -413,11 +508,7 @@ export default function OpenStore() {
                 취소
               </button>
 
-              <button
-                type="submit"
-                className="delivery_form_button_b"
-                onClick={handleClick}
-              >
+              <button type="submit" className="delivery_form_button_b">
                 등록
               </button>
             </div>
