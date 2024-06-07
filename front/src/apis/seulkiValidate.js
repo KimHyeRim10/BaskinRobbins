@@ -6,7 +6,7 @@ export const validateCheckStep1 = (next, formData) => {
     alert("회원이용약관에 동의해주세요");
     document.getElementById("service").style.outline = "2px solid red";
   } else if (!formData.personal) {
-    alert("개인정보 이용 약관에 동의해주세요");
+    alert("개인정보 수집 및 이용동의 약관에 동의해주세요");
     document.getElementById("personal").style.outline = "2px solid red";
   } else {
     next();
@@ -28,6 +28,7 @@ export const handleFocus = (type) => {
 //TODO Step2 유효성체크
 export const validateCheckStep2 = (formData, refs) => {
   let checkFlag = true;
+
   if (refs.userIdRef.current.value === "") {
     //* ↑ refs 이용한 조건작성 방법
     // if (!formData.userId.trim()) { //* formData 이용한 조건작성 방법

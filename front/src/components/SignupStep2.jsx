@@ -158,7 +158,7 @@ export default function SignupStep2({
                 type="text"
                 name="userId"
                 value={formData.userId}
-                placeholder="6~12자, 영문자, 숫자"
+                placeholder=" 6~12자, 영문자, 숫자"
                 onChange={handleChange}
                 ref={refs.userIdRef}
               />
@@ -178,7 +178,7 @@ export default function SignupStep2({
                 type="text"
                 name="userPass"
                 value={formData.userPass}
-                placeholder="8~16자리 영문자, 숫자, 특수문자 중 2개 조합"
+                placeholder=" 8~16자리 영문자, 숫자, 특수문자 중 2개 조합"
                 onChange={handleChange}
                 ref={refs.userPassRef}
               />
@@ -191,7 +191,7 @@ export default function SignupStep2({
                 type="text"
                 name="userPassCheck"
                 value={formData.userPassCheck}
-                placeholder="비밀번호 재입력"
+                placeholder=" 비밀번호 재입력"
                 onChange={handleChange}
                 ref={refs.userPassCheckRef}
               />
@@ -204,7 +204,7 @@ export default function SignupStep2({
                 type="text"
                 name="userName"
                 value={formData.userName}
-                placeholder="한글/영문으로 입력해주세요"
+                placeholder=" 한글/영문으로 입력해주세요"
                 onChange={handleChange}
                 ref={refs.userNameRef}
               />
@@ -268,7 +268,7 @@ export default function SignupStep2({
                   name="zipcode"
                   value={formData.zipcode}
                   onChange={handleChange}
-                  placeholder="우편번호"
+                  placeholder=" 우편번호"
                 ></input>
                 <button
                   className="step1_desc_btn step2_id_btn"
@@ -285,7 +285,7 @@ export default function SignupStep2({
                 name="address"
                 value={formData.address}
                 onChange={handleChange}
-                placeholder="기본주소를 입력하세요"
+                placeholder=" 기본주소를 입력하세요"
               />
               <input
                 type="text"
@@ -293,7 +293,7 @@ export default function SignupStep2({
                 value={formData.detailAddress}
                 onChange={handleChange}
                 ref={refs.detailAddressRef}
-                placeholder="상세주소를 입력하세요"
+                placeholder=" 상세주소를 입력하세요"
               />
 
               {isOpen && (
@@ -314,7 +314,7 @@ export default function SignupStep2({
         </form>
       </div>
       <div className="step2_button_div">
-        <button className="step1_button" type="button" onClick={pre}>
+        <button className="step1_button_gray" type="button" onClick={pre}>
           이전페이지로
         </button>
         <button className="step1_button" type="button" onClick={handleSubmit}>

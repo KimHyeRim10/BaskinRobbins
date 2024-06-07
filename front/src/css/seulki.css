@@ -1620,6 +1620,21 @@ input::placeholder {
   justify-content: space-between;
 }
 
+.step1_button_gray {
+  background-color: #948780;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  width: 225.96px;
+  height: 60px;
+  font-size: 18px;
+  margin: 40px 0;
+  cursor: pointer;
+  margin: 0 auto;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
 /**------------------------------------------ SignupStep3.jsx 부분 */
 
 .step3_title {
