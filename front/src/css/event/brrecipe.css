@@ -158,6 +158,12 @@
     list-style-type:none;
 }
 .recipe_content{
-    color: black;
+    color: rgb(102,102,102);
     margin-bottom: 1.3rem;
+    font-weight:500;
+}
+.recipe_ices{
+    display:flex;
+    align-items:center;
+    gap:1rem;
 }

@@ -73,7 +73,7 @@ export function NoticeList({list}){
     return(
         <li className="noticeinfos">
             <p className="noticerno">{list.id}</p>
-            <Link >
+            <Link to={`/cscenter/notice/detail/${list.id}`} >
                 <p className="noticetitle">{list.title}</p>
             </Link>
             <p className="noticedate">{list.date}</p>
@@ -81,13 +81,13 @@ export function NoticeList({list}){
     )
 };
 
-export function NoticeDetailContent(){
+export function NoticeDetailContent({noticecontent}){
     return(
         <div>
-            <h3 className="detailcontenttitle">단체주문도 언제, 어디서나 배스킨라빈스!</h3>
-            <p className="detaildate">2022-02-11</p>
+            <h3 className="detailcontenttitle">{noticecontent.title}</h3>
+            <p className="detaildate">{noticecontent.date}</p>
             <hr/>
-            <img className="detailimage" src="images/cs_center/noticedetail/orderwheneveryouwant.png" alt="" />
+            <img className="detailimage" src={noticecontent.detail} alt="" />
             <hr/>
         </div>
     )

@@ -6,5 +6,7 @@ const router = express.Router();
 router
     .get('/faq',controller.getFAQ)
     .get('/notice',controller.getNotice)
+    .get('/notice/detail/:id', controller.getNoticeDetail)
+
 
 export default router;

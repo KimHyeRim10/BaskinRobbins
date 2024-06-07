@@ -63,7 +63,7 @@
             {
                 "name":"카라멜 기본",
                 "info":"바닐라향 아이스크림과 크림 카라멜 리본이 어우러진 제품",
-                "iceimg":"http://localhost:3000/images/brrecipe/iceimg/caramel_icecream_ice1.png"
+                "iceimg":"http://localhost:3000/images/brrecipe/iceimg/caramel_icecream_ice.png"
             }
         ],
         "ingredients":["카라멜 리본 100g","캔디 올리브 20g(깔라만타 올리브 300g, 설탕 200g, 물 200g)","캔디드 베이컨 (베이컨 100g, 갈색 설탕 30g)","차콜 플레이버 카라멜 (물 20ml, 설탕 125g, 생크림 200ml, 참숯 30g, 버터 10g)","헤이즐넛 크럼블 (밀가루 125g, 버터 125g, 설탕 130g, 헤이즐넛 파우더 95g, 소금 3g (시판 쿠키를 부셔서 활용해도 좋음))"],

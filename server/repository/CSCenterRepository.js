@@ -19,3 +19,15 @@ export const getNotice = async() =>{
                 .catch(error=>console.log(error))
     return notice
 }
+export const getNoticeDetail = async(id) =>{
+    const path = 'data/notice.json';
+    const noticedetail = fsPromises.readFile(path,"utf-8")
+                    .then((data)=>{
+                        const jsonData = JSON.parse(data)
+                        const noticedetail = jsonData.filter(item=>item.id === id)
+                    return noticedetail[0]
+                })
+                .catch(error=>console.log(error))
+                console.log(noticedetail)
+    return noticedetail
+}
