@@ -24,3 +24,14 @@ export const getRecipe = async() =>{
 }
 
 /* 레시피 상세페이지 출력 */
+export const getRecipeDetail = async(id)=>{
+    const path = 'data/brrecipe.json';
+    const recipe = fsPromises.readFile(path,"utf-8")
+                .then((data)=>{
+                    const jsonData = JSON.parse(data)
+                    const recipe = jsonData.filter(item=>item.id === id)
+                    return recipe[0]
+                })
+                .catch(error=>console.log(error))
+    return recipe
+}

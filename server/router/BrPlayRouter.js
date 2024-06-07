@@ -9,5 +9,6 @@ router
     .get('/promotion', controller.getEvent)
     .get('/benefit', controller.getEvent)
     .get('/brrecipe/all', controller.getRecipe)
+    .get('/brrecipe/detail/:id', controller.getRecipeDetail)
 
 export default router;

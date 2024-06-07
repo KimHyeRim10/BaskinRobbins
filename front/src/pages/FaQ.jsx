@@ -5,10 +5,15 @@ import { BigTitleNInfo,EventCategoris } from '../components/MainComponents'
 import { useEffect, useState } from 'react'
 import { FaQbox } from '../components/CScenterComponents'
 import axios from 'axios'
+import Pagination from 'rc-pagination'
+import 'bootstrap/dist/css/bootstrap.css'
 
 export default function FaQ(){
     const [type,setType] = useState('전체')
     const [faqList, setFaqList] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalCount, setTotalCount] = useState(0);
+    const [pageSize, setPageSize] = useState(10);
     const questionCategory = ["전체","제품",'포인트','회원','기타']
     useEffect(()=>{
         const url = "http://127.0.0.1:8080/cscenter/faq"
@@ -24,6 +29,11 @@ export default function FaQ(){
             }})
         .catch(error=>error)
     },[type])
+    let startIndex = 0;
+    let endIndex = 0;
+    startIndex = (currentPage-1) * pageSize + 1
+    endIndex = currentPage * pageSize;
+    let currentContent = faqList.slice(startIndex-1,endIndex)
     const changeContents = (type) =>{
     setType(type)
     }
@@ -44,12 +54,16 @@ export default function FaQ(){
                     ))}
                 </ul>
                 <ul className='faqLists'>
-                    {faqList.map((content)=>(
+                    {currentContent.map((content)=>(
                         <>
                             <FaQbox content={content}/>
                         </>
                     ))}
                 </ul>
+                <Pagination current={currentPage}
+                    total={faqList.length}
+                    pageSize={pageSize}
+                    onChange={(page)=>{setCurrentPage(page)}}/>
             </div>
         </div>
     )

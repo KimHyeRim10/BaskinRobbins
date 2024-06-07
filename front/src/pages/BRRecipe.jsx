@@ -6,10 +6,15 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { RecipeBox } from '../components/BrRecipeComponents.jsx'
+import Pagination from 'rc-pagination'
+
 
 export default function BRRecipe(){
     const [type, setType] = useState('전체')
     const [recipeList, setRecipeList]=useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalCount, setTotalCount] = useState(0);
+    const [pageSize, setPageSize] = useState(6);
 
     useEffect(()=>{
         const url = "http://127.0.0.1:8080/play/brrecipe/all"
@@ -21,6 +26,11 @@ export default function BRRecipe(){
             type==="전체" ? setRecipeList(response.data):setRecipeList(response.data.filter(item=>item.category === type))
         })
     },[type])
+    let startIndex = 0;
+    let endIndex = 0;
+    startIndex = (currentPage-1) * pageSize + 1
+    endIndex = currentPage * pageSize;
+    let currentContent = recipeList.slice(startIndex-1,endIndex)
 
     const eventnavlist = [
         {name:"이벤트", path:"/play/event"},
@@ -31,8 +41,8 @@ export default function BRRecipe(){
         setType(type)
     }
     const eventListOrder = [];
-        for(let i =0; i<recipeList.length; i+=2){
-        eventListOrder.push(recipeList.slice(i,i+2))
+        for(let i =0; i<currentContent.length; i+=2){
+        eventListOrder.push(currentContent.slice(i,i+2))
     }
     console.log(type)
 
@@ -65,11 +75,17 @@ export default function BRRecipe(){
                     {eventListOrder.map((items)=>(
                         <li className='recipecontentsList'>
                             {items.map((item)=>(
-                                <RecipeBox recipe={item}/>
+                                <Link to={`/brrecipe/detail/${item.id}`}>
+                                    <RecipeBox recipe={item}/>
+                                </Link>
                             ))}
                         </li>
                     ))}
                 </ul>
+                <Pagination current={currentPage}
+                    total={recipeList.length}
+                    pageSize={pageSize}
+                    onChange={(page)=>{setCurrentPage(page)}}/>
             </div>
         </div>
     )

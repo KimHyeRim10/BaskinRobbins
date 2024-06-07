@@ -73,7 +73,7 @@ export function NoticeList({list}){
     return(
         <li className="noticeinfos">
             <p className="noticerno">{list.id}</p>
-            <Link to="/notice/detail/:id">
+            <Link >
                 <p className="noticetitle">{list.title}</p>
             </Link>
             <p className="noticedate">{list.date}</p>
