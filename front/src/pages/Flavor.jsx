@@ -81,9 +81,8 @@ export default function Flavor(){
                 <ul className="navbarlist">
                 {storecategories.map((item)=>(
                     <li className="navbar flavornavbar">
-                        <Link to={item.path}>
-                            <Navbar title={item.name}/>
-                        </Link>
+                            <Navbar title={item.name}
+                                    path={item.path}/>
                     </li>
                 ))}
                 </ul>

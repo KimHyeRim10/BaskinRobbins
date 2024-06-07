@@ -45,9 +45,7 @@ export default function EventBenefit() {
             <ul className="navbarlist">
             {eventnavlist.map((item)=>(
             <li className='navbar benefitfirst'>
-                <Link to={item.path}>
-                    <Navbar title={item.name} />
-                </Link>
+                    <Navbar title={item.name} path={item.path}/>
             </li>
             ))}
             </ul>

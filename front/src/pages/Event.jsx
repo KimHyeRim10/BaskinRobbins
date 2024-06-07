@@ -48,9 +48,7 @@ export default function Event() {
         <ul className="navbarlist">
         {eventnavlist.map((item)=>(
           <li className='navbar eventbar'>
-            <Link to={item.path}>
-              <Navbar title={item.name} />
-            </Link>
+              <Navbar title={item.name} path={item.path}/>
           </li>
         ))}
         </ul>

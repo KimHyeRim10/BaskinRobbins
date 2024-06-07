@@ -43,7 +43,8 @@ export default function BRRecipe(){
                 {eventnavlist.map((item)=>(
                     <li className='navbarrecipe'>
                             <Navbar
-                                title={item.name}/>
+                                title={item.name}
+                                path={item.path}/>
                     </li>
                 ))}
             </ul>

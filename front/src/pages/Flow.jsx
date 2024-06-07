@@ -32,10 +32,9 @@ export default function Flow(){
                 <ul className='navbarlist'>
                     {storecategories.map((item)=>(
                         <li className='navbar_flow'>
-                            <Link to={item.path}>
                                 <Navbar
-                                    title={item.name}/>
-                                </Link>
+                                    title={item.name}
+                                    path={item.path}/>
                         </li>
                     ))}
                 </ul>
