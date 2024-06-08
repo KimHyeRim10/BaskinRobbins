@@ -1,15 +1,19 @@
 import React, { useState, useRef } from "react";
+import axios from "axios";
+import * as cookie from "../util/cookies.js";
+import { jwtDecode } from "jwt-decode";
 import login from "../video/login3.mp4";
 import "../css/seulki.css";
 import "../css/animation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpoon } from "@fortawesome/free-solid-svg-icons/faSpoon";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [formData, setFormData] = useState({ id: "", pw: "" });
   const userIdRef = useRef(null);
   const userPwRef = useRef(null);
+  const navigate = useNavigate();
 
   const videoRef = useRef();
   const setPlayBackRate = () => {
@@ -30,7 +34,39 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validationCheck()) console.log("전송성공");
+    if (validationCheck()) {
+      console.log(formData); // formData 안에 있는것 -> id랑 pw
+      const url = "http://127.0.0.1:8080/member/login";
+
+      //! 보내야 할 데이터가 많은 경우에는 POST방식을 사용해야 함!
+      axios({
+        method: "POST",
+        url: url,
+        data: formData,
+      })
+        .then((res) => {
+          // console.log("res ==> ", res.data);
+          if (res.data.cnt === 1) {
+            console.log("token ==>", res.data.token);
+            // ↓ 쿠키에 토큰 저장하기
+            cookie.setCookie("x-auth-jwt", res.data.token); //* localStorage.js의 getCookie에 설정한 이름
+            // ↓ 토큰에서 userInfo 정보를 로컬스토리지에 저장하기
+            const userInfo = jwtDecode(res.data.token);
+            // alert(JSON.stringify(userInfo));
+            localStorage.setItem("userInfo", JSON.stringify(userInfo)); // ★리액트에서 제공되는 함수. localStorage.js랑 다른거임!!
+
+            alert("로그인 성공! 메인으로 이동합니다");
+            navigate("/"); // 메인화면으로 이동
+          } else {
+            alert("아이디와 패스워드를 확인해주세요");
+            // userIdRef.current.value = ""; // 이렇게 입력하면 히스토리에 기록이 남음
+            // userPwRef.current.value = "";
+            setFormData({ id: "", pw: "" }); // 입력했던 값들이 히스토리에 남지않도록 하기
+            userIdRef.current.focus();
+          }
+        })
+        .catch((error) => console.log(error));
+    }
   };
 
   //TODO 유효성 검사
@@ -98,9 +134,7 @@ export default function Login() {
             </button>
           </li>
         </ul>
-        {/* <p className="word2">
-          아이디찾기 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 비밀번호 재발급
-        // </p> */}
+
         <p className="word3">
           베스킨라빈스 회원이 아니시라면 지금 베스킨라빈스에
           <br />
