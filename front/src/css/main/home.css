@@ -1,19 +1,22 @@
 #main_home{
   background-image: url('../../../public/images/main/bg_hero.jpg');
   text-align: center;
-  padding:2rem 0;
 }
 
 .home_main_logo{
   width: 400px;
   height: 100px;
-  background-color:  #ff4d72;
-  border-radius:5px ;
+  background-color:  rgb(246,140,181);
+  border-radius: 20px;
+
   margin: 0 auto;
+  background-image: url('../../../public/images/baskin_robbins_logo_2__81689-scaled-removebg-preview.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 10%;
 }
 .home_main_image{
   margin: 0 auto;
-  margin-left: -5rem;
   width: 1500px;
  /*  border: 5px solid red; */
   position: relative;
@@ -21,7 +24,7 @@
 .home_image{
   width: 1500px;
   border-radius: 150px;
-  border: 15px solid  #ff4d72;
+  border: 15px solid rgb(246,140,181);
 }
 
 /* home event */

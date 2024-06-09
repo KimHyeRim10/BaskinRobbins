@@ -1,5 +1,8 @@
 /* navbar list */
-
+.cnavbar:nth-child(1) button{
+    color: white;
+    background-color: rgb(249,134,189);
+}
 
 .navbarlist li:nth-child(2) button {
     color: rgb(249,134,189);
@@ -220,6 +223,9 @@
 }
 .rc-pagination-item-active{
     background-color: var(--pink-color-2);
+
+}
+.rc-pagination-item-active a {
     color: white;
 }
 .rc-pagination-next button::before{

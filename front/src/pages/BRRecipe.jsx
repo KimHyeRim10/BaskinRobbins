@@ -39,6 +39,7 @@ export default function BRRecipe(){
     const eventcategoryList =["전체","셰프 & 파티시에","바리스타 & 바텐더","인플루언서"]
     const changeContents = (type) =>{
         setType(type)
+        setCurrentPage(1)
     }
     const eventListOrder = [];
         for(let i =0; i<currentContent.length; i+=2){
@@ -75,9 +76,7 @@ export default function BRRecipe(){
                     {eventListOrder.map((items)=>(
                         <li className='recipecontentsList'>
                             {items.map((item)=>(
-                                <Link to={`/brrecipe/detail/${item.id}`}>
                                     <RecipeBox recipe={item}/>
-                                </Link>
                             ))}
                         </li>
                     ))}

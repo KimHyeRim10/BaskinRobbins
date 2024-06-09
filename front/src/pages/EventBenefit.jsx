@@ -28,7 +28,7 @@ export default function EventBenefit() {
 
     const eventnavlist = [
         {name:"이벤트", path:"/play/event"},
-        {name:"BR 레시피", path:"/play/brreipe/all"}]
+        {name:"BR 레시피", path:"/play/brrecipe/all"}]
     const eventcategoryList =["전체","프로모션","제휴혜택"]
     const changeContents= (type) =>{
         setTitle(type)
@@ -66,8 +66,10 @@ export default function EventBenefit() {
             {eventListOrder.map((items)=>(
                 <li className='order'>
                 {items.map((item)=>(
-                    <Box list={item}
-                        classname={item.category === "프로모션" ? "boxcategorypm":"boxcategorybn"}/>
+                    <Link to={`/play/event/detail/${item.id}`}>
+                        <Box list={item}
+                            classname={item.category === "프로모션" ? "boxcategorypm":"boxcategorybn"}/>
+                    </Link>
                 ))}
                 </li>
             ))}

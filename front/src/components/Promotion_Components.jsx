@@ -1,29 +1,31 @@
 import { useEffect, useRef, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 export function PromotionList() {
   const [promotion,setPromotion] = useState([])
   const [currentIndex,setCurrentIndex] = useState(0)
   const slideRef = useRef(null)
   useEffect(()=>{
-    fetch("data/promotionList.json")
-      .then(response => response.json())
-      .then(result => {
-        setPromotion(result)
-      })
-      .catch(error=>console.log(error))
-  },[])
-  useEffect(()=>{
+    axios({
+      method:'get',
+      url:'http://127.0.0.1:8080/'
+    })
+    .then(response=>setPromotion(response.data.filter(item=>item.category === '프로모션')))
+    .catch(error=>console.log(error))
       slideRef.current.style.transition = "all 500ms ease-in"
       slideRef.current.style.transform = `translateX(-${currentIndex}00%)`
   },[currentIndex])
-  const promotionList = promotion.filter((item)=> item.category === '프로모션')
+  
   const promotionContents = [];
-  for(let i =0; i<promotionList.length; i+=5){
-    promotionContents.push(promotionList.slice(i,i+5))
+  for(let i =0; i<promotion.length; i+=5){
+    promotionContents.push(promotion.slice(i,i+5))
   }
+
   const movePage = (index) =>{
     setCurrentIndex(index)
   }
+
   function useInterval(callback, delay) {
     const savedCallback = useRef();
     // Remember the latest callback.
@@ -41,6 +43,7 @@ export function PromotionList() {
         }
     }, [delay]);
     }
+    
     useInterval(()=>{
         if(currentIndex === 1){
             setCurrentIndex(0)
@@ -54,11 +57,13 @@ export function PromotionList() {
       {promotionContents.map((items)=>(
         <li className="promotions">
           {items.map((content)=>(
-        <div className="promotion">
-          <img src={content.img} className="promotionimage" alt="" />
-          <p className="date">{content.date}</p>
-          <p className="info">{content.info}</p>
-        </div>
+            <Link to={`/play/event/detail/${content.id}`}>
+              <div className="promotion">
+                <img src={content.img} className="promotionimage" alt="" />
+                <p className="date">{content.date}</p>
+                <p className="info">{content.info}</p>
+              </div>
+            </Link>
           ))}
           </li>
       ))}

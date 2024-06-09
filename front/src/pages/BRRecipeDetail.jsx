@@ -2,7 +2,7 @@ import '../css/style.css'
 import '../css/main/main_commons.css'
 import '../css/event/brrecipe.css'
 import { Navbar } from '../components/MainComponents'
-import {useParams} from 'react-router-dom'
+import {useParams, Link} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 
@@ -74,6 +74,9 @@ export default function BRRecipeDetail(){
                             ))}
                         </ul>
                 </div>
+                <Link to="/play/brrecipe/all">
+                    <button className='backbtndetail'>목록</button>
+                </Link>
             </div>
         </div>
     )

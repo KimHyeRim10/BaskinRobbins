@@ -1,35 +1,36 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useRef, useState } from 'react';
+import axios from 'axios';
+
 export function NewItemsList() {
   const[currentIndex,setCurrentIndex]=useState(0)
   const[newItemList, setnewItemList] = useState([])
   const slideRef = useRef(null)
   useEffect(()=>{
-    fetch('data/newitem.json')
-      .then(response => response.json())
+    axios({
+      method:'get',
+      url:'http://127.0.0.1:8080/newitem'
+    })
       .then(result=>{
-        setnewItemList(result)
+        setnewItemList(result.data)
       })
       .catch(error=>console.log(error))
-  },[])
-  useEffect(()=>{
-    if(currentIndex === 1){
-      slideRef.current.style.transition = "all 500ms ease-in"
-      slideRef.current.style.transform = `translateX(-${currentIndex*43}%)`
-    } else{
-      slideRef.current.style.transition = "all 500ms ease-in"
-    slideRef.current.style.transform = `translateX(-${currentIndex}00%)`
-    }
+
+      if(currentIndex === 1){
+        slideRef.current.style.transition = "all 500ms ease-in"
+        slideRef.current.style.transform = `translateX(-${currentIndex*43}%)`
+      } else{
+        slideRef.current.style.transition = "all 500ms ease-in"
+      slideRef.current.style.transform = `translateX(-${currentIndex}00%)`
+      }
   },[currentIndex])
 
-  const rows = [];
-  for(let i = 0; i<newItemList.length; i+=4){
-    rows.push(newItemList.slice(i,i+4))
-  }
+
   const movePage = (index)=>{
     setCurrentIndex(index)
   }
+
   function useInterval(callback, delay) {
     const savedCallback = useRef();
     // Remember the latest callback.
@@ -47,33 +48,35 @@ export function NewItemsList() {
         }
     }, [delay]);
     }
+
     useInterval(()=>{
         if(currentIndex === 1){
             setCurrentIndex(0)
         } else{
             setCurrentIndex(currentIndex + 1)
         }
-    },3000)
+    },5000)
+
   return (
     <>
       <ul className='MenuList' ref={slideRef}>
-        {rows.map((items,index)=>(
+        {newItemList.map((item,index)=>(
           <li className='MenuItems'>
-            <img className="bigimage" src='images/newitems/newitem_big1.jpg' alt="" />
-            <div className='Menus'>
-            {items.map((item)=>(
-              <>
-              <NewItembox
-                img={item.img}
-                name={item.name}/>
-              </>
-            ))}
-            </div>
+              <img className="bigimage" src={item.img}alt="" />
+            <ul className='Menus'>
+              {{...item}.items.map((item)=>(
+                <li>
+                <NewItembox
+                  img={item.img}
+                  name={item.name}/>
+                </li>
+              ))}
+            </ul>
           </li>
         ))}
       </ul>
       <ul className='buttonlist'>
-        {rows.map((item,index)=>(
+        {newItemList.map((item,index)=>(
           <li>
             <button className={currentIndex === index ? "activeni" : "button"}
                     onClick={()=>movePage(index)}>●</button>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export function RecipeBox({recipe}){
     return(
-        <Link to="/play/brrecipe/detail:id">
+        <Link to={`/play/brrecipe/detail/${recipe.id}`}>
             <div className="recipebox">
                 <img className="recipe_small_img" src={recipe.smallimg} alt="" />
                 <div className="recipe_text">

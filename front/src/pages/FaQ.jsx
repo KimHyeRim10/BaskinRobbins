@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { FaQbox } from '../components/CScenterComponents'
 import axios from 'axios'
 import Pagination from 'rc-pagination'
-import 'bootstrap/dist/css/bootstrap.css'
+import { useRef } from 'react'
 
 export default function FaQ(){
     const [type,setType] = useState('전체')
@@ -14,7 +14,11 @@ export default function FaQ(){
     const [currentPage, setCurrentPage] = useState(1);
     const [totalCount, setTotalCount] = useState(0);
     const [pageSize, setPageSize] = useState(10);
+    const openRef = useRef(null);
+
+
     const questionCategory = ["전체","제품",'포인트','회원','기타']
+
     useEffect(()=>{
         const url = "http://127.0.0.1:8080/cscenter/faq"
         axios({
@@ -29,14 +33,22 @@ export default function FaQ(){
             }})
         .catch(error=>error)
     },[type])
+
     let startIndex = 0;
     let endIndex = 0;
     startIndex = (currentPage-1) * pageSize + 1
     endIndex = currentPage * pageSize;
+
     let currentContent = faqList.slice(startIndex-1,endIndex)
     const changeContents = (type) =>{
     setType(type)
+    setCurrentPage(1)
     }
+
+    const test = (e)=>{
+        
+    }
+
     return(
         <div id='faq'>
             <div className='content'>
@@ -54,9 +66,9 @@ export default function FaQ(){
                     ))}
                 </ul>
                 <ul className='faqLists'>
-                    {currentContent.map((content)=>(
+                    {currentContent.map((content, index)=>(
                         <>
-                            <FaQbox content={content}/>
+                            <FaQbox index={index} content={content} ref={openRef} click={test}/>
                         </>
                     ))}
                 </ul>

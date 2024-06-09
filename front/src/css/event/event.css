@@ -18,7 +18,7 @@
   margin-top: 2rem;
   border: 1px solid rgb(219, 213, 202);
   border-radius: 8px;
-  width: 750px;
+  width: 700px;
   height: 297px;
   display: flex;
 }
@@ -71,7 +71,7 @@ button{
   background-color: transparent;
 }
 
-.eventbar:nth-child(1) button {
+.eventbar:nth-child(1) button, .eventdetailnavbar:nth-child(1) button {
   color: white;
   background-color:rgb(249,134,189);
 }
@@ -79,28 +79,38 @@ button{
   margin: 1rem 0;
 }
 .detailEvent{
-  font-size: 4rem;
+  font-size: 6rem;
   color: rgb(249,134,189);
   margin: 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 .detailcategory{
   font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: .4rem;
 }
 .detailTitle{
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  color:rgb(68, 68, 68);
+}
+.detaildate{
+  color: rgb(104,103,102);
+  font-size: .5rem;
 }
 .detailNotice{
- /*  border: 1px solid red; */
   padding: 1rem 0;
-  width: 500px;
+  width: 800px;
   text-align: left;
+  margin-left: 1rem;
   font-size: .7rem;
-  color: rgb(177, 177, 177);;
+  color: rgb(177, 177, 177);
 }
 #eventDetail{
   padding-bottom: 3rem;
+}
+.detailimg{
+  margin: 2rem 0;
 }
 .backbtn{
   margin-top: 2rem;
@@ -117,4 +127,7 @@ button{
   width: 150px;
   color:white ;
   background-color:rgb(249,134,189);
+}
+.detailNotice_title{
+  margin-bottom: 1rem;
 }

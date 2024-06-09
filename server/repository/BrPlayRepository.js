@@ -12,6 +12,18 @@ export const getEvent = async() =>{
 }
 /* 이벤트 상세 페이지 출력 */
 
+export const getEventDetail = async(id) =>{
+    const path = 'data/promotionList.json';
+    const eventdetail = fsPromises.readFile(path,"utf-8")
+                        .then((data)=>{
+                            const jsonData = JSON.parse(data)
+                            const eventdetail = jsonData.filter(item=>item.id === id)
+                            return eventdetail[0]
+                        })
+                        .catch(error=>console.log(error))
+                        return eventdetail
+}
+
 /* 레시피 목록 출력 */
 export const getRecipe = async() =>{
     const path = 'data/brrecipe.json';

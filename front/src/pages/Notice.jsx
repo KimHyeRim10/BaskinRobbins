@@ -7,7 +7,6 @@ import { NoticeList } from '../components/CScenterComponents'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Pagination from 'rc-pagination'
-import 'bootstrap/dist/css/bootstrap.css'
 
 
 export default function Notice(){

@@ -2,7 +2,7 @@ import '../css/style.css'
 import '../css/main/main_commons.css'
 import '../css/cscenter/cscenter.css'
 import { NoticeDetailContent } from '../components/CScenterComponents'
-import { Navigate, useParams } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 
@@ -24,7 +24,9 @@ export default function NoticeDetail(){
             <div className="content">
                 <h2 className='noticedetailtitle'>공지사항</h2>
                 <NoticeDetailContent noticecontent={noticedetail}/>
-                <button className='backbtndetail' onClick={navigator('/')}>목록</button>
+                <Link to="/cscenter/notice">
+                    <button className='backbtndetail'>목록</button>
+                </Link>
             </div>
         </div>
     )

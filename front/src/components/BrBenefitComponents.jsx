@@ -1,20 +1,23 @@
 import { useRef,useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 export function BenefitCarousel() {
   const slideRef = useRef(null)
   const [benefit, setBenefit] = useState([])
+
   useEffect(()=>{
-    fetch("data/promotionList.json")
-      .then(response => response.json())
-      .then(result => {
-        setBenefit(result)
-      })
+    axios({
+      method:'get',
+      url:"http://127.0.0.1:8080/"
+    })
+      .then(response => setBenefit(response.data.filter(item=>item.category === '제휴혜택')))
       .catch(error=>console.log(error))
   },[])
-  const benefitList = benefit.filter((item)=> item.category === '제휴혜택')
+  
   const benefitContents = [];
-  for(let i =0; i<benefitList.length; i+=5){
-    benefitContents.push(benefitList.slice(i,i+5))
+  for(let i =0; i<benefit.length; i+=5){
+    benefitContents.push(benefit.slice(i,i+5))
   }
 /*   function useInterval(callback, delay) {
     const savedCallback = useRef();
@@ -43,7 +46,9 @@ export function BenefitCarousel() {
         <>
           {items.map((item)=>(
             <li>
-              <img src={item.img} alt="" />
+              <Link to={`/play/event/detail/${item.id}`}>
+                <img src={item.img} alt="" />
+              </Link>
             </li>
           ))}
         </>

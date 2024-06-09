@@ -6,6 +6,12 @@ export const getEvent = async(req,res)=>{
     res.end()
 }
 
+export const getEventDetail = async(req,res)=>{
+    const id = req.params.id
+    const eventdetail = await repository.getEventDetail(id)
+    res.json(eventdetail)
+}
+
 export const getRecipe = async(req,res)=>{
     const recipe = await repository.getRecipe()
     res.json(recipe)
