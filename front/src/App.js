@@ -21,6 +21,7 @@ import Flow from "./pages/Flow.jsx";
 import CScenter from "./pages/CScenter.jsx";
 import FaQ from "./pages/FaQ.jsx";
 import Notice from "./pages/Notice.jsx";
+import NoticeDetail from "./pages/NoticeDetail.jsx";
 
 import Bebetter from "./pages/Bebetter.jsx";
 import History from "./pages/History.jsx";
@@ -71,7 +72,7 @@ function App() {
 
         { path: "/play/event/benefit", element: <EventBenefit /> },
         { path: "/play/brrecipe", element: <BRRecipe /> },
-
+        { path: "/cscenter/notice/detail/:id", element: <NoticeDetail /> },
         { path: "/play/brrecipe/detail:id", element: <BRRecipeDetail /> },
 
         { path: "/story", element: <Story /> },
