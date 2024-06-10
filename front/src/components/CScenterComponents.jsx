@@ -41,23 +41,19 @@ export function VOC({process}){
     )
 };
 
-export function FaQbox({content,ref,click,index}){
-    const [btnOpen, setBtnOpen] = useState(null)
+export function FaQbox({content,click,index, className, test}){
+
     const handleOpen = (index) =>{
-        if(btnOpen === index){
-            return setBtnOpen(null)
-        }
-        setBtnOpen(index)
+        click(index)
     }
-    console.log(btnOpen)
     return(
-        <li className="qubox" onClick={()=>handleOpen(index)} >
-                <div className="questions" key={index} 
-                                >
+        <li className="qubox" >
+                <div className="questions" key={index} onClick={()=>handleOpen(index)}  >
                     <FontAwesomeIcon className="qicon qcolor" icon={faQ}/>
-                    <span className="qonly">{content.question}</span>
+                    <p className="qonly">{content.question}</p>
+                    <p className="showinganswer">{test}</p>
                 </div>
-                <div className={btnOpen === index ? "answers_open" :"answers"} key={index} ref={ref}>
+                <div className={className} key={index}>
                     <FontAwesomeIcon className="qicon acolor" icon={faA} />
                     <p className="aonly">{content.answer}</p>
                 </div>

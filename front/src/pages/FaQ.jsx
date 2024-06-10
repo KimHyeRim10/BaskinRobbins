@@ -14,6 +14,7 @@ export default function FaQ(){
     const [currentPage, setCurrentPage] = useState(1);
     const [totalCount, setTotalCount] = useState(0);
     const [pageSize, setPageSize] = useState(10);
+    const [btnOpen, setBtnOpen] = useState(null)
 
 
     const questionCategory = ["전체","제품",'포인트','회원','기타']
@@ -42,6 +43,13 @@ export default function FaQ(){
     const changeContents = (type) =>{
     setType(type)
     setCurrentPage(1)
+    setBtnOpen(null)
+    }
+    const click = (index)=>{
+        if(btnOpen === index){
+            return setBtnOpen(null)
+        }
+        setBtnOpen(index)
     }
 
 
@@ -64,7 +72,8 @@ export default function FaQ(){
                 <ul className='faqLists'>
                     {currentContent.map((content, index)=>(
                         <>
-                            <FaQbox index={index} content={content}/>
+                            <FaQbox index={index} content={content} click={click}
+                                className={btnOpen === index ? "answers_open" :"answers"} test={btnOpen === index ? '-':'+'}/>
                         </>
                     ))}
                 </ul>

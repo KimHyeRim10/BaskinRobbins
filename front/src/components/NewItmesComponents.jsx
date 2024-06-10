@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export function NewItemsList() {
   const[currentIndex,setCurrentIndex]=useState(0)
@@ -62,13 +63,17 @@ export function NewItemsList() {
       <ul className='MenuList' ref={slideRef}>
         {newItemList.map((item,index)=>(
           <li className='MenuItems'>
+            <Link to={item.path}>
               <img className="bigimage" src={item.img}alt="" />
+            </Link>
             <ul className='Menus'>
               {{...item}.items.map((item)=>(
                 <li>
-                <NewItembox
-                  img={item.img}
-                  name={item.name}/>
+                  <Link to={item.path}>
+                    <NewItembox
+                      img={item.img}
+                      name={item.name}/>
+                  </Link>
                 </li>
               ))}
             </ul>

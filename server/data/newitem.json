@@ -1,19 +1,40 @@
 [ 
     {     
-        "img":"http://localhost:3000/images/newitems/newitem_big1.jpg",
-        "name":"이상한 나라의 슈팅스타",
-        "items":[{"img":"http://localhost:3000/images/newitems/newitem_1.jpg","name":"와츄원 쉐이크"},
-        {"img":"http://localhost:3000/images/newitems/newitem_2.jpg","name":"블루밍 플라워 인 러브"},
-        {"img":"http://localhost:3000/images/newitems/newitem_3.jpg","name":"핑크 플라워 포 유"},
-        {"img":"http://localhost:3000/images/newitems/newitem_4.jpg","name":"다이노소어 스윗 월드"}]
+        "img":"http://localhost:3000/images/newitems/newitem_bigimg1.png",
+        "name":"우주 라이크 봉봉",
+        "path":"/menu/icecreamdetail/32",
+        "items":[
+          { "img":"http://localhost:3000/images/newitems/newitem_big1.jpg",
+            "name":"이상한 나라의 슈팅스타",
+            "path":"/menu/icecreamdetail/31"},
+          {
+            "img":"http://localhost:3000/images/newitems/newitem_2.png",
+            "name":"우주라이크 봉봉 케이크",
+            "path":"/menu/icecreamcakedetail/21"},
+          { "img":"http://localhost:3000/images/newitems/newitem_3.png", 
+            "name":"스페셜 데이",
+            "path":"/menu/icecreamcakedetail/9"},
+          { "img":"http://localhost:3000/images/newitems/newitem_4.png",
+            "name":"레디팩 뉴욕 치즈 케이크",
+            "path":"/menu/prepackdetail/14"}]
       },
     {     
         "img":"http://localhost:3000/images/newitems/newitem_big2.jpg",
         "name":"디노 젤리",
-        "items":[{"img":"http://localhost:3000/images/newitems/newitem_5.jpg","name":"얼그레이 밀크티 블라스트"},
-        {"img":"http://localhost:3000/images/newitems/newitem_6.jpg","name":"자몽 블랙티 블라스트"},
-        {"img":"http://localhost:3000/images/newitems/newitem_7.jpg","name":"애플망고 젤라또"
+        "path":"/menu/icecreamdetail/28",
+        "items":[
+          { "img":"http://localhost:3000/images/newitems/newitem_ryan.png",
+            "name":"어썸 라이언 인 사파리",
+            "path":"/menu/icecreamcakedetail/20"},
+          { "img":"http://localhost:3000/images/newitems/newitem_joy.png",
+            "name":"해피 조이 큐브",
+            "path":"/menu/icecreamcakedetail/19"},
+          { "img":"http://localhost:3000/images/newitems/newitem_7.jpg",
+            "name":"애플망고 젤라또",
+            "path":"/menu/prepackdetail/36"
         },
-        {"img":"http://localhost:3000/images/newitems/newitem_8.jpg","name":"피스타치오 젤라또"}]
+          { "img":"http://localhost:3000/images/newitems/newitem_8.jpg",
+            "name":"피스타치오 젤라또",
+            "path":"/menu/prepackdetail/35"}]
       }
     ]
