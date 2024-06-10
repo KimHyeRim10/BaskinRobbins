@@ -52,10 +52,14 @@ export default function GroupOrderForm() {
     }
   };
 
+  // 구매희망상품군 삭제버튼
   const handleRemoveItem = (index) => {
     const updatedValues = [...selectedValues];
+    const checkbox = document.getElementById(index);
+
     updatedValues.splice(index, 1);
     setSelectedValues(updatedValues);
+    checkbox.checked = false;
   };
 
   //* ↓ 혜택팝업
@@ -547,6 +551,7 @@ export default function GroupOrderForm() {
                       <div>
                         <label>
                           <input
+                            id="0"
                             type="checkbox"
                             value="아이스크림 케이크"
                             onChange={handleInputChange}
@@ -557,6 +562,7 @@ export default function GroupOrderForm() {
                       <div>
                         <label>
                           <input
+                            id="1"
                             type="checkbox"
                             value="블록팩 (싱글 레귤러 크기, 170ml)"
                             onChange={handleInputChange}
@@ -567,6 +573,7 @@ export default function GroupOrderForm() {
                       <div>
                         <label>
                           <input
+                            id="2"
                             type="checkbox"
                             value="레디팩 (파인트크기 474ml)"
                             onChange={handleInputChange}
@@ -577,6 +584,7 @@ export default function GroupOrderForm() {
                       <div>
                         <label>
                           <input
+                            id="3"
                             type="checkbox"
                             value="레디팩 미니 (260ml)"
                             onChange={handleInputChange}
@@ -587,6 +595,7 @@ export default function GroupOrderForm() {
                       <div>
                         <label>
                           <input
+                            id="4"
                             type="checkbox"
                             value="디저트류 (모찌, 마카롱, 스틱바 등)"
                             onChange={handleInputChange}
@@ -597,6 +606,7 @@ export default function GroupOrderForm() {
                       <div>
                         <label>
                           <input
+                            id="5"
                             type="checkbox"
                             value="기타"
                             onChange={handleInputChange}
