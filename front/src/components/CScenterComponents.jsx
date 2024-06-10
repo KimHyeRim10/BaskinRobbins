@@ -42,19 +42,22 @@ export function VOC({process}){
 };
 
 export function FaQbox({content,ref,click,index}){
-    const [btnOpen, setBtnOpen] = useState(false)
-    const handleOpen = (e) =>{
-        setBtnOpen(!btnOpen)
-        click(btnOpen)
+    const [btnOpen, setBtnOpen] = useState(null)
+    const handleOpen = (index) =>{
+        if(btnOpen === index){
+            return setBtnOpen(null)
+        }
+        setBtnOpen(index)
     }
+    console.log(btnOpen)
     return(
-        <li className="qubox" onClick={(e)=>handleOpen(e)}>
-                <div className="questions" key={index}>
+        <li className="qubox" onClick={()=>handleOpen(index)} >
+                <div className="questions" key={index} 
+                                >
                     <FontAwesomeIcon className="qicon qcolor" icon={faQ}/>
-                    <p className="qonly">{content.question}</p>
-                    
+                    <span className="qonly">{content.question}</span>
                 </div>
-                <div className="answers" key={index} ref={ref} style={{display:btnOpen?'flex':'none'}}>
+                <div className={btnOpen === index ? "answers_open" :"answers"} key={index} ref={ref}>
                     <FontAwesomeIcon className="qicon acolor" icon={faA} />
                     <p className="aonly">{content.answer}</p>
                 </div>

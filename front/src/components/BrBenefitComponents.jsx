@@ -19,7 +19,7 @@ export function BenefitCarousel() {
   for(let i =0; i<benefit.length; i+=5){
     benefitContents.push(benefit.slice(i,i+5))
   }
-/*   function useInterval(callback, delay) {
+  function useInterval(callback, delay) {
     const savedCallback = useRef();
     // Remember the latest callback.
     useEffect(() => {
@@ -39,7 +39,11 @@ export function BenefitCarousel() {
     useInterval(()=>{
         slideRef.current.style.transition = "all 500ms ease-in"
         slideRef.current.style.transform = "translateX(-980px)"
-    },3000) */
+    },3000)
+    useInterval(()=>{
+        slideRef.current.style.transition = "all 500ms ease-in"
+        slideRef.current.style.transform = "translateX(0px)"
+    },6000)
   return (
     <ul className="benefitList" ref={slideRef}>
       {benefitContents.map((items)=>(

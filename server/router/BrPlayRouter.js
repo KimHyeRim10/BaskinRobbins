@@ -8,6 +8,7 @@ router
     .get('/event', controller.getEvent)
     .get('/promotion', controller.getEvent)
     .get('/benefit', controller.getEvent)
+    .get('/event/detail/:id', controller.getEventDetail)
     .get('/brrecipe/all', controller.getRecipe)
     .get('/brrecipe/detail/:id', controller.getRecipeDetail)
 

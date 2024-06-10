@@ -14,7 +14,6 @@ export default function FaQ(){
     const [currentPage, setCurrentPage] = useState(1);
     const [totalCount, setTotalCount] = useState(0);
     const [pageSize, setPageSize] = useState(10);
-    const openRef = useRef(null);
 
 
     const questionCategory = ["전체","제품",'포인트','회원','기타']
@@ -45,9 +44,6 @@ export default function FaQ(){
     setCurrentPage(1)
     }
 
-    const test = (e)=>{
-        
-    }
 
     return(
         <div id='faq'>
@@ -68,7 +64,7 @@ export default function FaQ(){
                 <ul className='faqLists'>
                     {currentContent.map((content, index)=>(
                         <>
-                            <FaQbox index={index} content={content} ref={openRef} click={test}/>
+                            <FaQbox index={index} content={content}/>
                         </>
                     ))}
                 </ul>
