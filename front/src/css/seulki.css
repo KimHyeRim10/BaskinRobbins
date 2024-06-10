@@ -1636,6 +1636,11 @@ input::placeholder {
   margin-top: 50px;
 }
 
+.step2_error {
+  margin-left: 5px;
+  font-size: 15px;
+}
+
 /**------------------------------------------ SignupStep3.jsx 부분 */
 
 .step3_title {

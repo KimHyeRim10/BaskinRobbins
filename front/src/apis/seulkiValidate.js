@@ -26,40 +26,50 @@ export const handleFocus = (type) => {
 };
 
 //TODO Step2 유효성체크
-export const validateCheckStep2 = (formData, refs) => {
+export const validateCheckStep2 = (formData, refs, setFormError) => {
   let checkFlag = true;
+  const errors = {};
 
   if (refs.userIdRef.current.value === "") {
     //* ↑ refs 이용한 조건작성 방법
     // if (!formData.userId.trim()) { //* formData 이용한 조건작성 방법
     alert("아이디를 입력해주세요");
+    errors.id = "아이디를 입력해주세요!";
     refs.userIdRef.current.focus();
     checkFlag = false;
   } else if (!formData.userPass.trim()) {
     alert("비밀번호를 입력해주세요");
+    errors.pw = "비밀번호를 입력해주세요!";
     refs.userPassRef.current.focus();
     checkFlag = false;
   } else if (!formData.userPassCheck.trim()) {
     alert("비밀번호 확인을 입력해주세요");
+    errors.pwc = "비밀번호 확인을 입력해주세요!";
     refs.userPassCheckRef.current.focus();
     checkFlag = false;
   } else if (!formData.userName.trim()) {
     alert("이름을 입력해주세요");
+    errors.name = "이름을 입력해주세요!";
     refs.userNameRef.current.focus();
     checkFlag = false;
   } else if (!formData.emailId.trim()) {
     alert("이메일 아이디를 입력해주세요");
+    errors.email = "이메일 아이디를 입력해주세요!";
     refs.emailIdRef.current.focus();
     checkFlag = false;
   } else if (refs.emailDomainRef.current.value === "") {
     alert("이메일 주소를 입력해주세요");
+    errors.email = "이메일 주소를 입력해주세요!";
     refs.emailDomainRef.current.focus();
     checkFlag = false;
   } else if (!formData.phoneNumber2.trim()) {
     alert("휴대폰 뒷자리를 입력해주세요");
+    errors.phone = "휴대폰 번호를 입력해주세요!";
     refs.phoneNumber2Ref.current.focus();
     checkFlag = false;
   }
+
+  setFormError(errors);
   return checkFlag;
 };
 

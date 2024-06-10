@@ -36,6 +36,16 @@ export default function SignupStep2({
   //TODO 주소검색버튼 Toggle
   const [isOpen, setIsOpen] = useState(false); // 기본값 false로 설정해서 처음에는 주소검색창 안보이게 하기
 
+  //TODO 필수항목 변화감지
+  const [formError, setFormError] = useState({
+    id: "",
+    pw: "",
+    pwc: "",
+    name: "",
+    email: "",
+    phone: "",
+  });
+
   //TODO 주소검색버튼
   const handleToggle = () => {
     setIsOpen(true);
@@ -71,7 +81,7 @@ export default function SignupStep2({
 
   //TODO 서버전송
   const handleSubmit = () => {
-    if (validateCheckStep2(formData, refs)) {
+    if (validateCheckStep2(formData, refs, setFormError)) {
       //* ↑ 파라미터 두개중에 refs만 쓰는경우는 if(validateCheckStep2(refs)) 이렇게 작성하면 됨!
       if (passCheck(refs)) {
         //서버전송 : formData ==> 서버(NodeJS/Java/C#) ==> DB(MySQL) 저장
@@ -153,6 +163,7 @@ export default function SignupStep2({
             <li>
               <p className="step2_info_p">
                 <span className="uni_s">*</span>아이디
+                <span className="uni_s step2_error">{formError.id}</span>
               </p>
               <input
                 type="text"
@@ -173,6 +184,7 @@ export default function SignupStep2({
             <li>
               <p className="step2_info_p">
                 <span className="uni_s">*</span>비밀번호
+                <span className="uni_s step2_error">{formError.pw}</span>
               </p>
               <input
                 type="text"
@@ -186,6 +198,7 @@ export default function SignupStep2({
             <li>
               <p className="step2_info_p">
                 <span className="uni_s">*</span>비밀번호 확인
+                <span className="uni_s step2_error">{formError.pwc}</span>
               </p>
               <input
                 type="text"
@@ -199,6 +212,7 @@ export default function SignupStep2({
             <li>
               <p className="step2_info_p">
                 <span className="uni_s">*</span>이름
+                <span className="uni_s step2_error">{formError.name}</span>
               </p>
               <input
                 type="text"
@@ -212,6 +226,7 @@ export default function SignupStep2({
             <li>
               <p className="step2_info_p">
                 <span className="uni_s">*</span>이메일
+                <span className="uni_s step2_error">{formError.email}</span>
               </p>
               <input
                 className="step2_email_input"
@@ -243,6 +258,7 @@ export default function SignupStep2({
             <li>
               <p className="step2_info_p">
                 <span className="uni_s">*</span>휴대폰 번호
+                <span className="uni_s step2_error">{formError.phone}</span>
               </p>
               <select className="step2_phone" name="phoneNumber1">
                 <option value="010">010</option>
