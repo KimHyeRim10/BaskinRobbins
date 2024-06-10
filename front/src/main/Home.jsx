@@ -6,7 +6,7 @@ import { HomeImages } from '../components/HomeComponents';
 export default function Home() {
   return (
     <div id='main_home'>
-      <div className='content'>
+      <div className='maincontent'>
         <HomeImages/>
       </div>
     </div>

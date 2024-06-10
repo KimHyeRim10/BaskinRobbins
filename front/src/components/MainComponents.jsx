@@ -10,7 +10,7 @@ export function Title({title, desc}) {
 
 export function Navbar({title,path}) {
   return (
-    <div className="navbar">
+    <div className="ynavbar">
       <Link to={path}>
         <button className="navbartitle">{title}</button>
       </Link>

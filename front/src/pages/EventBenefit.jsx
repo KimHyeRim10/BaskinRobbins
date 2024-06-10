@@ -28,7 +28,7 @@ export default function EventBenefit() {
 
     const eventnavlist = [
         {name:"이벤트", path:"/play/event"},
-        {name:"BR 레시피", path:"/play/brrecipe/all"}]
+        {name:"BR 레시피", path:"/play/brrecipe"}]
     const eventcategoryList =["전체","프로모션","제휴혜택"]
     const changeContents= (type) =>{
         setTitle(type)

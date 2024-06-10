@@ -8,7 +8,7 @@ import { PromotionList } from '../components/Promotion_Components';
 export default function Promotion() {
   return (
     <div id='main_promotion'>
-      <div className='content'>
+      <div className='maincontent'>
       <Title
         title="Promotion"
         desc="배라의 다양한 혜택과 이벤트를 만나보세요"

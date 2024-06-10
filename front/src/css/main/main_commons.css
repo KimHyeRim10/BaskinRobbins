@@ -16,6 +16,11 @@
   justify-content: center;
 
 }
+.maincontent{
+  border:1px solid red;
+  padding-bottom:2rem;
+  text-align: center;
+}
 .navbartitle{
   border-left: 1px solid rgb(249,134,189);
   font-weight: 600;
@@ -28,8 +33,6 @@
 
 .content{
   text-align: center;
-  padding: 2rem 0;
-  /* border: 1px solid red; */
 }
 
 button{

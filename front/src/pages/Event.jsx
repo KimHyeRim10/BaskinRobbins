@@ -28,7 +28,7 @@ export default function Event() {
   
   const eventnavlist = [
     {name:"이벤트", path:"/play/event"},
-    {name:"BR 레시피", path:"/play/brrecipe/all"}]
+    {name:"BR 레시피", path:"/play/brrecipe"}]
     
   const eventcategoryList =["전체","프로모션","제휴혜택"]
   
@@ -47,7 +47,7 @@ export default function Event() {
       <div className='content'>
         <ul className="navbarlist">
         {eventnavlist.map((item)=>(
-          <li className='navbar eventbar'>
+          <li className='eventbar'>
               <Navbar title={item.name} path={item.path}/>
           </li>
         ))}

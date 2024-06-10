@@ -23,7 +23,7 @@ export default function EventDetail(){
         {"name":"이벤트",
         "path":"/play/event"},
         {"name":"BR 레시피",
-        "path":"/play/brrecipe/all"},
+        "path":"/play/brrecipe"},
     ]
     return(
         <div id='eventDetail'>

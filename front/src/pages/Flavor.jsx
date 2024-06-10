@@ -35,8 +35,8 @@ export default function Flavor(){
         {name:"단체주문",path:"/store/catering"}
         ]
     const flavorinfo = {
-        "image1":"images/brstore/brstore_100flavor_item1.png",
-        "image2":"images/brstore/brstore_100flavor_item2.png",
+        "image1":"http://localhost:3000/images/brstore/brstore_100flavor_item1.png",
+        "image2":"http://localhost:3000/images/brstore/brstore_100flavor_item2.png",
         "title1":"베라에서 만나는 아르데코 스타일의 공간",
         "title2":"취향대로 고르는 100가지 아이스크림",
         "info1":"글로벌 인테리어 디자인 브랜드 오스모스(OSMOSE)사와 협업해 우아한 라인과 기하학적 디자인의 아르데코 스타일을 현대적으로 구현했습니다. 아트슈머까지 만족시킬 예술적인 인테리어가 돋보이는 공간입니다.",
@@ -80,7 +80,7 @@ export default function Flavor(){
             <div className="content">
                 <ul className="navbarlist">
                 {storecategories.map((item)=>(
-                    <li className="navbar flavornavbar">
+                    <li className="flavornavbar">
                             <Navbar title={item.name}
                                     path={item.path}/>
                     </li>

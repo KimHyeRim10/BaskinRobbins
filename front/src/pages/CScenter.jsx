@@ -49,7 +49,7 @@ export default function CScenter(){
             <div className="content">
                 <ul className='navbarlist'>
                     {cscenter.map((item)=>(
-                        <li className='navbar cnavbar'>
+                        <li className='cnavbar'>
                             <Navbar 
                             title={item.title}
                             path={item.path}/>

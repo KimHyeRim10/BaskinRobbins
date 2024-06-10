@@ -74,7 +74,7 @@ export default function BRRecipeDetail(){
                             ))}
                         </ul>
                 </div>
-                <Link to="/play/brrecipe/all">
+                <Link to="/play/brrecipe">
                     <button className='backbtndetail'>목록</button>
                 </Link>
             </div>

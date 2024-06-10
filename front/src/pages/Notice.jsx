@@ -42,7 +42,7 @@ export default function Notice(){
             <div className="content">
                 <ul className='navbarlist'>
                     {cscenter.map((item)=>(
-                        <li className='navbar noticebar'>
+                        <li className='noticebar'>
                             <Navbar
                                 title={item.title}
                                 path={item.path}/>
