@@ -8,6 +8,7 @@ import CSCenterRouter from "./router/CSCenterRouter.js";
 import BrPlayRouter from "./router/BrPlayRouter.js";
 import StoreDeliveryRouter from "./router/StoreDeliveryRouter.js";
 import MainRouter from "./router/MainRouter.js";
+import cartsRouter from "./router/cartsRouter.js";
 
 const server = express();
 const port = 8080;
@@ -23,6 +24,7 @@ server.use("/", MainRouter);
 server.use("/cscenter", CSCenterRouter);
 server.use("/play", BrPlayRouter);
 server.use("/store", StoreDeliveryRouter);
+server.use("/carts", cartsRouter);
 
 server.listen(port, () => {
   console.log(`server start ==> ${port}`);
