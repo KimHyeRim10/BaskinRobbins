@@ -3,9 +3,32 @@ import "../css/seulki.css";
 import SeulkiHeader from "../components/SeulkiHeader.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
 export default function MyCart() {
   const [cartList, setCartList] = useState([]);
+
+  useEffect(() => {
+    const url = "http://127.0.0.1:8080/carts";
+
+    axios({
+      method: "post",
+      url: url,
+      // data: { items: cartItems },
+    })
+      // axios
+      //   .post(url, { name: "홍길동", age: 20 }) // 위에처럼 써도되고 이렇게 한줄로 작성해도 됨
+      .then((res) => setCartList(res.data))
+      .catch((error) => console.log(error));
+  }, []);
+
+  const calcul = () => {
+    return cartList.reduce(
+      (total, item) =>
+        total + parseInt(item.price.replace(/,/g, ""), 10) * item.qty,
+      0
+    );
+  };
 
   const handleClick = () => {
     alert("주문이 완료되었습니다!");
@@ -29,25 +52,32 @@ export default function MyCart() {
             <th>제품 정보</th>
             <th>제품명</th>
             <th>수량</th>
-            <th>가격</th>
+            <th>가격( 개당 )</th>
             <th>구분</th>
             <th>삭제하기</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-              <button className="cart_delete_btn" type="button">
-                <FontAwesomeIcon icon={faX} />
-              </button>
-            </td>
-          </tr>
+          {cartList.map((item) => (
+            <tr>
+              <td>{item.rno}</td>
+              <td>
+                <img
+                  src={`http://localhost:3000${item.image}`}
+                  style={{ width: "150px" }}
+                />
+              </td>
+              <td>{item.name}</td>
+              <td>{item.qty}</td>
+              <td>{item.price}</td>
+              <td>{item.size}</td>
+              <td>
+                <button className="cart_delete_btn" type="button">
+                  <FontAwesomeIcon icon={faX} />
+                </button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
 
@@ -56,7 +86,9 @@ export default function MyCart() {
           <tr>
             <th className="cart_table2_th1">총 결제금액</th>
             <th>
-              <span className="cart_table2_span">원</span>
+              <span className="cart_table2_span">
+                {calcul().toLocaleString()}원
+              </span>
             </th>
           </tr>
         </table>
