@@ -13,7 +13,7 @@ export function PromotionList() {
     })
     .then(response=>setPromotion(response.data.filter(item=>item.category === '프로모션')))
     .catch(error=>console.log(error))
-      slideRef.current.style.transition = "all 500ms ease-in"
+      slideRef.current.style.transition = "all 1000ms ease-in"
       slideRef.current.style.transform = `translateX(-${currentIndex}00%)`
   },[currentIndex])
   
@@ -50,7 +50,7 @@ export function PromotionList() {
         } else{
             setCurrentIndex(currentIndex + 1)
         }
-    },3000)
+    },4000)
   return (
     <div className="carousel">
       <ul className="promotionlist" ref={slideRef}>

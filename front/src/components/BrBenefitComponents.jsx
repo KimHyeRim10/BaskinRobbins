@@ -37,13 +37,13 @@ export function BenefitCarousel() {
     }, [delay]);
     }
     useInterval(()=>{
-        slideRef.current.style.transition = "all 500ms ease-in"
+        slideRef.current.style.transition = "all 1000ms ease-in"
         slideRef.current.style.transform = "translateX(-980px)"
-    },3000)
+    },4000)
     useInterval(()=>{
-        slideRef.current.style.transition = "all 500ms ease-in"
+        slideRef.current.style.transition = "all 1000ms ease-in"
         slideRef.current.style.transform = "translateX(0px)"
-    },6000)
+    },8000)
   return (
     <ul className="benefitList" ref={slideRef}>
       {benefitContents.map((items)=>(

@@ -19,10 +19,10 @@ export function NewItemsList() {
       .catch(error=>console.log(error))
 
       if(currentIndex === 1){
-        slideRef.current.style.transition = "all 500ms ease-in"
+        slideRef.current.style.transition = "all 1000ms ease-in"
         slideRef.current.style.transform = `translateX(-${currentIndex*43}%)`
       } else{
-        slideRef.current.style.transition = "all 500ms ease-in"
+        slideRef.current.style.transition = "all 1000ms ease-in"
       slideRef.current.style.transform = `translateX(-${currentIndex}00%)`
       }
   },[currentIndex])
@@ -56,7 +56,7 @@ export function NewItemsList() {
         } else{
             setCurrentIndex(currentIndex + 1)
         }
-    },5000)
+    },4000)
 
   return (
     <>

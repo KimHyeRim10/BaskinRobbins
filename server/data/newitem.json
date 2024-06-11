@@ -2,15 +2,15 @@
     {     
         "img":"http://localhost:3000/images/newitems/newitem_bigimg1.png",
         "name":"우주 라이크 봉봉",
-        "path":"/menu/icecreamdetail/32",
+        "path":"/menu/icecreamdetail/34",
         "items":[
           { "img":"http://localhost:3000/images/newitems/newitem_big1.jpg",
             "name":"이상한 나라의 슈팅스타",
-            "path":"/menu/icecreamdetail/31"},
+            "path":"/menu/icecreamdetail/33"},
           {
             "img":"http://localhost:3000/images/newitems/newitem_2.png",
             "name":"우주라이크 봉봉 케이크",
-            "path":"/menu/icecreamcakedetail/21"},
+            "path":"/menu/icecreamcakedetail/20"},
           { "img":"http://localhost:3000/images/newitems/newitem_3.png", 
             "name":"스페셜 데이",
             "path":"/menu/icecreamcakedetail/9"},
@@ -21,11 +21,11 @@
     {     
         "img":"http://localhost:3000/images/newitems/newitem_big2.jpg",
         "name":"디노 젤리",
-        "path":"/menu/icecreamdetail/28",
+        "path":"/menu/icecreamdetail/29",
         "items":[
           { "img":"http://localhost:3000/images/newitems/newitem_ryan.png",
-            "name":"어썸 라이언 인 사파리",
-            "path":"/menu/icecreamcakedetail/20"},
+            "name":"반짝이는 잔망루피",
+            "path":"/menu/icecreamcakedetail/12"},
           { "img":"http://localhost:3000/images/newitems/newitem_joy.png",
             "name":"해피 조이 큐브",
             "path":"/menu/icecreamcakedetail/19"},
@@ -33,8 +33,8 @@
             "name":"애플망고 젤라또",
             "path":"/menu/prepackdetail/36"
         },
-          { "img":"http://localhost:3000/images/newitems/newitem_8.jpg",
-            "name":"피스타치오 젤라또",
-            "path":"/menu/prepackdetail/35"}]
+          { "img":"http://localhost:3000/images/newitems/lastitem.png",
+            "name":"해피 스마일 포 유 ",
+            "path":"/menu/icecreamcakedetail/15"}]
       }
     ]
