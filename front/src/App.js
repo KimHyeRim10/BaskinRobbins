@@ -14,6 +14,7 @@ import Main from "./pages/Main.jsx";
 import Event from "./pages/Event.jsx";
 import EventPromotion from "./pages/EventPromotion.jsx";
 import EventBenefit from "./pages/EventBenefit.jsx";
+import EventDetail from "./pages/EventDetail.jsx";
 import BRRecipe from "./pages/BRRecipe.jsx";
 import BRRecipeDetail from "./pages/BRRecipeDetail.jsx";
 import Flavor from "./pages/Flavor.jsx";
@@ -67,13 +68,14 @@ function App() {
 
         { path: "/play", element: <Event /> },
         { path: "/play/event", element: <Event /> },
+        { path: "/play/event/detail/:id", element: <EventDetail /> },
 
         { path: "/play/event/promotion", element: <EventPromotion /> },
 
         { path: "/play/event/benefit", element: <EventBenefit /> },
         { path: "/play/brrecipe", element: <BRRecipe /> },
         { path: "/cscenter/notice/detail/:id", element: <NoticeDetail /> },
-        { path: "/play/brrecipe/detail:id", element: <BRRecipeDetail /> },
+        { path: "/play/brrecipe/detail/:id", element: <BRRecipeDetail /> },
 
         { path: "/story", element: <Story /> },
         { path: "/story/story", element: <Story /> },
