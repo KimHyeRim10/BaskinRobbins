@@ -36,9 +36,9 @@ const openModal = (mname) => {
 <img className="bebetter_img" src="/images/img_dream.png" alt='bebetterimg'/>
 <div className="bebetter_content">
     <p className="bebetter_subtitle sub1">핑크드림 캠페인이란?</p>
-    <p className="bebetter_subinfo">배라와 소비자가 함 만드는 따뜻한 31데이!</p>
+    <p className="bebetter_subinfo">배라와 소비자가 함 만드는 따뜻한 31데이!&nbsp;&nbsp;
     <button className='bebetter_btn' type='button' 
-        onClick={()=>openModal('dream')}>더보기</button>
+        onClick={()=>openModal('dream')}>더보기</button></p>
 
  {showModal === true && modalType === 'dream' ?
         <ModalDream closeModal={closeModal}
@@ -63,8 +63,9 @@ const openModal = (mname) => {
 <img  className="bebetter_img" src="/images/img_farm.png" />
 <div className="bebetter_content">
 <p className="bebetter_subtitle sub2">핑크팜 캠페인이란?</p>
-<p className="bebetter_subinfo">지역 농가 상생 프로젝트 
-<button className='bebetter_btn' type='button' onClick={()=>openModal('modalfarm')}  >더보기</button></p>
+<p className="bebetter_subinfo">지역 농가 상생 프로젝트 &nbsp;&nbsp;
+<button className='bebetter_btn' type='button' 
+        onClick={()=>openModal('modalfarm')}>더보기</button></p>
 {showModal === true && modalType === 'modalfarm' ?
         <ModalFarm openModal={openModal}
                         closeModal={closeModal}
@@ -85,7 +86,7 @@ const openModal = (mname) => {
 <img  className="bebetter_img" src="/images/img_link.png" />
 <div className="bebetter_content">
 <p className="bebetter_subtitle sub3">핑크링크 캠페인이란?</p>
-<p className="bebetter_subinfo">중소 기업 콜라보 프로젝트
+<p className="bebetter_subinfo">중소 기업 콜라보 프로젝트 &nbsp;&nbsp;
 <button className='bebetter_btn' type='button' onClick={()=>openModal('modallink')} >더보기</button></p>
 {showModal === true && modalType === 'modallink' ?
  <ModalLink openModal={openModal}

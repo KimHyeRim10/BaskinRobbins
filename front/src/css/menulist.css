@@ -57,16 +57,14 @@
  .page_navbar_text{
     font-size: 1.5rem;
     font-weight: 600;
-   color : var(--pink-main); 
-   padding: 0.5rem 2rem 0.5rem 2rem;  
-
-
+    color : var(--pink-main); 
+    padding: 0.5rem 2rem 0.5rem 2rem;  
  }
  .page_navbar_text_active{
     font-size: 1.5rem;
     font-weight: 600;
-   color :white;
- padding: 0.5rem 2rem 0.5rem 2rem;  
+    color :white;
+    padding: 0.5rem 2rem 0.5rem 2rem;  
    background-color: var(--pink-main); ;
 
 }

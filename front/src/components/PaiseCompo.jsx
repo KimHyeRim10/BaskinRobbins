@@ -15,7 +15,8 @@ const [praise, setPrasie] = useState([])
             .catch(error=>console.log(error))
     },[])
 
-const changeList = praise.filter((item)=> item.year === '2023-03')
+const changeList = praise.filter((item)=> 
+    item.year === '2023-03')
 
     return(   <>
                 <ul className='praiselists'>

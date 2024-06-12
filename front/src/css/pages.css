@@ -71,6 +71,7 @@ margin : auto;
 .bebetter_subtitle{
     font-weight: bold;
     font-size : 2rem; 
+    margin-top : 2rem;
   /*   border : 1px solid red; */
 }
 
@@ -94,6 +95,7 @@ margin : auto;
         padding: 0.5rem 1.6rem;
         border : none;
         font-weight: 600;
+        gap : 2rem;
     }
 
 
@@ -119,27 +121,56 @@ margin : auto;
     height: 450px;
 }
 
+/* @keyframes fadein {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -10%, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translateZ(0);
+    }
+  } */
+  
+/* 
+    /* Safari and Chrome */
+/*@-webkit-keyframes fadein {
+
+    from {
+      opacity: 0;
+      transform: translate3d(0, -10%, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translateZ(0);
+    }
+  } */
 
 .modal{ 
    background: white; 
     border: 1px solid black;
-    position: absolute;
-    left: 50%;
-    top: 70%;
+    /* position: absolute; */
+    /* left: 50%;
+    top: 70%; */
     color : black;
     padding: 2rem;
-    width: 1300px;
-    height: 700px;
-    transform : translate(-50%, -50%)
+    width: 1600px;
+    height: 800px;
+    /* transform : translate(-50%, -50%); */
+    position: fixed;
+    left: 27%;
+    top: 12rem;
+    animation: fadein 0.6s;
+    -webkit-animation: fadein 0.6s;
     }
 
 .modal_close_btn{
-    background-color: white;
-    border: 2px solid black;
+    background-color:  var(--pink-main); 
+    border: 3px solid black;
     border-radius: 100%;
     height: 100px;
     width: 100px;
-    color : black;
+    color : white;
     font-size: 2.8rem;
     font-weight: 600;
     position: absolute;
@@ -159,21 +190,32 @@ width: 100px;
 height: 123px;
 
 }
-.modal_content, .modal_contents{
+.bebetter_modal_content, .bebetter_modal_contents{
     display: flex;
 }
 
-.modal_contents{
+.bebetter_modal_content{
+    /* border : 2px solid green;   */
+    width : 700px;
+    margin-top : 3rem;
+}
+
+
+.bebetter_modal_contents{
     border-top: 2px solid var(--brown-color-3);
     margin-top : 2rem;
+    gap : 5rem;
 }
 
 .modal_descri{
 margin-left : 3rem; 
+/* border : 1px solid red; */
+width: 500px;
 }
 
 .modal_year{
     font-size: 1.5rem;
+    color : gray;
 }
 
 .modal_title{
@@ -187,6 +229,8 @@ margin-left : 3rem;
 }
 .modal_call{
     display: flex;
+    /* border : 1px solid red; */
+    height: 13rem;
 }
 
 
@@ -407,6 +451,7 @@ z-index: 999;}
  position: absolute;
  left : 3rem;
  top : 3.5rem; 
+
 }
 
 .story_modal_img{
