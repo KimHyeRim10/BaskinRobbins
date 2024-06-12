@@ -3,7 +3,7 @@ import Header from "../components/Header.jsx";
 import { Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
-export default function Root() {
+export default function Root({ cartCount }) {
   function ScrollToTop() {
     const { pathname } = useLocation();
 
@@ -16,7 +16,7 @@ export default function Root() {
   return (
     <div>
       <ScrollToTop />
-      <Header />
+      <Header cartCount={cartCount} />
       <Outlet />
       <Footer />
     </div>

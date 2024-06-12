@@ -1,6 +1,8 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./css/style.css";
 import Root from "./pages/Root.jsx";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 import MonthFlavor from "./menu/MonthFlavour.jsx";
 import IceCream from "./menu/IceCream.jsx";
@@ -44,10 +46,49 @@ import OpenStore from "./pages/OpenStore.jsx";
 import Signup from "./pages/Signup.jsx";
 
 function App() {
+  const userInfo = getUser();
+  const [cartCount, setCartCount] = useState(0); // 장바구니 기본값 0개로 설정
+  const [cartItems, setCartItems] = useState([]); // My Cart에 들어갈 정보를 저장할 곳. 정보한개 당 객체로 담겨서 배열로 감싸줘야함!
+
+  //TODO 1.로그인 여부를 체크하기
+  useEffect(() => {
+    const url = `http://localhost:8080/carts/count`;
+    if (userInfo) {
+      axios({
+        method: "post",
+        url: url,
+        data: { userId: "lee" },
+      })
+        .then((result) => setCartCount(parseInt(result.data.count)))
+        .catch((error) => console.log(error));
+    }
+  }, []);
+
+  //TODO DetailProduct.jsx에서 처리한 장바구니 추가결과 가져오기 [ DB연동버전 ]
+  const addCartCount = (result) => {
+    console.log("result ==>", result);
+    if (result === 1) setCartCount(cartCount + 1);
+  };
+
+  //TODO My Cart에서 상품삭제하면 장바구니 수량도 감소하게 하기 (정보는 삭제안되서 계속 남아있음)
+  const removeCartCount = (qty) => {
+    setCartCount(cartCount - qty);
+  };
+
+  //TODO My Cart에서 상품삭제하면 장바구니 수량도 감소하게 하고, 정보도 삭제시키기
+  const handleDelete = (cid, qty) => {
+    alert("해당 상품을 삭제하시겠습니까?");
+    const removeIndex = cartItems.findIndex((item) => item.cid === cid);
+    const updateCartList = cartItems.filter((item, i) => i !== removeIndex); //! "!==" 사용해서 삭제할 아이템 제외하고 나머지 반환
+    //                                     (item,i)의 i는 index정보임
+    setCartItems(updateCartList);
+    setCartCount(cartCount - qty);
+  };
+
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Root />,
+      element: <Root cartCount={cartCount} />,
       children: [
         { path: "/", element: <Main /> },
 
@@ -57,13 +98,19 @@ function App() {
         { path: "/menu/prepack", element: <Prepack /> },
         { path: "/menu/icecreamcake", element: <IceCreamCake /> },
 
-        { path: "/menu/icecreamdetail/:id", element: <IceCreamDetail /> },
+        {
+          path: "/menu/icecreamdetail/:id",
+          element: <IceCreamDetail addCartCount={addCartCount} />,
+        },
 
-        { path: "/menu/prepackdetail/:id", element: <PrepackDetail /> },
+        {
+          path: "/menu/prepackdetail/:id",
+          element: <PrepackDetail addCartCount={addCartCount} />,
+        },
 
         {
           path: "/menu/icecreamcakedetail/:id",
-          element: <IceCreamCakeDetail />,
+          element: <IceCreamCakeDetail addCartCount={addCartCount} />,
         },
 
         { path: "/play", element: <Event /> },
@@ -104,7 +151,10 @@ function App() {
         { path: "/cscenter/policy-cctv", element: <PolicyCctv /> },
         { path: "/cscenter/safety-management", element: <Safety /> },
 
-        { path: "/carts", element: <MyCart /> },
+        {
+          path: "/carts",
+          element: <MyCart removeCartCount={removeCartCount} />,
+        },
         { path: "/login", element: <Login /> },
         { path: "/signup", element: <Signup /> },
       ],
