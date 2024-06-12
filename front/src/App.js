@@ -44,6 +44,7 @@ import MyCart from "./pages/MyCart.jsx";
 import NewStore from "./pages/NewStore.jsx";
 import OpenStore from "./pages/OpenStore.jsx";
 import Signup from "./pages/Signup.jsx";
+import { getUser } from "./util/localStorage.js";
 
 function App() {
   const userInfo = getUser();
