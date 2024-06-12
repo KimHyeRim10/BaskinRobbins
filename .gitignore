@@ -12,6 +12,7 @@ Icon
 
 #commons fiels
 App.js
+yarn.lock
 
 # Thumbnails
 ._*
