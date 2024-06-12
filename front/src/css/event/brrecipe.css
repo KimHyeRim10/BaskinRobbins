@@ -72,6 +72,9 @@
 }
 
 /* 상세 페이지 */
+#recipe_detail{
+    text-align: center;
+}
 .recipedetail_bigtitle{
     color: rgb(249,134,189);
     margin-top: 2rem;

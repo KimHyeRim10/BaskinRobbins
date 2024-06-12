@@ -107,6 +107,7 @@ button{
   color: rgb(177, 177, 177);
 }
 #eventDetail{
+  text-align: center;
   padding-bottom: 3rem;
 }
 .detailimg{

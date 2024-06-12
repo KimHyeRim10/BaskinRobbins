@@ -1,4 +1,4 @@
-import * as repository from '../repository/CSCenterRepository.js'
+import * as repository from '../repository/CSCenterRepository_ysw.js'
 
 export const getFAQ = async (req,res) => {
     const faq = await repository.getFAQ()

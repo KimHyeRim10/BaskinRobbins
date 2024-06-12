@@ -1,5 +1,5 @@
 import express from "express";
-import * as controller from '../controller/CSCenterController.js'
+import * as controller from '../controller/CSCenterController_ysw.js'
 
 const router = express.Router();
 

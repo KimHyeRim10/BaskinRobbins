@@ -1,4 +1,5 @@
 #main_home{
+  padding-top: 8rem;
   background-image: url('../../../public/images/main/bg_hero.jpg');
   text-align: center;
 }

@@ -39,7 +39,7 @@ export function FlowStores(){
             </div>
             <div className="flow_store_order">
                 <p className="flow_store_row store_number">연락처</p>
-                <p>02-409-7737</p>
+                <p className="flow_real_number">02-409-7737</p>
             </div>
         </li>
     )

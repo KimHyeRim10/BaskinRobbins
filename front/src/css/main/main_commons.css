@@ -1,7 +1,7 @@
 .title_parts{
   padding-bottom: 2rem;
 }
-.title{
+.homemain_title_ysw{
   font-size: 4rem;
   color: var(--pink-color-2);
   margin-bottom: 0;
@@ -31,16 +31,13 @@
   height: 28px;
 }
 
-.content{
-  text-align: center;
-}
-
 button{
   background-color: transparent;
   border: none;
 }
 
 .bigtitleninfo{
+  text-align: center;
   margin-top: 3rem;
 }
 .bigTitle{

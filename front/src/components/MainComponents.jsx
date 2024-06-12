@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 export function Title({title, desc}) {
   return (
     <div className='title_parts'>
-      <h1 className='title'>{title}</h1>
+      <h1 className='homemain_title_ysw'>{title}</h1>
       <p className='desc'>{desc}</p>
     </div>
 );
