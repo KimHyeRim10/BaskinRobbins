@@ -6,15 +6,22 @@ import { log } from "console";
 //TODO 장바구니 리스트 출력
 export const getCarts = async () => {
   const sql = `
-select row_number() over(order by cdate desc) as rno, image, name, size, qty , format(price,0) as price
-from
-(select sd.icecreamimage as image, sd.korname1 as name,
-bc.size, bc.qty, sd.price, bc.cid, bc.pid_ic, bc.user_id, bc.cdate
-from br_cart bc, icecreamdetail_product sd, prepackdetail_product sp, 
-icecreamcakedetail_product sc
-where bc.pid_ic = sd.pid or bc.pid_pre = sp.pid or bc.pid_cake = sc.pid) t1
-where user_id = ?
-
+              select 
+                      sd.icecreamimage as image,
+                      sd.korname1 as name,
+                      bc.size, bc.qty, format(sd.price,0) price, bc.cid, bc.pid_ic, bc.user_id, bc.cdate
+                      from br_cart bc, icecreamdetail_product sd
+                      where bc.pid_ic = sd.pid and user_id = 'lee'
+                      union all
+                      select sp.icecreamimage as image, sp.korname1 as name,
+                      bc.size, bc.qty, format(sp.price,0) price, bc.cid, bc.pid_ic, bc.user_id, bc.cdate
+                      from br_cart bc, prepackdetail_product sp
+                      where bc.pid_pre = sp.pid and user_id = 'lee'
+                      union all
+                      select sc.icecreamimage as image, sc.korname1 as name,
+                      bc.size, bc.qty, format(sc.price,0) price, bc.cid, bc.pid_ic, bc.user_id, bc.cdate
+                      from br_cart bc, icecreamcakedetail_product sc
+                      where bc.pid_cake = sc.pid and user_id = 'lee'
   `; //! sql 장바구니 리스트 부분 그대로 복붙. 파라미터는 ?로 넣어주기
 
   return db.execute(sql, ["lee"]).then((result) => result[0]);

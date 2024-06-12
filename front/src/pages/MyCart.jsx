@@ -56,7 +56,6 @@ export default function MyCart({ removeCartCount }) {
       <table className="cart_table">
         <thead>
           <tr>
-            <th>NO.</th>
             <th>제품 정보</th>
             <th>제품명</th>
             <th>수량</th>
@@ -68,7 +67,6 @@ export default function MyCart({ removeCartCount }) {
         <tbody>
           {cartList.map((item) => (
             <tr>
-              <td>{item.rno}</td>
               <td>
                 <img
                   src={`http://localhost:3000${item.image}`}
