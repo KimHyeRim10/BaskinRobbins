@@ -66,7 +66,7 @@ export const insert = async (items) => {
     sql = `
        insert into br_cart(${pid},size,cdate,user_id) values(?,?,now(),"lee")
        `; //! sql 장바구니 데이터 추가하기 부분 그대로 복붙. 파라미터는 ?로 넣어주기
-    console.log(sql);
+
     const [result] = await db.execute(sql, [items.pid, items.size]);
     result_rows = result.affectedRows;
   } else {

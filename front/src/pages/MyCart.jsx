@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
-export default function MyCart() {
+export default function MyCart({ removeCartCount }) {
   const [cartList, setCartList] = useState([]);
 
   useEffect(() => {
@@ -16,8 +16,6 @@ export default function MyCart() {
       url: url,
       // data: { items: cartItems },
     })
-      // axios
-      //   .post(url, { name: "홍길동", age: 20 }) // 위에처럼 써도되고 이렇게 한줄로 작성해도 됨
       .then((res) => setCartList(res.data))
       .catch((error) => console.log(error));
   }, []);
@@ -32,6 +30,16 @@ export default function MyCart() {
 
   const handleClick = () => {
     alert("주문이 완료되었습니다!");
+  };
+
+  //TODO 장바구니 삭제버튼기능 만들기 (정보는 삭제안되서 계속 남아있음)
+  const handleDelete = (cid, qty) => {
+    alert("해당 상품을 삭제하시겠습니까?");
+    const removeIndex = cartList.findIndex((item) => item.cid === cid);
+    const updateCartList = cartList.filter((item, i) => i !== removeIndex); //! "!==" 사용해서 삭제할 아이템 제외하고 나머지 반환
+    //                                     (item,i)의 i는 index정보임
+    setCartList(updateCartList);
+    removeCartCount(qty);
   };
 
   return (
@@ -72,7 +80,11 @@ export default function MyCart() {
               <td>{item.price}</td>
               <td>{item.size}</td>
               <td>
-                <button className="cart_delete_btn" type="button">
+                <button
+                  className="cart_delete_btn"
+                  type="button"
+                  onClick={() => handleDelete(item.cid, item.qty)}
+                >
                   <FontAwesomeIcon icon={faX} />
                 </button>
               </td>
