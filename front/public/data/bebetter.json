@@ -1,0 +1,26 @@
+[
+    {   
+        "subject" : "modallink",
+        "title"  :  "케피 버블 클레이", 
+        "content" :"안전한 옥수수전분으로 만든 점토비누 순한 성분(6가지 식물오일 함유, 프로폴리스 추출물 등) 마음껏 만들며 놀고 굳히면 나만의 천연비누 완성!",
+        "img" : "/images/bebetter/img_link_1.png"
+},
+{   
+    "subject" : "modallink",    
+    "title"   :"케피 버블 슬라임", 
+    "content" : "국내 최초 촉감놀이 목욕 슬라임(화장품 등급) 순한 자연유래 성분(다시마, 미역, 프로폴리스, 병풀 추출물) 검증된 안정성(독일 더마테스트, EWG 올그린, 피부 저자극 테스트 완료)",
+    "img"   :"/images/bebetter/img_link_2.png"
+},
+{   
+    "subject" : "modallink",    
+    "title" :"케피 배쓰밤 라인업", 
+    "content" : "어린이 맞춤 용랑 배쓰밤(1회 80g*3개입) 오감 자극 목욕놀이 맞춤 색상&향 자연유래 안심성분(비타민나무오일, 프로폴리스, 마누카꿀 추출물)검증된 안정성(피부 무자극 0.00)", 
+    "img":"/images/bebetter/img_link_3.png"
+},
+{   
+    "subject" : "modallink", 
+    "title"  :"케피 배쓰밤 클렌저", 
+    "content" : "국내 최초 목욕놀이 유아 버블 클렌저 순하고 안전한 성분(나노세라마이드, 마누카꿀/프로폴리스 추출물) 검증된 안전성(독일 더마테스트, 방부력 테스트, 피부 무자극 0.00)", 
+    "img"   :"/images/bebetter/img_link_4.png"
+}
+]
