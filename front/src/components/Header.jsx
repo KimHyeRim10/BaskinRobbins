@@ -124,8 +124,8 @@ const userInfo = getUser();
 {userInfo ? (
             <>
               <Link to="/carts">
-                <FontAwesomeIcon className="carts" icon={faCartShopping} />(
-                {cartCount})
+                <FontAwesomeIcon className="carts" icon={faCartShopping} />
+                <span className="cartscount_text">({cartCount})</span>
               </Link>
               <FontAwesomeIcon
                 className="customer"
@@ -135,7 +135,7 @@ const userInfo = getUser();
               {isOpen && (
                 <ul className="customer_dropboxs">
                   <li className="customer_dropbox">
-                    <button type="button" className="cartscount_text"
+                    <button type="button"
                     onClick={handleLogout}>Logout </button>
                   </li>
                   <li className="customer_dropbox">
