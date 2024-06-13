@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "../css/pages.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faCircleXmark} from "@fortawesome/free-solid-svg-icons/faCircleXmark";
 
 export function ModalDream({ closeModal, type }) {
   return (
@@ -9,7 +11,10 @@ export function ModalDream({ closeModal, type }) {
         id="bebetter_modal1"
         className="modal"
         onClick={(e) => e.stopPropagation()}>
-        <button className="modal_close_btn" onClick={closeModal}>X</button>
+        <button className="modal_close_btn" onClick={closeModal}>
+        <FontAwesomeIcon className="modal_close_btn_icon" 
+            icon={faCircleXmark} style={{color: "#f986bd"}}  onClick={closeModal}/>
+        </button>
         <h2>배스킨라빈스의 대표 사회공헌 활동 '핑크드림 캠페인'</h2>
 
         <div className="bebetter_modal_contents">
