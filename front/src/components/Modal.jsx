@@ -3,6 +3,8 @@ import axios from "axios";
 import "../css/pages.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCircleXmark} from "@fortawesome/free-solid-svg-icons/faCircleXmark";
+import {faRectangleXmark} from "@fortawesome/free-solid-svg-icons/faRectangleXmark";
+import {faSquareXmark} from "@fortawesome/free-solid-svg-icons/faSquareXmark";
 
 export function ModalDream({ closeModal, type }) {
   return (
@@ -91,7 +93,8 @@ export function ModalFarm({ openModal, closeModal }) {
     <div className="modal_outer" onClick={(e) => e.stopPropagation()}>
       <div className="modal" onClick={(e) => e.stopPropagation()}>
         <button className="modal_close_btn" onClick={closeModal}>
-          X
+        <FontAwesomeIcon className="modal_close_btn_icon" 
+        icon={faRectangleXmark} style={{color: "#f986bd",}} />
         </button>
         <h2>지역 농가 상생 프로젝트 진행중</h2>
 
@@ -149,7 +152,9 @@ export function ModalLink({ openModal, closeModal }) {
         className="modal"
         onClick={(e) => e.stopPropagation()}>
         <button className="modal_close_btn" onClick={closeModal}>
-          X</button>
+        <FontAwesomeIcon className="modal_close_btn_icon" 
+        icon={faSquareXmark} style={{color: "#f986bd",}} />
+          </button>
         <h2>What is kefii?</h2>
         <p>
           {" "}
