@@ -46,6 +46,7 @@ export default function Flavor(){
     useEffect(()=>{
             slideRef.current.style.transition = "all 300ms ease-in"
             slideRef.current.style.transform = `translateX(-${currentIndex*48.5}%)`},[currentIndex])
+
             function useInterval(callback, delay) {
                 const savedCallback = useRef();
                 // Remember the latest callback.
@@ -64,17 +65,16 @@ export default function Flavor(){
                 }, [delay]);
                 }
                 useInterval(()=>{
-                    if(currentIndex === flavorStores[0].length-1){
+                    if(flavorStores&&currentIndex === flavorStores[0].etc.length-1){
                         setCurrentIndex(0)
                     } else{
                         setCurrentIndex(currentIndex + 1)
                     }
                 },3000)
-
+                
     const carouselbtn = (index) =>{
         setCurrentIndex(index)
     } 
-    console.log(flavorStores)
     return(
         <div id="flavor">
             <div className="content">
