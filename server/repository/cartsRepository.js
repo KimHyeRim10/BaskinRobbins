@@ -89,7 +89,7 @@ export const insert = async (items) => {
 //TODO 장바구니 count
 export const getCount = async (userId) => {
   const sql = `
-              select sum(qty) count from br_cart where user_id = ?
+              select ifnull(sum(qty),0) count from br_cart where user_id = ?
   `; //! sql 회원별 장바구니 조회하기 부분 그대로 복붙. 파라미터는 ?로 넣어주기
 
   return db.execute(sql, [userId]).then((result) => result[0][0]); // {count : 4} 이런형식으로 넘어옴
