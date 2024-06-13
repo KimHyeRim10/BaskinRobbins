@@ -125,6 +125,9 @@
 }
 
 /*  공지사항 */
+#noticedetail{
+    text-align: center;
+}
 .noticecontent{
     padding: 2rem 0;
 }
@@ -218,6 +221,7 @@
     cursor: pointer;
 }
 .rc-pagination-item{
+    padding-left: .8rem;
     padding-top: .5rem;
     font-weight: 600;
 }
@@ -235,7 +239,8 @@
     content: "<";
 }
 .rc-pagination-next button, .rc-pagination-prev button{
-    padding-top: .4rem;
+    padding-top: .6rem;
     font-weight: 600;
     color: var(--pink-color-3);
+    padding-left: .8rem;
 }
