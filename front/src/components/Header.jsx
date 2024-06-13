@@ -4,21 +4,21 @@ import { Link,useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons/faCartShopping";
 import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
-/* import { getUser, removeUser } from "../util/localStorage.js"; */
+import { getUser, removeUser } from "../util/localStorage.js"; 
 
-export default function Header(/*  {cartCount} */ ) {
+export default function Header({cartCount} ) {
 
 const [isOpen, setIsOpen] = useState(false)
 const openBox = () => {setIsOpen(true)}
-/* const navigate = useNavigate(); //! use들어가는건 맨 상단에 써주기!
-const userInfo = getUser(); */
+ const navigate = useNavigate(); //! use들어가는건 맨 상단에 써주기!
+const userInfo = getUser(); 
 
-/*   //TODO 로그아웃 버튼기능
+ //TODO 로그아웃 버튼기능
   const handleLogout = () => {
     removeUser();
     navigate("/"); // 로그아웃 후 메인페이지로 이동
   };
- */
+
 
   return (
     <>
@@ -117,22 +117,59 @@ const userInfo = getUser(); */
                 </li>
 
 </ul>
-
-
       </div>
  
       <div className="header_right">
-        <Link to='/carts'>{/* ({cartCount}) */}
-        <FontAwesomeIcon className='carts' icon={faCartShopping} /></Link>
-        <FontAwesomeIcon className='customer' icon={faUser} onClick={openBox}/>
-        {isOpen && (
-            <ul className="customer_dropboxs">
-            <li className="customer_dropbox"><Link to='/login'>Login</Link></li>
-            <li className="customer_dropbox"><Link to='/signup'>Join</Link></li>
-            <li className="customer_dropbox"><Link to='/cscenter'>CS Center</Link></li>
-            </ul>
-        )}
-      </div>
+
+{userInfo ? (
+            <>
+              <Link to="/carts">
+                <FontAwesomeIcon className="carts" icon={faCartShopping} />(
+                {cartCount})
+              </Link>
+              <FontAwesomeIcon
+                className="customer"
+                icon={faUser}
+                onClick={openBox}
+              />
+              {isOpen && (
+                <ul className="customer_dropboxs">
+                  <li className="customer_dropbox">
+                    <button type="button" className="cartscount_text"
+                    onClick={handleLogout}>Logout </button>
+                  </li>
+                  <li className="customer_dropbox">
+                    <Link to="/cscenter">CS Center</Link>
+                  </li>
+                </ul>
+              )}
+            </>
+          ) : (
+            <>
+              <FontAwesomeIcon
+                className="customer"
+                icon={faUser}
+                onClick={openBox}
+              />
+              {isOpen && (
+                <ul className="customer_dropboxs">
+                  <li className="customer_dropbox">
+                    <Link to="/login">Login</Link>
+                  </li>
+                  <li className="customer_dropbox">
+                    <Link to="/signup">Join</Link>
+                  </li>
+                  <li className="customer_dropbox">
+                    <Link to="/cscenter">CS Center</Link>
+                  </li>
+                </ul>
+              )}
+            </>
+          )}
+          
+          
+          </div>
+
     </div>
     <div>
 

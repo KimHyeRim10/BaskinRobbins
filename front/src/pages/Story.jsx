@@ -10,7 +10,8 @@ const[storyContent, setStoryContent] = useState([])
 
   
 useEffect(()=>{
-  axios.get('/data/story.json')
+
+ axios.get('/data/story.json') 
       .then(res=>{
         const data= res.data
         setStoryContent(data)

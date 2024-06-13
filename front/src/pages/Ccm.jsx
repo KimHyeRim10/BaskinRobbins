@@ -1,11 +1,34 @@
 import React from "react";
 import "../css/pages.css";
-import { NavbarCscenter } from "../components/Navbar.jsx";
+import "../css/menulist.css";
+import { Link } from "react-router-dom";
 
 export default function Ccm(){
+    const menu = [
+        { path: "/cscenter", name: "고객센터" },
+        { path: "/cscenter/ccm", name: "소비자중심경영(CCM)" },
+        { path: "/cscenter/praise", name: "칭찬점포" },
+        { path: "/cscenter/notice", name: "공지사항" },
+      ];
+    
     return(
         <div className="content">
-<NavbarCscenter/>
+
+<div className="page_navbars_div">
+   <ul className="page_navbars">
+        {menu.map((item) => (
+      <li className="page_navbar page_cscenter_navbar">
+      <Link to={item.path} className="page_navbar_text" >
+          {item.name}
+          </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+
+
+
 <div className="page_top">
 <h2 className="title">소비자 중심경영 우수기업</h2>
 

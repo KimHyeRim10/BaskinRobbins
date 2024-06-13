@@ -158,7 +158,7 @@ margin : auto;
     height: 800px;
     /* transform : translate(-50%, -50%); */
     position: fixed;
-    left: 27%;
+    left: 17%;
     top: 12rem;
     animation: fadein 0.6s;
     -webkit-animation: fadein 0.6s;
@@ -314,7 +314,7 @@ justify-content: center;
 
 .side6{
     position: absolute;
-    top : 810rem;
+    top : 81rem;
     right : -54rem;
 }
 .side8 {
@@ -563,6 +563,7 @@ border: none;
     font-size: 1.5rem;
     font-weight: 400;
     border-top-left-radius: 0.7rem;
+    border-right: 1px solid gray;
     border-top-right-radius: 0.7rem;
     padding: 1.1rem 3rem;
     border-top : 1px solid rgb(200,200,200);

@@ -1,7 +1,8 @@
 import React,{useState, useEffect}from "react";
 import "../css/pages.css";
+import "../css/menulist.css"
 import axios from 'axios'
-import { NavbarCscenter } from "../components/Navbar.jsx";
+import { Link } from "react-router-dom";
 
 export default function Praise (){
    
@@ -15,10 +16,31 @@ const [defaultyear, setDefaultYear] = useState('2023-03')
             .catch(error=>console.log(error))
     },[defaultyear])
     
+    const menu = [
+        { path: "/cscenter", name: "고객센터" },
+        { path: "/cscenter/ccm", name: "소비자중심경영(CCM)" },
+        { path: "/cscenter/praise", name: "칭찬점포" },
+        { path: "/cscenter/notice", name: "공지사항" },
+      ];
+
 
     return(
         <div className="content">
-<NavbarCscenter/>
+
+<div className="page_navbars_div">
+   <ul className="page_navbars">
+        {menu.map((item) => (
+      <li className="page_navbar page_praise_navbar">
+      <Link to={item.path} className="page_navbar_text page_praise_text" >
+          {item.name}
+          </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+
+
 <div className="page_top">
 <h2 className="title">고객Best 칭찬점포 안내</h2>
 <p className="title_sub">

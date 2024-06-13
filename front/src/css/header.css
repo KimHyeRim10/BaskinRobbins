@@ -158,11 +158,16 @@ color: gray;
 
 .carts {
   font-size: 1.5rem;
-  padding-right: 3rem;
+  padding-right: 0.5rem; 
   color: white;
 }
 .customer {
   font-size: 1.5rem;
   padding-right: 7rem;
+  padding-left : 2rem;
   color: white;
+}
+.cartscount_text{
+  color : white;
+  font-size: 20px;
 }

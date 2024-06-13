@@ -45,28 +45,28 @@
  .page_navbars_div{
     position: relative;
     margin-top: 20%;
-   
-
  }
+
  .page_navbars{
     display: flex;
     justify-content: center;
    /*  gap : 1rem; */
 /*   border : 1px solid red; */
  }
+
  .page_navbar_text{
     font-size: 1.5rem;
     font-weight: 600;
-    color : var(--pink-main); 
-    padding: 0.5rem 2rem 0.5rem 2rem;  
+   color : var(--pink-main); 
+   padding: 0.5rem 2rem 0.5rem 2rem;  
  }
+
  .page_navbar_text_active{
     font-size: 1.5rem;
     font-weight: 600;
-    color :white;
-    padding: 0.5rem 2rem 0.5rem 2rem;  
-   background-color: var(--pink-main); ;
-
+   color :white;
+ padding: 0.5rem 2rem 0.5rem 2rem;  
+   background-color: var(--pink-main); 
 }
 
  .page_navbar{
@@ -76,17 +76,22 @@
     text-align: center;
  }
 
+.page_cscenter_navbar:nth-of-type(2) .page_navbar_text{
+    font-size: 1.5rem;
+    font-weight: 600;
+   color :white;
+ padding: 0.5rem 2rem 0.5rem 2rem;  
+   background-color: var(--pink-main); ;
+}
+.page_praise_navbar:nth-of-type(3) .page_praise_text{
+    font-size: 1.5rem;
+    font-weight: 600;
+   color :white;
+ padding: 0.5rem 2rem 0.5rem 2rem;  
+   background-color: var(--pink-main); ;
+}
 
-
-/*  .page_cscenter_navber:nth-child(2){
-width: 18rem;
- } */
 
  .page_navbar:not(:last-child){
     border-right: 1px solid var(--pink-main);
  }
-
-/*  .navbar_selected{
-    font-weight: 700;
-    background-color: pink;
- } */

@@ -1,8 +1,8 @@
-import {promises as fePromises} from 'fs'
+import {promises as fsPromises} from 'fs'
 
 export const getHistory =() =>{
     const path ='data/history.json'
-    const historyImg = fePromises
+    const historyImg = fsPromises
                 .readFile(path, 'utf-8')
                 .then((data)=>JSON.parse(data))
                 .catch(error=>console.log(error))
@@ -11,7 +11,7 @@ export const getHistory =() =>{
 
 export const getStory =() =>{
     const path = 'data/story.json'
-    const storyContent = fePromises
+    const storyContent = fsPromises
                             .readFile(path, 'utf-8')
                             .then((data)=>JSON.parse(data))
                             .catch(error=>console.log(error))
@@ -20,7 +20,7 @@ export const getStory =() =>{
 
 export const getBebetter=()=>{
     const path = 'data/bebetter.json'
-    const modalContent = fePromises
+    const modalContent = fsPromises
                                     .readFile(path, 'utf-8')
                                     .then((data)=>JSON.parse(data))
                                     .catch(error=>console.log(error))
