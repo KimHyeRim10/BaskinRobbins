@@ -3,9 +3,10 @@ import { MenuNavbar4 } from "../components/MenuNavbar";
 import MenuListHr from "../components/MenuListHr";
 import "../css/hyerim.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function IceCreamCake() {
+  const navigate = useNavigate();
   const [icecreamcakelist, setIceCreamCakeList] = useState([]);
 
   useEffect(() => {
@@ -35,6 +36,13 @@ export default function IceCreamCake() {
     rows.push(icecreamcakelist.slice(i, i + 5));
   }
 
+  const handleDetail = (id) => {
+    //alert(id);
+    navigate(`/menu/icecreamcakedetail/${id}`, {
+      state: { list: icecreamcakelist },
+    });
+  };
+
   return (
     <div className="content">
       <MenuNavbar4 />
@@ -54,20 +62,20 @@ export default function IceCreamCake() {
         {rows.map((row, index) => (
           <ul className="menulisthr" key={index}>
             {row.map((icecreamcake) => (
-              <Link to={`/menu/icecreamcakedetail/${icecreamcake.id}`}>
-                <div>
-                  <li key={icecreamcake.id}>
-                    <MenuListHr
-                      name={icecreamcake.name}
-                      image={icecreamcake.image}
-                      hash={icecreamcake.hash}
-                      label={icecreamcake.label}
-                      bgcolor={icecreamcake.bgcolor}
-                      hashcolor={icecreamcake.hashcolor}
-                    />
-                  </li>
-                </div>
-              </Link>
+              //<Link to={`/menu/icecreamcakedetail/${icecreamcake.id}`}>
+              <div onClick={() => handleDetail(icecreamcake.id)}>
+                <li key={icecreamcake.id}>
+                  <MenuListHr
+                    name={icecreamcake.name}
+                    image={icecreamcake.image}
+                    hash={icecreamcake.hash}
+                    label={icecreamcake.label}
+                    bgcolor={icecreamcake.bgcolor}
+                    hashcolor={icecreamcake.hashcolor}
+                  />
+                </li>
+              </div>
+              //</Link>
             ))}
           </ul>
         ))}

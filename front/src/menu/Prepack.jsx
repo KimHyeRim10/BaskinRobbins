@@ -3,9 +3,10 @@ import { MenuNavbar3 } from "../components/MenuNavbar";
 import MenuListHr from "../components/MenuListHr";
 import "../css/hyerim.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Prepack() {
+  const navigate = useNavigate();
   const [prepacklist, setPrepackList] = useState([]);
 
   useEffect(() => {
@@ -34,6 +35,12 @@ export default function Prepack() {
     rows.push(prepacklist.slice(i, i + 5));
   }
 
+  const handleDetail = (id) => {
+    //alert(id);
+    navigate(`/menu/prepackdetail/${id}`, {
+      state: { list: prepacklist },
+    });
+  };
   return (
     <div className="content">
       <MenuNavbar3 />
@@ -52,20 +59,20 @@ export default function Prepack() {
         {rows.map((row, index) => (
           <ul className="menulisthr" key={index}>
             {row.map((prepack) => (
-              <Link to={`/menu/prepackdetail/${prepack.id}`}>
-                <div>
-                  <li key={prepack.id}>
-                    <MenuListHr
-                      name={prepack.name}
-                      image={prepack.image}
-                      hash={prepack.hash}
-                      label={prepack.label}
-                      bgcolor={prepack.bgcolor}
-                      hashcolor={prepack.hashcolor}
-                    />
-                  </li>
-                </div>
-              </Link>
+              //<Link to={`/menu/prepackdetail/${prepack.id}`}>
+              <div onClick={() => handleDetail(prepack.id)}>
+                <li key={prepack.id}>
+                  <MenuListHr
+                    name={prepack.name}
+                    image={prepack.image}
+                    hash={prepack.hash}
+                    label={prepack.label}
+                    bgcolor={prepack.bgcolor}
+                    hashcolor={prepack.hashcolor}
+                  />
+                </li>
+              </div>
+              //</Link>
             ))}
           </ul>
         ))}

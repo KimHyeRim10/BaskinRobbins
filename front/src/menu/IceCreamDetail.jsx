@@ -6,30 +6,40 @@ import { MenuviewImage } from "../components/MenuviewImage";
 import { MenuviewSize } from "../components/MenuviewSize";
 import { RelatedProduct } from "../components/RelatedProduct";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 
 export default function IceCreamDetail({ addCartCount }) {
   const { id } = useParams();
+
+  const { state } = useLocation();
+  const { list } = state;
+  // console.log("id => ", id);
+  // console.log("State =>", state);
+  // console.log("icecreamlist ==>", list);
 
   const [icecreamdetail, setIceCreamDetail] = useState({});
   const [icecreamingredients, setIceCreamIngredients] = useState([]);
   //const [icecreamsizecheck, setIceCreamSizeCheck] = useState([]);
 
+  //console.log("addcartcount ==>", addCartCount);
+
   useEffect(() => {
-    axios
-      .get(`http://127.0.0.1:8080/menu/icecreamdetail/${id}`)
-      .then((res) => setIceCreamDetail(res.data));
-    axios
-      .get(`http://127.0.0.1:8080/menu/icecreamingredients/${id}`)
-      .then((res) => {
-        setIceCreamIngredients(res.data);
-      });
+    axios.get(`http://127.0.0.1:8080/menu/icecreamdetail/${id}`).then((res) => {
+      //console.log("res.data ===>", res.data);
+      setIceCreamDetail(res.data.icecreamdetail);
+      setIceCreamIngredients(res.data.ingredients);
+    });
+    // axios
+    //   .get(`http://127.0.0.1:8080/menu/icecreamingredients/${id}`)
+    //   .then((res) => {
+    //     setIceCreamIngredients(res.data);
+    //   });
     // axios
     //   .get(`http://127.0.0.1:8080/menu/icecreamsizecheck/${id}`)
     //   .then((res) => {
     //     setIceCreamSizeCheck(res.data);
     //   });
-  }, []);
+  }, [id]);
 
   return (
     <div className="content">
@@ -48,6 +58,7 @@ export default function IceCreamDetail({ addCartCount }) {
         btnright={icecreamdetail.btnright}
         id={id}
         addCartCount={addCartCount}
+        list={list}
       />
       <MenuViewNutrition
         servingsize={icecreamdetail.servingsize}
@@ -60,7 +71,7 @@ export default function IceCreamDetail({ addCartCount }) {
       />
       <MenuviewImage menuviewimage={icecreamdetail.menuviewimage} />
       <MenuviewSize />
-      <RelatedProduct id={id} type={"icecream"} />
+      <RelatedProduct id={id} type={"icecream"} list={list} />
     </div>
   );
 }

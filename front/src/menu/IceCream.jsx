@@ -3,9 +3,10 @@ import { MenuNavbar2 } from "../components/MenuNavbar";
 import MenuListHr from "../components/MenuListHr";
 import "../css/hyerim.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function IceCream() {
+  const navigate = useNavigate();
   const [icecreamlist, setIceCreamList] = useState([]);
 
   useEffect(() => {
@@ -34,6 +35,12 @@ export default function IceCream() {
     rows.push(icecreamlist.slice(i, i + 5));
   }
 
+  const handleDetail = (id) => {
+    //alert(id);
+    navigate(`/menu/icecreamdetail/${id}`, {
+      state: { list: icecreamlist },
+    });
+  };
   return (
     <div className="content">
       <MenuNavbar2 />
@@ -52,20 +59,20 @@ export default function IceCream() {
         {rows.map((row, index) => (
           <ul className="menulisthr" key={index}>
             {row.map((icecream) => (
-              <Link to={`/menu/icecreamdetail/${icecream.id}`}>
-                <div>
-                  <li key={icecream.id}>
-                    <MenuListHr
-                      name={icecream.name}
-                      image={icecream.image}
-                      hash={icecream.hash}
-                      label={icecream.label}
-                      bgcolor={icecream.bgcolor}
-                      hashcolor={icecream.hashcolor}
-                    />
-                  </li>
-                </div>
-              </Link>
+              // <Link to={`/menu/icecreamdetail/${icecream.id}`}>
+              <div onClick={() => handleDetail(icecream.id)}>
+                <li key={icecream.id}>
+                  <MenuListHr
+                    name={icecream.name}
+                    image={icecream.image}
+                    hash={icecream.hash}
+                    label={icecream.label}
+                    bgcolor={icecream.bgcolor}
+                    hashcolor={icecream.hashcolor}
+                  />
+                </li>
+              </div>
+              // </Link>
             ))}
           </ul>
         ))}

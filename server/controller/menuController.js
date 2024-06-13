@@ -13,7 +13,8 @@ export const getIceCreamProducts = async (req, res, next) => {
 
 export const getIceCreamDetail = async (req, res, next) => {
   const icecreamdetail = await repository.getIceCreamDetail(req.params.id);
-  res.json(icecreamdetail);
+  const ingredients = await repository.getIceCreamIngredients(req.params.id);
+  res.json({ icecreamdetail: icecreamdetail, ingredients: ingredients });
   res.end();
 };
 
@@ -50,7 +51,9 @@ export const getPrepackProducts = async (req, res, next) => {
 
 export const getPrepackDetail = async (req, res, next) => {
   const prepackdetail = await repository.getPrepackDetail(req.params.id);
-  res.json(prepackdetail);
+  const ingredients = await repository.getPrepackIngredients(req.params.id);
+  res.json({ prepackdetail: prepackdetail, ingredients: ingredients });
+  // res.json(prepackdetail);
   res.end();
 };
 

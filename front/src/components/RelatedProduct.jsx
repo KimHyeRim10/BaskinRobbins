@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 /**
  * RelatedProduct
  */
-export function RelatedProduct({ id, type }) {
+export function RelatedProduct({ id, type, list }) {
+  const navigate = useNavigate();
+
   const [relatedProduct, setRelatedProduct] = useState([]);
   //const [preRelatedProduct, setPreRelatedProduct] = useState([]);
 
@@ -33,6 +35,13 @@ export function RelatedProduct({ id, type }) {
 
   // console.log(relatedproduct);
 
+  const handleDetail = (linkid, linkname) => {
+    //alert(linkid + linkname);
+    navigate(`/menu/${linkname}detail/${linkid}`, {
+      state: { list: list },
+    });
+  };
+
   return (
     <div className="relatedproduct">
       {relatedProduct.length !== 0 && (
@@ -41,13 +50,15 @@ export function RelatedProduct({ id, type }) {
       <div className="relatedproducts">
         {relatedProduct.map((product, index) => (
           <div className="relatedproduct_box" key={index}>
-            <Link to={`/menu/${product.linkname}detail/${`${product.linkid}`}`}>
+            {/*       <Link to={`/menu/${product.linkname}detail/${`${product.linkid}`}`}> */}
+            <div onClick={() => handleDetail(product.linkid, product.linkname)}>
               <img
                 className="relatedproduct_image"
                 src={product.relatedimage}
               ></img>
               <span className="relatedproduct_name">{product.relatedname}</span>
-            </Link>
+              {/*      </Link> */}
+            </div>
           </div>
         ))}
       </div>
