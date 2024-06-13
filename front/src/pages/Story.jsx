@@ -75,9 +75,9 @@ useEffect(()=>{
 </div>
 
   <div className="story_total">
-    <img src="/images/story/bg_story.png" 
+    {/* <img src="/images/story/bg_story.png" 
         className="story_bg" alt="storybgimg" /> 
-      
+       */}
           
   <div className="story_side">
           <div className="story_ballons side1">
