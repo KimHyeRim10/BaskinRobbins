@@ -9,17 +9,16 @@ export default function Bebetter(){
 const [showModal, setShowModal] =useState(false)
 const [modalType, setModalType]=useState('')
 
+
 const openModal = (mname) => {
     setModalType(mname)
     setShowModal(true)
     document.body.style.overflow = 'hidden'}
 
-
     const closeModal = () =>{
     setShowModal(false)
     setModalType("")
-    document.body.style.oveflow='unset'} 
-
+    document.body.style.overflow='unset'} 
 
     return (
     <div className="content">

@@ -8,9 +8,8 @@ import {faSquareXmark} from "@fortawesome/free-solid-svg-icons/faSquareXmark";
 
 export function ModalDream({ closeModal, type }) {
   return (
-    <>
+    <div className="bebetter_modal_out" onClick={closeModal}>
       <div
-        id="bebetter_modal1"
         className="modal"
         onClick={(e) => e.stopPropagation()}>
         <button className="modal_close_btn" onClick={closeModal}>
@@ -64,8 +63,8 @@ export function ModalDream({ closeModal, type }) {
             </div>
           </div>
         </div>
-      </div>
-    </>
+      </div>                                                                                                              
+    </div>
   );
 }
 
@@ -90,7 +89,7 @@ export function ModalFarm({ openModal, closeModal }) {
     }
   
   return (
-    <div className="modal_outer" onClick={(e) => e.stopPropagation()}>
+    <div className="bebetter_modal_out" onClick={closeModal}>
       <div className="modal" onClick={(e) => e.stopPropagation()}>
         <button className="modal_close_btn" onClick={closeModal}>
         <FontAwesomeIcon className="modal_close_btn_icon" 
@@ -146,9 +145,8 @@ export function ModalLink({ openModal, closeModal }) {
 
 
   return (
-    <>
+    <div className="bebetter_modal_out" onClick={closeModal}>
       <div
-        id="bebetter_modal3"
         className="modal"
         onClick={(e) => e.stopPropagation()}>
         <button className="modal_close_btn" onClick={closeModal}>
@@ -183,6 +181,6 @@ export function ModalLink({ openModal, closeModal }) {
           </ul>
         </div>
       </div>
-    </>
+    </div>
   );
 }

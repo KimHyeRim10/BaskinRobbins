@@ -173,7 +173,7 @@ table {
 }
 
 .modal_close_btn_icon{
-font-size : 6rem;
+font-size : 4rem;
 }
 
 .modal_close_btn:hover,
@@ -767,4 +767,15 @@ font-size : 6rem;
 .praise_store {
   font-weight: 600;
   font-size: 2rem;
+}
+
+.bebetter_modal_out{
+  background-color: gray;
+  background-color: rgba(175, 175, 175, 0.623);
+  z-index: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
