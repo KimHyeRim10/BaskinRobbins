@@ -1,9 +1,62 @@
 import React from "react";
 import "../css/hyerim.css";
 import { MenuNavbar1 } from "../components/MenuNavbar";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function MonthFlavour() {
+  const navigate = useNavigate();
+  const [icecreamlist, setIceCreamList] = useState([]);
+  const [icecreamcakelist, setIceCreamCakeList] = useState([]);
+
+  useEffect(() => {
+    const url1 = "http://127.0.0.1:8080/menu/icecream";
+    const url2 = "http://127.0.0.1:8080/menu/icecreamcake";
+    let startIndex = 1;
+    let endIndex = 50;
+    axios({
+      method: "post",
+      url: url1,
+      data: {
+        startIndex: startIndex,
+        endIndex: endIndex,
+      },
+    })
+      .then((res) => {
+        setIceCreamList(res.data);
+      })
+      .catch((error) => console.log(error));
+    axios({
+      method: "post",
+      url: url2,
+      data: {
+        startIndex: startIndex,
+        endIndex: endIndex,
+      },
+    })
+      .then((res) => {
+        setIceCreamCakeList(res.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  const handleDetail1 = () => {
+    //alert(id);
+    navigate(`/menu/icecreamdetail/33`, {
+      state: { list: icecreamlist },
+    });
+  };
+
+  const handleDetail2 = () => {
+    //alert(id);
+    navigate(`/menu/icecreamcakedetail/19`, {
+      state: { list: icecreamcakelist },
+    });
+  };
+
+  //console.log("lisdt ===>", icecreamlist);
+
   return (
     <div className="content">
       <MenuNavbar1 />
@@ -49,7 +102,7 @@ export default function MonthFlavour() {
           <h4 className="monthflavour_new_title">이달의 신제품</h4>
         </header>
         <ul className="monthflavour_new_items">
-          <Link to={"/menu/icecreamdetail/33"}>
+          <div onClick={handleDetail1}>
             <li className="monthflavour_new_item">
               <img
                 className="monthflavour_new_img"
@@ -59,8 +112,8 @@ export default function MonthFlavour() {
                 이상한 나라의 슈팅스타
               </p>
             </li>
-          </Link>
-          <Link to={"/menu/icecreamcakedetail/19"}>
+          </div>
+          <div onClick={handleDetail2}>
             <li className="monthflavour_new_item">
               <img
                 className="monthflavour_new_img happyjoy"
@@ -68,7 +121,7 @@ export default function MonthFlavour() {
               />
               <p className="monthflavour_new_item_name">해피 조이 큐브</p>
             </li>
-          </Link>
+          </div>
         </ul>
       </div>
     </div>
