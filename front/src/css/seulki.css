@@ -131,7 +131,8 @@ input::placeholder {
 } */
 
 .menu_s_2 {
-  width: 180px;
+  /* width: 180px; */
+  width: 220px;
   text-align: center;
 }
 
@@ -476,11 +477,13 @@ input::placeholder {
 }
 
 .grouporder_main_detail {
+  /* !★*/
   display: flex;
   border: 1px solid #d4cdc0;
   border-radius: 10px;
   width: 1000px;
-  height: 241.78px;
+  /* height: 241.78px; */
+  height: 247.78px;
 }
 
 .grouporder_main_m {
@@ -787,7 +790,8 @@ input::placeholder {
 }
 
 .d_f_input_button {
-  width: 96px;
+  /* width: 96px; */
+  width: 115px;
   height: 28px;
   border-radius: 14px;
   font-weight: 600;
@@ -873,6 +877,7 @@ input::placeholder {
   right: 0;
 }
 .modal_content_s {
+  /* !★*/
   background-color: white;
   display: flex;
   width: 986.48px;
@@ -938,8 +943,10 @@ input::placeholder {
 }
 
 .modal_content_p_hight {
+  /* ! ★ */
   line-height: 1.15;
-  font-size: 20px;
+  /* font-size: 20px; */
+  font-size: 17px;
   height: 110px;
 }
 
