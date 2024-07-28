@@ -142,11 +142,12 @@ export default function GroupOrderForm() {
       alert("연락처를 입력해주세요");
       refs.phoneRef.current.focus();
       checkFlag = false;
-    } else if (!formData.detailAddress.trim()) {
+    }
+    /*     else if (!formData.detailAddress.trim()) {
       alert("우편번호 찾기 후 상세 주소를 입력해주세요");
       detailAddressRef.current.focus();
       checkFlag = false;
-    }
+    } */
     return checkFlag;
   };
 
