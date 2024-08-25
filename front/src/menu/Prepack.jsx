@@ -22,13 +22,10 @@ export default function Prepack() {
       },
     })
       .then((res) => {
-        //const data = res.data;
-        //console.log(res.data);
         setPrepackList(res.data);
       })
       .catch((error) => console.log(error));
   }, []);
-  //출력리스트 갯수 정의
 
   const rows = [];
   for (let i = 0; i < prepacklist.length; i += 5) {
@@ -36,7 +33,6 @@ export default function Prepack() {
   }
 
   const handleDetail = (id) => {
-    //alert(id);
     navigate(`/menu/prepackdetail/${id}`, {
       state: { list: prepacklist },
     });
@@ -59,7 +55,6 @@ export default function Prepack() {
         {rows.map((row, index) => (
           <ul className="menulisthr" key={index}>
             {row.map((prepack) => (
-              //<Link to={`/menu/prepackdetail/${prepack.id}`}>
               <div onClick={() => handleDetail(prepack.id)}>
                 <li key={prepack.id}>
                   <MenuListHr
@@ -72,7 +67,6 @@ export default function Prepack() {
                   />
                 </li>
               </div>
-              //</Link>
             ))}
           </ul>
         ))}

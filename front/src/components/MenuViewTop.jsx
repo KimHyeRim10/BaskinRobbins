@@ -14,9 +14,6 @@ export function MenuViewTop({
   dep,
   price,
   ingredients,
-  //sizecheck,
-  btnleft,
-  btnright,
   id,
   addCartCount,
   list,
@@ -26,8 +23,7 @@ export function MenuViewTop({
 
   const navigate = useNavigate();
   const [item, setItem] = useState({});
-  const [size, setSize] = useState(false); // 타입
-
+  const [size, setSize] = useState(false);
   const price_org = price ? price.toLocaleString() : "0";
 
   useEffect(() => {
@@ -67,18 +63,14 @@ export function MenuViewTop({
       detailURL = `/menu/prepackdetail`;
     else if (line === "ICECREAM CAKE") detailURL = `/menu/icecreamcakedetail`;
     if (direction === "pre") {
-      // alert("pre ==> " + pre.id);
-
       navigate(`${detailURL}/${pre.id}`, {
         state: { list: list },
       });
     } else if (direction === "next") {
-      // alert("next ==> " + next.id);
       navigate(`${detailURL}/${next.id}`, {
         state: { list: list },
       });
     } else {
-      // alert(item.rno);
       navigate(`${detailURL}/${item.id}`, {
         state: { list: list },
       });

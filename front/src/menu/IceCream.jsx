@@ -22,13 +22,10 @@ export default function IceCream() {
       },
     })
       .then((res) => {
-        //const data = res.data;
-        // console.log(res.data);
         setIceCreamList(res.data);
       })
       .catch((error) => console.log(error));
   }, []);
-  //출력리스트 갯수 정의
 
   const rows = [];
   for (let i = 0; i < icecreamlist.length; i += 5) {
@@ -36,7 +33,6 @@ export default function IceCream() {
   }
 
   const handleDetail = (id) => {
-    //alert(id);
     navigate(`/menu/icecreamdetail/${id}`, {
       state: { list: icecreamlist },
     });
@@ -59,7 +55,6 @@ export default function IceCream() {
         {rows.map((row, index) => (
           <ul className="menulisthr" key={index}>
             {row.map((icecream) => (
-              // <Link to={`/menu/icecreamdetail/${icecream.id}`}>
               <div onClick={() => handleDetail(icecream.id)}>
                 <li key={icecream.id}>
                   <MenuListHr
@@ -72,7 +67,6 @@ export default function IceCream() {
                   />
                 </li>
               </div>
-              // </Link>
             ))}
           </ul>
         ))}

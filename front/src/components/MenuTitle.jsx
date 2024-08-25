@@ -1,5 +1,5 @@
 import Menu from "./Menu.jsx";
-import "../css/menulist.css"; 
+import "../css/menulist.css";
 
 export default function MenuTitle(props) {
   const mainMenu = [
@@ -7,7 +7,7 @@ export default function MenuTitle(props) {
     { path: "/play", name: "BR Play" },
     { path: "/story/bebetter", name: "BR Story" },
     { path: "/store", name: "Delivery/Store" },
-  ]
+  ];
 
   return (
     <div>
@@ -18,11 +18,6 @@ export default function MenuTitle(props) {
           </li>
         ))}
       </ul>
-{/*       <div className="dropDownMenu">
-{dropDown.map(menu =>(
-  <Menu path={menu.path} name={menu.name}/>
-))}
-      </div> */}
     </div>
   );
 }

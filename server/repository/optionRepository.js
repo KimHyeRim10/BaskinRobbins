@@ -1,8 +1,4 @@
-import { json } from "express";
-import { promises as fsPromises } from "fs";
-
 import { db } from "../db/database_mysql80.js";
-import { log } from "console";
 
 export const getRelatedProduct = (params) => {
   let sql = ``;

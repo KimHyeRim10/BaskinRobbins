@@ -12,25 +12,14 @@ export default function PrepackDetail({ addCartCount }) {
 
   const { state } = useLocation();
   const { list } = state;
-  //console.log(id);
   const [prepackdetail, setPrepackDetail] = useState({});
   const [prepackingredients, setPrepackIngredients] = useState([]);
-  // const [prepacksizecheck, setPrepackSizeCheck] = useState([]);
 
   useEffect(() => {
     axios.get(`http://127.0.0.1:8080/menu/prepackdetail/${id}`).then((res) => {
       setPrepackDetail(res.data.prepackdetail);
       setPrepackIngredients(res.data.ingredients);
     });
-    //   .get(`http://127.0.0.1:8080/menu/prepackingredients/${id}`)
-    //   .then((res) => {
-    //     setPrepackIngredients(res.data);
-    //   });
-    // axios
-    //   .get(`http://127.0.0.1:8080/menu/prepacksizecheck/${id}`)
-    //   .then((res) => {
-    //     setPrepackSizeCheck(res.data);
-    //   });
   }, [id]);
 
   return (
@@ -45,7 +34,6 @@ export default function PrepackDetail({ addCartCount }) {
         dep={prepackdetail.dep}
         price={prepackdetail.price}
         ingredients={prepackingredients}
-        // sizecheck={prepacksizecheck}
         btnleft={prepackdetail.btnleft}
         btnright={prepackdetail.btnright}
         id={id}

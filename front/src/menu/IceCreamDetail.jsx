@@ -13,32 +13,15 @@ export default function IceCreamDetail({ addCartCount }) {
 
   const { state } = useLocation();
   const { list } = state;
-  // console.log("id => ", id);
-  // console.log("State =>", state);
-  // console.log("icecreamlist ==>", list);
 
   const [icecreamdetail, setIceCreamDetail] = useState({});
   const [icecreamingredients, setIceCreamIngredients] = useState([]);
-  //const [icecreamsizecheck, setIceCreamSizeCheck] = useState([]);
-
-  //console.log("addcartcount ==>", addCartCount);
 
   useEffect(() => {
     axios.get(`http://127.0.0.1:8080/menu/icecreamdetail/${id}`).then((res) => {
-      //console.log("res.data ===>", res.data);
       setIceCreamDetail(res.data.icecreamdetail);
       setIceCreamIngredients(res.data.ingredients);
     });
-    // axios
-    //   .get(`http://127.0.0.1:8080/menu/icecreamingredients/${id}`)
-    //   .then((res) => {
-    //     setIceCreamIngredients(res.data);
-    //   });
-    // axios
-    //   .get(`http://127.0.0.1:8080/menu/icecreamsizecheck/${id}`)
-    //   .then((res) => {
-    //     setIceCreamSizeCheck(res.data);
-    //   });
   }, [id]);
 
   return (
@@ -53,7 +36,6 @@ export default function IceCreamDetail({ addCartCount }) {
         dep={icecreamdetail.dep}
         price={icecreamdetail.price}
         ingredients={icecreamingredients}
-        //sizecheck={icecreamsizecheck}
         btnleft={icecreamdetail.btnleft}
         btnright={icecreamdetail.btnright}
         id={id}

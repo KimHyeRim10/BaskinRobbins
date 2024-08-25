@@ -12,8 +12,6 @@ export default function MenuListHr({
   bgcolor,
   hashcolor,
 }) {
-  //console.log(image);
-
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -23,7 +21,6 @@ export default function MenuListHr({
     setIsHovered(false);
   };
 
-  /* namecolor는 bgcolor 사용함  */
   const bgstyle = {
     backgroundColor: isHovered ? `${bgcolor}` : "white",
   };

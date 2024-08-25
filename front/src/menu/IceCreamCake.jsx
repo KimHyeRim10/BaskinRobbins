@@ -22,14 +22,10 @@ export default function IceCreamCake() {
       },
     })
       .then((res) => {
-        //const data = res.data;
-        //console.log(res.data);
         setIceCreamCakeList(res.data);
       })
       .catch((error) => console.log(error));
   }, []);
-
-  //console.log("icecreamcake", icecreamcakelist);
 
   const rows = [];
   for (let i = 0; i < icecreamcakelist.length; i += 5) {
@@ -37,7 +33,6 @@ export default function IceCreamCake() {
   }
 
   const handleDetail = (id) => {
-    //alert(id);
     navigate(`/menu/icecreamcakedetail/${id}`, {
       state: { list: icecreamcakelist },
     });
@@ -62,7 +57,6 @@ export default function IceCreamCake() {
         {rows.map((row, index) => (
           <ul className="menulisthr" key={index}>
             {row.map((icecreamcake) => (
-              //<Link to={`/menu/icecreamcakedetail/${icecreamcake.id}`}>
               <div onClick={() => handleDetail(icecreamcake.id)}>
                 <li key={icecreamcake.id}>
                   <MenuListHr
@@ -75,7 +69,6 @@ export default function IceCreamCake() {
                   />
                 </li>
               </div>
-              //</Link>
             ))}
           </ul>
         ))}

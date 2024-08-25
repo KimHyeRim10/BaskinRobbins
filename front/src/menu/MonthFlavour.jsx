@@ -42,20 +42,16 @@ export default function MonthFlavour() {
   }, []);
 
   const handleDetail1 = () => {
-    //alert(id);
     navigate(`/menu/icecreamdetail/33`, {
       state: { list: icecreamlist },
     });
   };
 
   const handleDetail2 = () => {
-    //alert(id);
     navigate(`/menu/icecreamcakedetail/19`, {
       state: { list: icecreamcakelist },
     });
   };
-
-  //console.log("lisdt ===>", icecreamlist);
 
   return (
     <div className="content">
