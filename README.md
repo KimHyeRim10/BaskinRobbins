@@ -25,6 +25,6 @@
 
 ### [화면 2]
 ➡️ 전체 제품 리스트에서 아이스크림, 프리팩, 아이스크림 케이크 상품을 클릭하면 해당 제품의 상세 페이지로 이동합니다. 
-<img src="https://github.com/user-attachments/assets/20920d73-6d9d-4696-ad31-2d425e142508" width="600" height="300" alt="2-1">
-<img src="https://github.com/user-attachments/assets/bbf4c69e-3ca5-4e9d-a725-8b4bd9cf09d9" width="600" height="300" alt="2-2">
-<img src="https://github.com/user-attachments/assets/762b812e-765b-484e-836d-c15d8815e86b" width="600" height="300" alt="2-3">
+<img src="https://github.com/user-attachments/assets/20920d73-6d9d-4696-ad31-2d425e142508" width="800" height="400" alt="2-1">
+<img src="https://github.com/user-attachments/assets/bbf4c69e-3ca5-4e9d-a725-8b4bd9cf09d9" width="800" height="400" alt="2-2">
+<img src="https://github.com/user-attachments/assets/762b812e-765b-484e-836d-c15d8815e86b" width="800" height="400" alt="2-3">
