@@ -19,7 +19,7 @@
 ## 작업 화면 
 
 ### [화면 1]
-➡️ 위에 내비게이션 바에서 제품을 선택해 클릭하면 해당 Menu의 전체 제품을 보여줍니다. 
+➡️ 위에 내비게이션 바에서 제품 카테고리를 선택해 클릭하면 해당 Menu의 전체 제품을 보여줍니다. 
 <p align="center">
     <img src="https://github.com/user-attachments/assets/a6a0cbc9-1bf4-4902-8ab4-6ff0461b3a03" width="500" height="500" alt="1-1">
     <img src="https://github.com/user-attachments/assets/9fdd79f7-b322-402d-a4f2-af9e3ba65d11" width="500" height="500" alt="1-2">
