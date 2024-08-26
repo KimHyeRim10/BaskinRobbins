@@ -1,4 +1,4 @@
-# 배스킨라빈스 🍧
+# 배스킨라빈스🍧
 
 <p align="center">
     <img src="https://github.com/user-attachments/assets/741575ea-5d06-419f-8cdc-3f149c39914e" alt="baskin_robbins_logo" width="500">
