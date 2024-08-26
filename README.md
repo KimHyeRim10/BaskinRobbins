@@ -15,6 +15,10 @@
 ## 사용 기술 
 - React, Express, MySQL
 
-![1-1](https://github.com/user-attachments/assets/a6a0cbc9-1bf4-4902-8ab4-6ff0461b3a03)
-![1-2](https://github.com/user-attachments/assets/9fdd79f7-b322-402d-a4f2-af9e3ba65d11)
-![1-3](https://github.com/user-attachments/assets/33408a50-eb96-4c19-80be-6a158a6679b4)
+## 작업 화면 
+
+<img src="https://github.com/user-attachments/assets/a6a0cbc9-1bf4-4902-8ab4-6ff0461b3a03" width="400" height="400" alt="1-1">
+<img src="https://github.com/user-attachments/assets/9fdd79f7-b322-402d-a4f2-af9e3ba65d11" width="400" height="400" alt="1-2">
+<img src="https://github.com/user-attachments/assets/33408a50-eb96-4c19-80be-6a158a6679b4" width="400" height="400" alt="1-3">
+
+
