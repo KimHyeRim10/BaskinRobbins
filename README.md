@@ -1,9 +1,8 @@
 # 배스킨라빈스 🍧
 
-<div style="text-align: center;">
+<div style="display: flex; justify-content: center;">
     <img src="https://github.com/user-attachments/assets/741575ea-5d06-419f-8cdc-3f149c39914e" alt="baskin_robbins_logo" width="500">
 </div>
-
 
 ## 주제 선정
 기존의 자바스크립트로 구성된 배스킨라빈스 홈페이지를 React를 사용한 클론 코딩 프로젝트입니다. 
