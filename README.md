@@ -16,9 +16,9 @@
 ## 사용 기술 
 
   ![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=white&style=flat-square)
+  ![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white&style=flat-square)
   ![Express](https://img.shields.io/badge/Express-000000?logo=express&logoColor=white&style=flat-square)
   ![MySQL](https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white&style=flat-square)
-  ![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white&style=flat-square)
 
 
 
