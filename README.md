@@ -14,7 +14,8 @@
 - MENU(이달의 맛 ~ 아이스크림 케이크), 전체 & 상세페이지
 
 ## 사용 기술 
-- React, Express, MySQL
+- React, Express, MySQL,![Python](https://img.shields.io/badge/Python-3.9-blue)
+
 
 ## 작업 화면 
 
