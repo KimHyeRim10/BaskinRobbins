@@ -14,11 +14,12 @@
 - MENU(이달의 맛 ~ 아이스크림 케이크), 전체 & 상세페이지
 
 ## 사용 기술 
-- ![React](https://img.shields.io/badge/react-%5E17.0.0-blue)
-  ![Node.js](https://img.shields.io/badge/node-%3E%3D14.0.0-green)
-  ![Express](https://img.shields.io/badge/express-%5E4.17.1-brightgreen)
-  ![MySQL](https://img.shields.io/badge/mysql-%5E2.18.1-blue)
+- # Baechi CRUD Application
 
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=white&style=for-the-badge)
+![Express](https://img.shields.io/badge/Express-000000?logo=express&logoColor=white&style=for-the-badge)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white&style=for-the-badge)
+![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white&style=for-the-badge)
 
 
 ## 작업 화면 
